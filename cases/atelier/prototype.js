@@ -5,7 +5,9 @@
 
     /* -------- Language (RU / EN) -------- */
     const LANG_KEY = 'atelier-lang'
-    const initialLang = localStorage.getItem(LANG_KEY) === 'en' ? 'en' : 'ru'
+    const HINT_KEY = 'atelier-lang-hint-seen'
+    const storedLang = localStorage.getItem(LANG_KEY)
+    const initialLang = storedLang === 'en' ? 'en' : 'ru'
     document.documentElement.setAttribute('lang', initialLang)
 
     document.querySelectorAll('.lang-toggle button').forEach(btn => {
@@ -14,6 +16,8 @@
             const lang = btn.dataset.setLang
             document.documentElement.setAttribute('lang', lang)
             localStorage.setItem(LANG_KEY, lang)
+            localStorage.setItem(HINT_KEY, '1')
+            document.querySelectorAll('.lang-toggle').forEach(t => t.classList.remove('lang-hint'))
             document.querySelectorAll('.lang-toggle button').forEach(b => {
                 b.classList.toggle('is-on', b.dataset.setLang === lang)
             })
@@ -21,6 +25,19 @@
             document.dispatchEvent(new CustomEvent('lang:changed', { detail: { lang } }))
         })
     })
+
+    // Pulse the toggle on first visit so the language switcher is noticed
+    if (!localStorage.getItem(HINT_KEY)) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.lang-toggle').forEach(t => t.classList.add('lang-hint'))
+                setTimeout(() => {
+                    document.querySelectorAll('.lang-toggle').forEach(t => t.classList.remove('lang-hint'))
+                    localStorage.setItem(HINT_KEY, '1')
+                }, 4000)
+            }, 600)
+        })
+    }
 
     function currentLang() {
         return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ru'
