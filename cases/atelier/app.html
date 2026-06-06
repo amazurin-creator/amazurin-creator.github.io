@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131318" media="(prefers-color-scheme: dark)" />
+    <title>Atelier — мастерская · ЛК</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="app-shell">
+
+    <!-- =========== SIDEBAR =========== -->
+    <aside class="app-side">
+
+        <div class="workspace-switcher">
+            <div class="ws-avatar">D</div>
+            <div class="ws-meta">
+                <div class="ws-name">Doxa · Studio</div>
+                <div class="ws-tier">
+                    <span data-lang="ru">3 workspace · 5 users</span>
+                    <span data-lang="en">3 workspaces · 5 users</span>
+                </div>
+            </div>
+            <div class="ws-chev">▾</div>
+        </div>
+
+        <div class="side-group">
+            <div class="side-group-title">
+                <span data-lang="ru">Пайплайн</span>
+                <span data-lang="en">Pipeline</span>
+            </div>
+
+            <a href="#" class="side-link">
+                <span class="num-prefix">01</span>
+                <span>Discovery</span>
+                <span class="side-count">28</span>
+            </a>
+            <a href="#" class="side-link">
+                <span class="num-prefix">02</span>
+                <span>Pools</span>
+                <span class="side-count">5</span>
+            </a>
+            <a href="#" class="side-link">
+                <span class="num-prefix">03</span>
+                <span>Tracking</span>
+                <span class="side-count">12</span>
+            </a>
+            <a href="#" class="side-link is-active">
+                <span class="num-prefix">04</span>
+                <span>Workshop</span>
+                <span class="side-count">9</span>
+            </a>
+            <a href="#" class="side-link">
+                <span class="num-prefix">05</span>
+                <span>Productions</span>
+                <span class="side-count">3</span>
+            </a>
+            <a href="#" class="side-link">
+                <span class="num-prefix">06</span>
+                <span>Uploads</span>
+                <span class="side-count">7</span>
+            </a>
+            <a href="#" class="side-link">
+                <span class="num-prefix">07</span>
+                <span>Posts</span>
+                <span class="side-count">42</span>
+            </a>
+            <a href="#" class="side-link">
+                <span class="num-prefix">08</span>
+                <span>Analytics</span>
+                <span class="side-count">·</span>
+            </a>
+        </div>
+
+        <div class="side-group">
+            <div class="side-group-title">
+                <span data-lang="ru">Студия</span>
+                <span data-lang="en">Studio</span>
+            </div>
+            <a href="#" class="side-link">
+                <span style="color: var(--vermillion);">♥</span>
+                <span>
+                    <span data-lang="ru">Избранное</span>
+                    <span data-lang="en">Favorites</span>
+                </span>
+                <span class="side-count">14</span>
+            </a>
+            <a href="#" class="side-link">
+                <span>👥</span>
+                <span>Workspaces</span>
+                <span class="side-count">3</span>
+            </a>
+            <a href="#" class="side-link">
+                <span>📚</span>
+                <span>
+                    <span data-lang="ru">Шаблоны</span>
+                    <span data-lang="en">Templates</span>
+                </span>
+                <span class="side-count" style="color: var(--ink-ghost);">soon</span>
+            </a>
+            <a href="#" class="side-link">
+                <span>❔</span>
+                <span>
+                    <span data-lang="ru">Помощь</span>
+                    <span data-lang="en">Help</span>
+                </span>
+            </a>
+        </div>
+
+        <div class="side-bottom">
+            <a href="#" class="side-link">
+                <span>⚙</span>
+                <span>
+                    <span data-lang="ru">Настройки workspace</span>
+                    <span data-lang="en">Workspace settings</span>
+                </span>
+            </a>
+            <a href="#" class="side-link">
+                <span>💳</span>
+                <span>Billing</span>
+            </a>
+            <a href="index.html" class="side-link" style="color: var(--ink-faint);">
+                <span>←</span>
+                <span>
+                    <span data-lang="ru">Выйти из demo</span>
+                    <span data-lang="en">Exit demo</span>
+                </span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- =========== MAIN =========== -->
+    <main class="app-main">
+
+        <div class="app-top">
+            <a href="index.html" class="brand" style="font-size: 20px;">
+                <span class="brand-mark" style="width: 22px; height: 22px; transform: translateY(3px);"></span>
+                <span>Atelier</span>
+            </a>
+            <div class="crumb">
+                <span>Doxa</span>
+                <span class="sep">/</span>
+                <span>Workshop</span>
+                <span class="sep">/</span>
+                <span class="now">
+                    <span data-lang="ru">Все сценарии · март</span>
+                    <span data-lang="en">All scripts · March</span>
+                </span>
+            </div>
+
+            <div class="app-search">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <circle cx="7" cy="7" r="5.5" class="svg-faint" stroke="currentColor"/>
+                    <line x1="11.5" y1="11.5" x2="15" y2="15" class="svg-faint" stroke="currentColor" stroke-linecap="round"/>
+                </svg>
+                <input placeholder="Найти сценарий, тренд, донор…" data-i18n-placeholder />
+                <span class="caption" style="color: var(--ink-ghost);">⌘ K</span>
+            </div>
+
+            <a href="/" class="portfolio-back" title="Back to portfolio">← Portfolio</a>
+
+            <div class="lang-toggle">
+                <button data-set-lang="ru">RU</button>
+                <button data-set-lang="en">EN</button>
+            </div>
+
+            <button class="app-bell" aria-label="Notifications">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M8,2 C5.8,2 4,3.8 4,6 V8.5 L3,11 H13 L12,8.5 V6 C12,3.8 10.2,2 8,2 Z M6.5,12 C6.5,13 7.2,13.5 8,13.5 C8.8,13.5 9.5,13 9.5,12" stroke="#4a423a" stroke-width="1.2" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="avatar">а</div>
+        </div>
+
+        <div class="app-body">
+
+            <!-- Next action -->
+            <section class="next-action reveal">
+                <div class="na-pillar">3</div>
+                <div class="na-text">
+                    <h3>
+                        <span data-lang="ru">Три сценария ждут handoff в&nbsp;Telegram</span>
+                        <span data-lang="en">Three scripts waiting for Telegram handoff</span>
+                    </h3>
+                    <p>
+                        <span data-lang="ru">Все три approved (J ✓). <strong>Никита</strong> получит ТЗ, реф и&nbsp;комментарий в&nbsp;личку — карточки автоматически перейдут в&nbsp;«in production».</span>
+                        <span data-lang="en">All three approved (J ✓). <strong>Nikita</strong> receives the brief, reference, and comment in DM — cards auto-shift to «in production».</span>
+                    </p>
+                </div>
+                <a href="#" class="btn btn-primary">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="margin-right:6px; transform:translateY(1px);">
+                        <path d="M21.5 3.5L2.5 11l6.5 2 2.5 7 4-5 5.5-11.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" fill="none"/>
+                        <path d="M9 13l5-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    </svg>
+                    <span data-lang="ru">Отправить пакетом</span>
+                    <span data-lang="en">Send batch</span>
+                    <span class="arrow">→</span>
+                </a>
+            </section>
+
+            <!-- KPI strip -->
+            <section class="kpi-strip reveal">
+                <div class="kpi">
+                    <div class="k-label">
+                        <span data-lang="ru">Сценариев в&nbsp;работе</span>
+                        <span data-lang="en">Scripts in progress</span>
+                    </div>
+                    <div class="k-val">9</div>
+                    <div class="k-delta">
+                        <span data-lang="ru">↑ +3 vs прошлая неделя</span>
+                        <span data-lang="en">↑ +3 vs last week</span>
+                    </div>
+                    <div class="k-spark">
+                        <svg viewBox="0 0 100 26" preserveAspectRatio="none" width="100%" height="26">
+                            <polyline points="0,18 14,16 28,12 42,15 56,10 70,8 84,5 100,4"
+                                      stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="100" cy="4" r="2.5" fill="#d23b1f"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="kpi">
+                    <div class="k-label">
+                        <span data-lang="ru">Avg cycle time</span>
+                        <span data-lang="en">Avg cycle time</span>
+                    </div>
+                    <div class="k-val">31<small style="font-family: var(--sans); font-style: normal; font-size: 14px; color: var(--ink-faint); margin-left: 4px;">
+                        <span data-lang="ru">мин</span><span data-lang="en">min</span>
+                    </small></div>
+                    <div class="k-delta">
+                        <span data-lang="ru">↓ −18% мес/мес</span>
+                        <span data-lang="en">↓ −18% mo/mo</span>
+                    </div>
+                    <div class="k-spark">
+                        <svg viewBox="0 0 100 26" preserveAspectRatio="none" width="100%" height="26">
+                            <polyline points="0,8 14,9 28,7 42,11 56,13 70,15 84,18 100,22"
+                                      stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="100" cy="22" r="2.5" fill="#5b6b4f"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="kpi">
+                    <div class="k-label">
+                        <span data-lang="ru">Trends · виралка</span>
+                        <span data-lang="en">Trends · viral rate</span>
+                    </div>
+                    <div class="k-val">17%</div>
+                    <div class="k-delta">
+                        <span data-lang="ru">↑ rate за вчера</span>
+                        <span data-lang="en">↑ vs yesterday</span>
+                    </div>
+                    <div class="k-spark">
+                        <svg viewBox="0 0 100 26" preserveAspectRatio="none" width="100%" height="26">
+                            <rect x="2"  y="14" width="6" height="10" fill="currentColor" rx="1"/>
+                            <rect x="14" y="11" width="6" height="13" fill="currentColor" rx="1"/>
+                            <rect x="26" y="16" width="6" height="8"  fill="currentColor" rx="1"/>
+                            <rect x="38" y="9"  width="6" height="15" fill="currentColor" rx="1"/>
+                            <rect x="50" y="13" width="6" height="11" fill="currentColor" rx="1"/>
+                            <rect x="62" y="6"  width="6" height="18" fill="#d23b1f" rx="1"/>
+                            <rect x="74" y="12" width="6" height="12" fill="currentColor" rx="1"/>
+                            <rect x="86" y="4"  width="6" height="20" fill="#d23b1f" rx="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="kpi">
+                    <div class="k-label">
+                        <span data-lang="ru">Apify · этот месяц</span>
+                        <span data-lang="en">Apify · this month</span>
+                    </div>
+                    <div class="k-val">
+                        <span data-lang="ru">₽3 500<small style="font-family: var(--sans); font-style: normal; font-size: 14px; color: var(--ink-faint); margin-left: 4px;">/₽10 000</small></span>
+                        <span data-lang="en">$42<small style="font-family: var(--sans); font-style: normal; font-size: 14px; color: var(--ink-faint); margin-left: 4px;">/$120</small></span>
+                    </div>
+                    <div class="k-delta dn">
+                        <span data-lang="ru">35% бюджета</span>
+                        <span data-lang="en">35% of budget</span>
+                    </div>
+                    <div class="k-spark">
+                        <svg viewBox="0 0 100 6" preserveAspectRatio="none" width="100%" height="10">
+                            <rect width="100" height="6" rx="3" fill="rgba(26,23,20,0.1)"/>
+                            <rect width="35"  height="6" rx="3" fill="#d23b1f"/>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pipeline kanban -->
+            <section class="pipeline-board reveal">
+                <div class="pb-head">
+                    <div>
+                        <h3>
+                            <span data-lang="ru">Пайплайн сегодня</span>
+                            <span data-lang="en">Today's pipeline</span>
+                        </h3>
+                        <div class="caption" style="margin-top: 4px;">
+                            <span data-lang="ru">9 активных сценариев · среда, 18:42</span>
+                            <span data-lang="en">9 active scripts · Wed, 18:42</span>
+                        </div>
+                    </div>
+                    <div class="hstack">
+                        <span class="pill dot">live</span>
+                        <span class="pill">
+                            <span data-lang="ru">Doxa · март</span>
+                            <span data-lang="en">Doxa · March</span>
+                        </span>
+                        <button class="btn btn-ghost btn-sm">
+                            <span data-lang="ru">＋ Новый сценарий</span>
+                            <span data-lang="en">＋ New script</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pb-lanes">
+                    <!-- 01 Discovery -->
+                    <div class="pb-lane">
+                        <div class="pb-lane-head">
+                            <div class="pb-lane-title"><span class="num">01</span> Discovery</div>
+                            <span class="pb-count">28</span>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #c97847, #8a7e6e);">
+                                <span class="play">●</span>
+                            </div>
+                            <div class="pb-card-title">
+                                <span data-lang="ru">@lifeofdr · 481k подписчиков</span>
+                                <span data-lang="en">@lifeofdr · 481k followers</span>
+                            </div>
+                            <div class="pb-card-meta">verified · de · medical</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">→ promote</span>
+                                <span class="pb-assignee a-ink">A</span>
+                            </div>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #5b6b4f, #1a1714);">
+                                <span class="play">●</span>
+                            </div>
+                            <div class="pb-card-title">@drmiranda · 219k</div>
+                            <div class="pb-card-meta">pending verify · es</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">⏳ apify</span>
+                                <span class="pb-assignee a-sky">M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 02 Pool -->
+                    <div class="pb-lane">
+                        <div class="pb-lane-head">
+                            <div class="pb-lane-title"><span class="num">02</span> Pool</div>
+                            <span class="pb-count">5</span>
+                        </div>
+
+                        <div class="pb-card" style="background: var(--surface-2);">
+                            <div class="pb-card-title">Doxa default</div>
+                            <div class="pb-card-meta">14 donors · DE+CH</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">🟢 active</span>
+                                <span class="pb-assignee a-clay">D</span>
+                            </div>
+                        </div>
+
+                        <div class="pb-card" style="background: var(--surface-2);">
+                            <div class="pb-card-title">DE · pediatrics</div>
+                            <div class="pb-card-meta">
+                                <span data-lang="ru">6 donors · подпул</span>
+                                <span data-lang="en">6 donors · subpool</span>
+                            </div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">
+                                    <span data-lang="ru">→ запустить run</span>
+                                    <span data-lang="en">→ start run</span>
+                                </span>
+                                <span class="pb-assignee">A</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 03 Run -->
+                    <div class="pb-lane">
+                        <div class="pb-lane-head">
+                            <div class="pb-lane-title"><span class="num">03</span> Run</div>
+                            <span class="pb-count">2</span>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-title">Wed run · default pool</div>
+                            <div class="pb-card-meta">1238 posts · 30 trends</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">🟢 done · 12m ago</span>
+                                <span class="pb-assignee">A</span>
+                            </div>
+                        </div>
+
+                        <div class="pb-card" style="border-color: var(--clay);">
+                            <div class="pb-card-title">PT · pediatrics run</div>
+                            <div class="pb-card-meta">scraping · 42%</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag" style="color: var(--clay);">⏳ in progress</span>
+                                <span class="pb-assignee a-clay">M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 04 Trend -->
+                    <div class="pb-lane">
+                        <div class="pb-lane-head">
+                            <div class="pb-lane-title"><span class="num">04</span> Trend</div>
+                            <span class="pb-count">30</span>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #d23b1f, #c97847);">
+                                <span class="play">▶</span>
+                            </div>
+                            <div class="pb-card-title">«Боль в спине → нейрохирург за 2 дня»</div>
+                            <div class="pb-card-meta">@drhans · 2.1M views · 14d</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag" style="color: var(--vermillion);">
+                                    <span data-lang="ru">🔥 виралка</span>
+                                    <span data-lang="en">🔥 viral</span>
+                                </span>
+                                <span class="pb-assignee">A</span>
+                            </div>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #6c8aa6, #1a1714);">
+                                <span class="play">▶</span>
+                                <span style="position:absolute; bottom:4px; right:4px; background:rgba(255,255,255,0.92); color:#1a1714; font-family:var(--mono); font-size:8px; letter-spacing:0.08em; padding:1px 4px; border-radius:2px; font-weight:600; z-index:2;">RU</span>
+                            </div>
+                            <div class="pb-card-title">«Что не говорят врачи о витамине D»</div>
+                            <div class="pb-card-meta">@lifeofdr · 880k · 4d · <span data-lang="ru">DE→RU</span><span data-lang="en">DE→RU</span></div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">
+                                    <span data-lang="ru">🎤 транскрипт + перевод</span>
+                                    <span data-lang="en">🎤 transcript + RU</span>
+                                </span>
+                                <span class="pb-assignee a-sky">М</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 05 Script -->
+                    <div class="pb-lane">
+                        <div class="pb-lane-head">
+                            <div class="pb-lane-title"><span class="num">05</span> Script</div>
+                            <span class="pb-count">9</span>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #b09060, #8a7e6e);">
+                                <span class="play">📝</span>
+                            </div>
+                            <div class="pb-card-title">Боль в спине — DE→RU адаптация</div>
+                            <div class="pb-card-meta">draft · 78% · A–H ready</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">→ translate</span>
+                                <span class="pb-assignee">A</span>
+                            </div>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #5b6b4f, #c97847);">
+                                <span class="play">📝</span>
+                            </div>
+                            <div class="pb-card-title">Витамин D · скрипт #4</div>
+                            <div class="pb-card-meta">review · J ✓ K ☐</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag" style="color: var(--clay);">
+                                    <span data-lang="ru">👁 ожидает</span>
+                                    <span data-lang="en">👁 waiting</span>
+                                </span>
+                                <span class="pb-assignee a-clay">M</span>
+                            </div>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #1a1714, #4a423a);">
+                                <span class="play">📝</span>
+                            </div>
+                            <div class="pb-card-title">«Симптомы которые игнорируют»</div>
+                            <div class="pb-card-meta">draft · 32% · only A</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">→ regen brief</span>
+                                <span class="pb-assignee a-sky">M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 06 Handoff -->
+                    <div class="pb-lane">
+                        <div class="pb-lane-head">
+                            <div class="pb-lane-title"><span class="num">06</span> Handoff</div>
+                            <span class="pb-count">3</span>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #d23b1f, #1a1714);">
+                                <span class="play">✈</span>
+                            </div>
+                            <div class="pb-card-title">«Боль в коленях» → @nikita_mn</div>
+                            <div class="pb-card-meta">
+                                <span data-lang="ru">sent · 2ч назад · TG</span>
+                                <span data-lang="en">sent · 2h ago · TG</span>
+                            </div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag" style="color: var(--moss);">
+                                    <span data-lang="ru">✓ в TG</span>
+                                    <span data-lang="en">✓ in TG</span>
+                                </span>
+                                <span class="pb-assignee a-ink">Н</span>
+                            </div>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #5b6b4f, #4a423a);">
+                                <span class="play">✈</span>
+                            </div>
+                            <div class="pb-card-title">«ТТГ что показывает»</div>
+                            <div class="pb-card-meta">
+                                <span data-lang="ru">sent · вчера · @sasha_edit</span>
+                                <span data-lang="en">sent · yesterday · @sasha_edit</span>
+                            </div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag" style="color: var(--moss);">
+                                    <span data-lang="ru">✓ в TG</span>
+                                    <span data-lang="en">✓ in TG</span>
+                                </span>
+                                <span class="pb-assignee a-clay">С</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 07 Upload -->
+                    <div class="pb-lane">
+                        <div class="pb-lane-head">
+                            <div class="pb-lane-title"><span class="num">07</span> Upload</div>
+                            <span class="pb-count">7</span>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #c97847, #b09060);">
+                                <span class="play">📅</span>
+                            </div>
+                            <div class="pb-card-title">«Холестерин» · scheduled</div>
+                            <div class="pb-card-meta">
+                                <span data-lang="ru">пт 14:00 · IG reels</span>
+                                <span data-lang="en">Fri 14:00 · IG reels</span>
+                            </div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">
+                                    <span data-lang="ru">⏰ через 2д</span>
+                                    <span data-lang="en">⏰ in 2d</span>
+                                </span>
+                                <span class="pb-assignee">A</span>
+                            </div>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #6c8aa6, #5b6b4f);">
+                                <span class="play">📅</span>
+                            </div>
+                            <div class="pb-card-title">«Сахар натощак»</div>
+                            <div class="pb-card-meta">
+                                <span data-lang="ru">сб 11:00 · TT</span>
+                                <span data-lang="en">Sat 11:00 · TT</span>
+                            </div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag">
+                                    <span data-lang="ru">⏰ через 3д</span>
+                                    <span data-lang="en">⏰ in 3d</span>
+                                </span>
+                                <span class="pb-assignee a-clay">M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 08 Metrics -->
+                    <div class="pb-lane">
+                        <div class="pb-lane-head">
+                            <div class="pb-lane-title"><span class="num">08</span> Metrics</div>
+                            <span class="pb-count">42</span>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #d23b1f, #b09060);">
+                                <span class="play">47k</span>
+                            </div>
+                            <div class="pb-card-title">«Анализ железа»</div>
+                            <div class="pb-card-meta">47k views · 4.2k saves</div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag" style="color: var(--moss);">
+                                    <span data-lang="ru">↑ выше median</span>
+                                    <span data-lang="en">↑ above median</span>
+                                </span>
+                                <span class="pb-assignee">A</span>
+                            </div>
+                        </div>
+
+                        <div class="pb-card">
+                            <div class="pb-card-thumb" style="background: linear-gradient(135deg, #8a7e6e, #4a423a);">
+                                <span class="play">2.1k</span>
+                            </div>
+                            <div class="pb-card-title">«5 признаков что щитовидка»</div>
+                            <div class="pb-card-meta">
+                                <span data-lang="ru">2.1k views · 3д назад</span>
+                                <span data-lang="en">2.1k views · 3d ago</span>
+                            </div>
+                            <div class="pb-card-foot">
+                                <span class="pb-tag" style="color: var(--ink-faint);">
+                                    <span data-lang="ru">↓ ниже median</span>
+                                    <span data-lang="en">↓ below median</span>
+                                </span>
+                                <span class="pb-assignee a-sky">M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Workshop table + side rail -->
+            <div class="work-grid">
+
+                <section class="workshop reveal">
+                    <div class="workshop-head">
+                        <div>
+                            <h3>
+                                <span data-lang="ru">Workshop · спредшит A–L</span>
+                                <span data-lang="en">Workshop · A–L spreadsheet</span>
+                            </h3>
+                            <div class="caption" style="margin-top: 4px;">
+                                <span data-lang="ru">9 строк · сортировка по updated ↓</span>
+                                <span data-lang="en">9 rows · sorted by updated ↓</span>
+                            </div>
+                        </div>
+                        <div class="hstack">
+                            <span class="pill dot">
+                                <span data-lang="ru">авто-сохранение</span>
+                                <span data-lang="en">auto-save</span>
+                            </span>
+                            <button class="btn btn-ghost btn-sm">
+                                <span data-lang="ru">фильтры</span>
+                                <span data-lang="en">filters</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="workshop-table-wrap">
+                        <table class="ws-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>
+                                        <span data-lang="ru">Тема</span>
+                                        <span data-lang="en">Topic</span>
+                                    </th>
+                                    <th>
+                                        <span data-lang="ru">Стадия</span>
+                                        <span data-lang="en">Stage</span>
+                                    </th>
+                                    <th>
+                                        <span data-lang="ru">Прогресс</span>
+                                        <span data-lang="en">Progress</span>
+                                    </th>
+                                    <th>J · approved</th>
+                                    <th>
+                                        <span data-lang="ru">Опис · IG/TT/YT</span>
+                                        <span data-lang="en">Desc · IG/TT/YT</span>
+                                    </th>
+                                    <th>→ TG</th>
+                                    <th>
+                                        <span data-lang="ru">Updated</span>
+                                        <span data-lang="en">Updated</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="ws-cell-col">№001</span></td>
+                                    <td class="ws-title-cell italic serif">Боль в коленях — три причины</td>
+                                    <td><span class="dot-status prod">in production</span></td>
+                                    <td><div class="progress-bar"><span style="width: 100%"></span></div></td>
+                                    <td><span class="checkbox-cell on"></span></td>
+                                    <td><span class="plat-row"><span class="plat-pill on">IG</span><span class="plat-pill on">TT</span><span class="plat-pill">YT</span></span></td>
+                                    <td><span class="tg-status sent"><span class="arr">✈</span>
+                                        <span data-lang="ru">2ч · @nikita_mn</span>
+                                        <span data-lang="en">2h · @nikita_mn</span>
+                                    </span></td>
+                                    <td class="mono caption">
+                                        <span data-lang="ru">2ч назад</span>
+                                        <span data-lang="en">2h ago</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ws-cell-col">№002</span></td>
+                                    <td class="ws-title-cell italic serif">ТТГ что показывает</td>
+                                    <td><span class="dot-status prod">in production</span></td>
+                                    <td><div class="progress-bar"><span style="width: 100%"></span></div></td>
+                                    <td><span class="checkbox-cell on"></span></td>
+                                    <td><span class="plat-row"><span class="plat-pill on">IG</span><span class="plat-pill on">TT</span><span class="plat-pill on">YT</span></span></td>
+                                    <td><span class="tg-status sent"><span class="arr">✈</span>
+                                        <span data-lang="ru">вчера · @sasha_edit</span>
+                                        <span data-lang="en">yest · @sasha_edit</span>
+                                    </span></td>
+                                    <td class="mono caption">
+                                        <span data-lang="ru">вчера 21:14</span>
+                                        <span data-lang="en">yest. 21:14</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ws-cell-col">№003</span></td>
+                                    <td class="ws-title-cell italic serif">Витамин D · скрипт #4</td>
+                                    <td><span class="dot-status review">in review</span></td>
+                                    <td><div class="progress-bar warm"><span style="width: 86%"></span></div></td>
+                                    <td><span class="checkbox-cell on"></span></td>
+                                    <td><span class="plat-row"><span class="plat-pill on">IG</span><span class="plat-pill">TT</span><span class="plat-pill">YT</span></span></td>
+                                    <td><span class="tg-status">—</span></td>
+                                    <td class="mono caption">
+                                        <span data-lang="ru">45 мин назад</span>
+                                        <span data-lang="en">45 min ago</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ws-cell-col">№004</span></td>
+                                    <td class="ws-title-cell italic serif">Боль в спине → DE→RU</td>
+                                    <td><span class="dot-status">draft</span></td>
+                                    <td><div class="progress-bar"><span style="width: 78%"></span></div></td>
+                                    <td><span class="checkbox-cell"></span></td>
+                                    <td><span class="plat-row"><span class="plat-pill">IG</span><span class="plat-pill">TT</span><span class="plat-pill">YT</span></span></td>
+                                    <td><span class="tg-status">—</span></td>
+                                    <td class="mono caption">
+                                        <span data-lang="ru">15 мин назад</span>
+                                        <span data-lang="en">15 min ago</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ws-cell-col">№005</span></td>
+                                    <td class="ws-title-cell italic serif">Холестерин — что не пишут</td>
+                                    <td><span class="dot-status approved">approved</span></td>
+                                    <td><div class="progress-bar"><span style="width: 100%"></span></div></td>
+                                    <td><span class="checkbox-cell on"></span></td>
+                                    <td><span class="plat-row"><span class="plat-pill on">IG</span><span class="plat-pill on">TT</span><span class="plat-pill on">YT</span></span></td>
+                                    <td><span class="tg-status ready"><span class="arr">→</span>
+                                        <span data-lang="ru">готов</span>
+                                        <span data-lang="en">ready</span>
+                                    </span></td>
+                                    <td class="mono caption">
+                                        <span data-lang="ru">сегодня 09:22</span>
+                                        <span data-lang="en">today 09:22</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ws-cell-col">№006</span></td>
+                                    <td class="ws-title-cell italic serif">Симптомы которые игнорируют</td>
+                                    <td><span class="dot-status draft">draft</span></td>
+                                    <td><div class="progress-bar hot"><span style="width: 32%"></span></div></td>
+                                    <td><span class="checkbox-cell"></span></td>
+                                    <td><span class="plat-row"><span class="plat-pill">IG</span><span class="plat-pill">TT</span><span class="plat-pill">YT</span></span></td>
+                                    <td><span class="tg-status">—</span></td>
+                                    <td class="mono caption">
+                                        <span data-lang="ru">сегодня 18:30</span>
+                                        <span data-lang="en">today 18:30</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ws-cell-col">№007</span></td>
+                                    <td class="ws-title-cell italic serif">Сахар натощак</td>
+                                    <td><span class="dot-status approved">approved</span></td>
+                                    <td><div class="progress-bar"><span style="width: 100%"></span></div></td>
+                                    <td><span class="checkbox-cell on"></span></td>
+                                    <td><span class="plat-row"><span class="plat-pill on">IG</span><span class="plat-pill">TT</span><span class="plat-pill on">YT</span></span></td>
+                                    <td><span class="tg-status ready"><span class="arr">→</span>
+                                        <span data-lang="ru">готов</span>
+                                        <span data-lang="en">ready</span>
+                                    </span></td>
+                                    <td class="mono caption">
+                                        <span data-lang="ru">сегодня 12:18</span>
+                                        <span data-lang="en">today 12:18</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ws-cell-col">№008</span></td>
+                                    <td class="ws-title-cell italic serif">5 признаков щитовидки</td>
+                                    <td><span class="dot-status review">in review</span></td>
+                                    <td><div class="progress-bar warm"><span style="width: 64%"></span></div></td>
+                                    <td><span class="checkbox-cell"></span></td>
+                                    <td><span class="plat-row"><span class="plat-pill on">IG</span><span class="plat-pill">TT</span><span class="plat-pill">YT</span></span></td>
+                                    <td><span class="tg-status">—</span></td>
+                                    <td class="mono caption">
+                                        <span data-lang="ru">2д назад</span>
+                                        <span data-lang="en">2d ago</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ws-cell-col">№009</span></td>
+                                    <td class="ws-title-cell italic serif">Анализ железа — что важно</td>
+                                    <td><span class="dot-status prod">in production</span></td>
+                                    <td><div class="progress-bar"><span style="width: 100%"></span></div></td>
+                                    <td><span class="checkbox-cell on"></span></td>
+                                    <td><span class="plat-row"><span class="plat-pill on">IG</span><span class="plat-pill on">TT</span><span class="plat-pill on">YT</span></span></td>
+                                    <td><span class="tg-status sent"><span class="arr">✈</span>
+                                        <span data-lang="ru">пн · @nikita_mn</span>
+                                        <span data-lang="en">Mon · @nikita_mn</span>
+                                    </span></td>
+                                    <td class="mono caption">
+                                        <span data-lang="ru">пн 14:02</span>
+                                        <span data-lang="en">Mon 14:02</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <aside class="side-stack">
+
+                    <div class="panel reveal">
+                        <h3>
+                            <span data-lang="ru">Где сейчас работа</span>
+                            <span data-lang="en">Where work sits</span>
+                        </h3>
+                        <p class="panel-deck">
+                            <span data-lang="ru">распределение 9 активных сценариев по стадиям</span>
+                            <span data-lang="en">9 active scripts distributed by stage</span>
+                        </p>
+                        <div class="mini-chart-wrap">
+                            <svg viewBox="0 0 320 180" width="100%" height="180">
+                                <g class="svg-rule" stroke="currentColor">
+                                    <line x1="40" x2="300" y1="20" y2="20"/>
+                                    <line x1="40" x2="300" y1="60" y2="60"/>
+                                    <line x1="40" x2="300" y1="100" y2="100"/>
+                                    <line x1="40" x2="300" y1="140" y2="140"/>
+                                </g>
+                                <g class="chart-axis-label">
+                                    <text x="34" y="24" text-anchor="end">5</text>
+                                    <text x="34" y="64" text-anchor="end">4</text>
+                                    <text x="34" y="104" text-anchor="end">2</text>
+                                    <text x="34" y="144" text-anchor="end">0</text>
+                                </g>
+
+                                <rect x="50"  y="60"  width="36" height="80"  class="svg-faint" fill="currentColor" rx="3"/>
+                                <rect x="110" y="80"  width="36" height="60"  fill="#c97847" rx="3"/>
+                                <rect x="170" y="80"  width="36" height="60"  fill="#5b6b4f" rx="3"/>
+                                <rect x="230" y="60"  width="36" height="80"  fill="#d23b1f" rx="3"/>
+
+                                <g font-family="Fraunces, serif" font-style="italic" font-size="14" fill="currentColor">
+                                    <text x="68"  y="54"  text-anchor="middle">3</text>
+                                    <text x="128" y="74"  text-anchor="middle">2</text>
+                                    <text x="188" y="74"  text-anchor="middle">2</text>
+                                    <text x="248" y="54"  text-anchor="middle">3</text>
+                                </g>
+
+                                <g font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.1em" class="svg-faint" fill="currentColor">
+                                    <text x="68"  y="160" text-anchor="middle">DRAFT</text>
+                                    <text x="128" y="160" text-anchor="middle">REVIEW</text>
+                                    <text x="188" y="160" text-anchor="middle">APPRVD</text>
+                                    <text x="248" y="160" text-anchor="middle">PROD</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="legend">
+                            <span><span class="swatch" style="background:#8a7e6e;"></span>draft</span>
+                            <span><span class="swatch" style="background:#c97847;"></span>review</span>
+                            <span><span class="swatch" style="background:#5b6b4f;"></span>approved</span>
+                            <span><span class="swatch" style="background:#d23b1f;"></span>in production</span>
+                        </div>
+                    </div>
+
+                    <div class="panel reveal">
+                        <div class="hstack" style="justify-content: space-between; margin-bottom: 4px;">
+                            <h3>
+                                <span data-lang="ru">Хроника</span>
+                                <span data-lang="en">Activity</span>
+                            </h3>
+                            <span class="pulse-dot" aria-hidden="true"></span>
+                        </div>
+                        <p class="panel-deck">
+                            <span data-lang="ru">сегодня · последние 6 событий</span>
+                            <span data-lang="en">today · last 6 events</span>
+                        </p>
+
+                        <div class="activity">
+                            <div class="act">
+                                <span class="act-time">14:02</span>
+                                <span class="act-avatar a-ink">а</span>
+                                <span class="act-body">
+                                    <span data-lang="ru"><strong>Артём</strong> отправил <em>«Боль в коленях»</em> в TG → <strong>@nikita_mn</strong>. Status автоматически → <em>in production</em>.</span>
+                                    <span data-lang="en"><strong>Artem</strong> sent <em>«Knee pain»</em> via TG → <strong>@nikita_mn</strong>. Status auto → <em>in production</em>.</span>
+                                </span>
+                            </div>
+                            <div class="act">
+                                <span class="act-time">13:48</span>
+                                <span class="act-avatar a-clay">м</span>
+                                <span class="act-body">
+                                    <span data-lang="ru"><strong>Маша</strong> поставила J ✓ K ✓ на <em>«Сахар натощак»</em>.</span>
+                                    <span data-lang="en"><strong>Masha</strong> set J ✓ K ✓ on <em>«Fasting glucose»</em>.</span>
+                                </span>
+                            </div>
+                            <div class="act">
+                                <span class="act-time">12:14</span>
+                                <span class="act-avatar a-sky">н</span>
+                                <span class="act-body">
+                                    <span data-lang="ru"><strong>Никита</strong> добавил коммент к <em>«Витамин D · #4»</em>: «hook слабый, попробуй B».</span>
+                                    <span data-lang="en"><strong>Nikita</strong> commented on <em>«Vitamin D · #4»</em>: «hook is weak, try B».</span>
+                                </span>
+                            </div>
+                            <div class="act">
+                                <span class="act-time">11:32</span>
+                                <span class="act-avatar">a</span>
+                                <span class="act-body">
+                                    <span data-lang="ru"><strong>System</strong> завершила Wed run · 1238 posts · 30 новых трендов.</span>
+                                    <span data-lang="en"><strong>System</strong> finished Wed run · 1238 posts · 30 new trends.</span>
+                                </span>
+                            </div>
+                            <div class="act">
+                                <span class="act-time">10:18</span>
+                                <span class="act-avatar a-ink">а</span>
+                                <span class="act-body">
+                                    <span data-lang="ru"><strong>Артём</strong> промоутнул 4 кандидата → пул <em>Doxa default</em>.</span>
+                                    <span data-lang="en"><strong>Artem</strong> promoted 4 candidates → pool <em>Doxa default</em>.</span>
+                                </span>
+                            </div>
+                            <div class="act">
+                                <span class="act-time">09:22</span>
+                                <span class="act-avatar a-clay">м</span>
+                                <span class="act-body">
+                                    <span data-lang="ru"><strong>Маша</strong> approve <em>«Холестерин»</em>. Готов к handoff.</span>
+                                    <span data-lang="en"><strong>Masha</strong> approved <em>«Cholesterol»</em>. Ready for handoff.</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+
+            <div class="card" style="padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap;">
+                <div>
+                    <div class="caption" style="margin-bottom: 4px;">
+                        <span data-lang="ru">Подсказка</span>
+                        <span data-lang="en">Hint</span>
+                    </div>
+                    <div style="font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink); line-height: 1.4;">
+                        <span data-lang="ru">Это статичный прототип. Все кнопки в&nbsp;навигации ведут между тремя страницами — index, onboarding, app.</span>
+                        <span data-lang="en">This is a static prototype. All nav links route between three pages — index, onboarding, app.</span>
+                    </div>
+                </div>
+                <div class="hstack">
+                    <a href="index.html" class="btn btn-ghost btn-sm">
+                        <span data-lang="ru">← Лендинг</span>
+                        <span data-lang="en">← Landing</span>
+                    </a>
+                    <a href="onboarding.html" class="btn btn-ghost btn-sm">
+                        <span data-lang="ru">Подбор тарифа</span>
+                        <span data-lang="en">Find your fit</span>
+                    </a>
+                    <a href="#" class="btn btn-primary btn-sm">
+                        <span data-lang="ru">Открыть сценарий</span>
+                        <span data-lang="en">Open script</span>
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<!-- Floating AI co-writer (script chat panel, collapsed bubble) -->
+<button class="floating-ai" aria-label="AI co-writer chat">
+    <span class="fa-orb">
+        <svg viewBox="0 0 20 20" width="13" height="13" fill="none">
+            <path d="M5 10 Q5 6, 10 6 T15 10 Q15 14, 10 14 Q8.5 14, 7.2 13.3 L5 14 L5.7 12 Q5 11.1, 5 10 Z"
+                  stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+        </svg>
+    </span>
+    <span class="fa-text">
+        <span class="fa-eyebrow">
+            <span data-lang="ru">Спросить AI</span>
+            <span data-lang="en">Ask AI</span>
+        </span>
+        <span class="fa-prompt">
+            <span data-lang="ru">«перепиши hook короче»</span>
+            <span data-lang="en">«rewrite the hook tighter»</span>
+        </span>
+    </span>
+</button>
+
+<script src="prototype.js"></script>
+<script>
+    // Bilingual search placeholder
+    const ph = document.querySelector('[data-i18n-placeholder]')
+    const sync = () => {
+        const lang = document.documentElement.getAttribute('lang')
+        if (!ph) return
+        ph.placeholder = lang === 'en'
+            ? 'Find script, trend, donor…'
+            : 'Найти сценарий, тренд, донор…'
+    }
+    sync()
+    document.addEventListener('lang:changed', sync)
+</script>
+</body>
+</html>

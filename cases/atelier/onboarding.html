@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131318" media="(prefers-color-scheme: dark)" />
+    <title>Atelier — подбор тарифа</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Top bar -->
+<header class="topbar">
+    <div class="container topbar-inner page">
+        <a href="index.html" class="brand">
+            <span class="brand-mark"></span>
+            <span>Atelier</span>
+        </a>
+        <nav class="topnav">
+            <a href="index.html">
+                <span data-lang="ru">Манифест</span><span data-lang="en">Manifesto</span>
+            </a>
+            <a href="index.html#pipeline">
+                <span data-lang="ru">Пайплайн</span><span data-lang="en">Pipeline</span>
+            </a>
+            <a href="index.html#charts">
+                <span data-lang="ru">Цифры</span><span data-lang="en">Numbers</span>
+            </a>
+            <a href="onboarding.html" class="is-active">
+                <span data-lang="ru">Подбор</span><span data-lang="en">Find your fit</span>
+            </a>
+            <a href="app.html">
+                <span data-lang="ru">Демо ЛК</span><span data-lang="en">Demo</span>
+            </a>
+        </nav>
+        <div class="hstack">
+            <a href="/" class="portfolio-back" title="Back to portfolio">← Portfolio</a>
+            <div class="lang-toggle">
+                <button data-set-lang="ru">RU</button>
+                <button data-set-lang="en">EN</button>
+            </div>
+            <a href="#" class="btn btn-ghost btn-sm">
+                <span data-lang="ru">Войти</span><span data-lang="en">Sign in</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<div id="ob-root" class="ob-stage">
+
+    <!-- LEFT — context / progress / illustration -->
+    <aside class="ob-left">
+        <div>
+            <div class="hstack" style="margin-bottom: 18px;">
+                <span class="deco-tag">
+                    <span class="dot"></span>
+                    <span data-lang="ru">Подбор тарифа</span>
+                    <span data-lang="en">Fit quiz</span>
+                </span>
+            </div>
+
+            <div class="ob-progress">
+                <span class="dot is-active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="step-label"><span data-lang="ru">Шаг 01 — кто ты</span><span data-lang="en">Step 01 — about you</span></span>
+            </div>
+        </div>
+
+        <h1 class="ob-headline">
+            <span data-lang="ru">Подберём <em>твой размер</em> мастерской.</span>
+            <span data-lang="en">Let's find <em>your size</em> of the atelier.</span>
+        </h1>
+
+        <p class="ob-deck">
+            <span data-lang="ru">Четыре коротких вопроса. В&nbsp;конце получишь тариф с&nbsp;обоснованием — почему именно он, и&nbsp;что в&nbsp;него входит лично для&nbsp;тебя. Плюс стартовая скидка.</span>
+            <span data-lang="en">Four short questions. At the end you'll get a tier with reasoning — why this one, what's in it for you personally. Plus a launch discount.</span>
+        </p>
+
+        <div style="margin-top: 24px; padding: 28px; background: rgba(255,255,255,0.4); border: var(--rule); border-radius: 16px;">
+            <div class="fig" style="margin-bottom: 14px; color: var(--ink-faint);">
+                <span style="color: var(--vermillion);">Fig. 04</span>
+                <span data-lang="ru">— размеры мастерской</span>
+                <span data-lang="en">— atelier sizing</span>
+            </div>
+            <svg viewBox="0 0 280 160" width="100%" height="160">
+                <g fill="none" stroke-width="1.5">
+                    <rect x="20" y="20" width="240" height="120" stroke="rgba(26,23,20,0.2)"/>
+                    <rect x="60" y="40" width="160" height="80"  stroke="rgba(26,23,20,0.5)"/>
+                    <rect x="100" y="60" width="80" height="40"  stroke="#d23b1f" stroke-width="2"/>
+                </g>
+                <g font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.1em">
+                    <text x="24" y="32" fill="#8a7e6e">AGENCY</text>
+                    <text x="64" y="52" fill="#4a423a">STUDIO</text>
+                    <text x="104" y="72" fill="#d23b1f">SOLO</text>
+                </g>
+                <g font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#1a1714">
+                    <text x="270" y="14" text-anchor="end">
+                        <tspan data-lang="ru">меньше</tspan><tspan data-lang="en">smaller</tspan>
+                    </text>
+                    <text x="270" y="156" text-anchor="end">
+                        <tspan data-lang="ru">больше</tspan><tspan data-lang="en">larger</tspan>
+                    </text>
+                </g>
+                <path d="M40,100 C30,110 30,130 40,140" stroke="#8a7e6e" stroke-width="1" fill="none"/>
+                <text x="46" y="146" font-family="JetBrains Mono, monospace" font-size="9" fill="#8a7e6e">→ scales with you</text>
+            </svg>
+
+            <p style="font-size: 13px; color: var(--ink-soft); margin-top: 18px; line-height: 1.5;">
+                <span data-lang="ru">Тариф можно сменить в&nbsp;любой момент, без миграции данных. Workspace переезжает целиком.</span>
+                <span data-lang="en">Switch tiers any time, no data migration. The workspace moves whole.</span>
+            </p>
+        </div>
+
+        <div class="ob-illust">
+            <span data-lang="ru">≈ 90 секунд · ничего не списываем · 7 дней trial без карты</span>
+            <span data-lang="en">≈ 90 seconds · no charge · 7-day trial, no card</span>
+        </div>
+    </aside>
+
+    <!-- RIGHT — questions -->
+    <main class="ob-right">
+
+        <!-- ======= Step 01 — Role ======= -->
+        <section data-step="0" class="stack-md">
+            <div>
+                <div class="caption" style="margin-bottom: 8px;">
+                    <span data-lang="ru">Шаг 01 · кто продюсирует</span>
+                    <span data-lang="en">Step 01 · who produces</span>
+                </div>
+                <h2 class="ob-q">
+                    <span data-lang="ru">Что описывает <em class="italic accent">тебя</em> лучше всего?</span>
+                    <span data-lang="en">Which describes <em class="italic accent">you</em> best?</span>
+                </h2>
+                <p class="ob-hint">
+                    <span data-lang="ru">Это влияет только на размер тарифа — данные одинаковые на всех.</span>
+                    <span data-lang="en">This affects tier size only — the product is the same for everyone.</span>
+                </p>
+            </div>
+
+            <div class="ob-options">
+                <button class="ob-option" data-role="own">
+                    <span class="opt-key">A</span>
+                    <span>
+                        <span class="opt-title">
+                            <span data-lang="ru">Я веду свой блог</span>
+                            <span data-lang="en">I run my own blog</span>
+                        </span>
+                        <span class="opt-sub">
+                            <span data-lang="ru">Personal creator-аккаунт, 1 канал, монтажёр на фрилансе</span>
+                            <span data-lang="en">Personal creator account, 1 channel, freelance editor</span>
+                        </span>
+                    </span>
+                    <span class="opt-check"></span>
+                </button>
+
+                <button class="ob-option" data-role="solo">
+                    <span class="opt-key">B</span>
+                    <span>
+                        <span class="opt-title">
+                            <span data-lang="ru">Solo, перехожу в команду</span>
+                            <span data-lang="en">Solo, going team</span>
+                        </span>
+                        <span class="opt-sub">
+                            <span data-lang="ru">У меня есть редактор / монтажёр, нужен tool для координации</span>
+                            <span data-lang="en">I have a script editor / video editor, need a tool for coordination</span>
+                        </span>
+                    </span>
+                    <span class="opt-check"></span>
+                </button>
+
+                <button class="ob-option" data-role="few">
+                    <span class="opt-key">C</span>
+                    <span>
+                        <span class="opt-title">
+                            <span data-lang="ru">1–3 клиентских блога</span>
+                            <span data-lang="en">1–3 client blogs</span>
+                        </span>
+                        <span class="opt-sub">
+                            <span data-lang="ru">Продюсер личных аккаунтов или маленькое агентство</span>
+                            <span data-lang="en">Producer of personal accounts or a small studio</span>
+                        </span>
+                    </span>
+                    <span class="opt-check"></span>
+                </button>
+
+                <button class="ob-option" data-role="many">
+                    <span class="opt-key">D</span>
+                    <span>
+                        <span class="opt-title">
+                            <span data-lang="ru">5–20 бренд-аккаунтов</span>
+                            <span data-lang="en">5–20 brand accounts</span>
+                        </span>
+                        <span class="opt-sub">
+                            <span data-lang="ru">Агентство с регулярным потоком креативов для разных брендов</span>
+                            <span data-lang="en">Agency running a steady creative flow to many brands</span>
+                        </span>
+                    </span>
+                    <span class="opt-check"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ======= Step 02 — Bottlenecks ======= -->
+        <section data-step="1" class="stack-md" style="display: none;">
+            <div>
+                <div class="caption" style="margin-bottom: 8px;">
+                    <span data-lang="ru">Шаг 02 · затыки</span>
+                    <span data-lang="en">Step 02 · bottlenecks</span>
+                </div>
+                <h2 class="ob-q">
+                    <span data-lang="ru">Что <em class="italic accent">тормозит сильнее всего</em> прямо сейчас?</span>
+                    <span data-lang="en">What's <em class="italic accent">slowing you down</em> the most right now?</span>
+                </h2>
+                <p class="ob-hint">
+                    <span data-lang="ru">Выбери всё, что узнаёшь. От этого зависит, какие фичи Atelier тебе помогут на старте.</span>
+                    <span data-lang="en">Pick everything that resonates. We use this to prioritize features for your onboarding.</span>
+                </p>
+            </div>
+
+            <div class="ob-chips">
+                <button class="chip" data-bottleneck="discovery">
+                    <span data-lang="ru">Discovery занимает дни</span>
+                    <span data-lang="en">Discovery takes days</span>
+                </button>
+                <button class="chip" data-bottleneck="translate">
+                    <span data-lang="ru">Перевод и адаптация — руками</span>
+                    <span data-lang="en">Translate & adapt by hand</span>
+                </button>
+                <button class="chip" data-bottleneck="brief">
+                    <span data-lang="ru">Бриф редактору — каждый раз с нуля</span>
+                    <span data-lang="en">Briefing the editor from scratch</span>
+                </button>
+                <button class="chip" data-bottleneck="tracking">
+                    <span data-lang="ru">Не отслеживаем, что опубликовано</span>
+                    <span data-lang="en">Lost track of what's posted</span>
+                </button>
+                <button class="chip" data-bottleneck="metrics">
+                    <span data-lang="ru">Не видим, что зашло</span>
+                    <span data-lang="en">Can't see what landed</span>
+                </button>
+                <button class="chip" data-bottleneck="bottleneck">
+                    <span data-lang="ru">Команда ждёт меня</span>
+                    <span data-lang="en">Team waits on me</span>
+                </button>
+                <button class="chip" data-bottleneck="research">
+                    <span data-lang="ru">Виралки ищу руками</span>
+                    <span data-lang="en">Hunting virals by hand</span>
+                </button>
+                <button class="chip" data-bottleneck="approval">
+                    <span data-lang="ru">Согласование тонет в DM</span>
+                    <span data-lang="en">Approvals lost in DMs</span>
+                </button>
+            </div>
+
+            <div class="card" style="padding: 20px 22px; margin-top: 16px; background: rgba(255,255,255,0.5);">
+                <div class="caption" style="color: var(--vermillion); margin-bottom: 8px;">
+                    <span data-lang="ru">Заметка</span><span data-lang="en">Note</span>
+                </div>
+                <p style="font-size: 13.5px; color: var(--ink-soft); line-height: 1.55;">
+                    <span data-lang="ru">Большинство выбирает 3–4 пункта. Если узнаёшь все восемь — нужен скорее <em class="italic accent">Studio</em>, чем Solo.</span>
+                    <span data-lang="en">Most people select 3–4. If all eight resonate, you probably need <em class="italic accent">Studio</em>, not Solo.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- ======= Step 03 — Tools ======= -->
+        <section data-step="2" class="stack-md" style="display: none;">
+            <div>
+                <div class="caption" style="margin-bottom: 8px;">
+                    <span data-lang="ru">Шаг 03 · инструменты</span>
+                    <span data-lang="en">Step 03 · tools</span>
+                </div>
+                <h2 class="ob-q">
+                    <span data-lang="ru">Чем ты <em class="italic accent">уже пользуешься</em>?</span>
+                    <span data-lang="en">What do you <em class="italic accent">already use</em>?</span>
+                </h2>
+                <p class="ob-hint">
+                    <span data-lang="ru">Не для отбора, а для подключения. Atelier будет push-ить сценарии в твои тулы, не плодить новые.</span>
+                    <span data-lang="en">Not for filtering — for plug-in. Atelier pushes scripts into your tools, doesn't add new ones.</span>
+                </p>
+            </div>
+
+            <div class="ob-chips">
+                <button class="chip" data-tool="telegram">Telegram</button>
+                <button class="chip" data-tool="slack">Slack</button>
+                <button class="chip" data-tool="linear">Linear</button>
+                <button class="chip" data-tool="asana">Asana</button>
+                <button class="chip" data-tool="clickup">ClickUp</button>
+                <button class="chip" data-tool="discord">Discord</button>
+                <button class="chip" data-tool="drive">Google Drive</button>
+                <button class="chip" data-tool="gmail">Gmail</button>
+                <button class="chip" data-tool="notion">Notion</button>
+                <button class="chip" data-tool="sheets">
+                    <span data-lang="ru">Только таблицы</span>
+                    <span data-lang="en">Only spreadsheets</span>
+                </button>
+                <button class="chip" data-tool="none">
+                    <span data-lang="ru">Ничего из этого</span>
+                    <span data-lang="en">None of the above</span>
+                </button>
+            </div>
+
+            <p class="caption" style="margin-top: 16px;">
+                <span data-lang="ru">Telegram уже работает из коробки. Остальные — подключишь по мере роста.</span>
+                <span data-lang="en">Telegram is built-in. Others plug in as you scale.</span>
+            </p>
+        </section>
+
+        <!-- ======= Step 04 — Volume ======= -->
+        <section data-step="3" class="stack-md" style="display: none;">
+            <div>
+                <div class="caption" style="margin-bottom: 8px;">
+                    <span data-lang="ru">Шаг 04 · объём</span>
+                    <span data-lang="en">Step 04 · volume</span>
+                </div>
+                <h2 class="ob-q">
+                    <span data-lang="ru">Сколько сценариев в&nbsp;месяц <em class="italic accent">в&nbsp;идеале</em> ты хочешь выпускать?</span>
+                    <span data-lang="en">How many scripts <em class="italic accent">ideally</em> per month?</span>
+                </h2>
+                <p class="ob-hint">
+                    <span data-lang="ru">Прикинь, не считай по копейке. Тариф можно поднять в любой момент.</span>
+                    <span data-lang="en">Rough estimate, not exact. Tier can be raised anytime.</span>
+                </p>
+            </div>
+
+            <div class="ob-slider">
+                <div class="slider-row">
+                    <div>
+                        <div class="caption">
+                            <span data-lang="ru">Целевой объём</span>
+                            <span data-lang="en">Target volume</span>
+                        </div>
+                        <div class="now"><span data-slider-out>25</span><small>
+                            <span data-lang="ru">сценариев / мес</span>
+                            <span data-lang="en">scripts / mo</span>
+                        </small></div>
+                    </div>
+                    <div class="caption" style="text-align: right;">≈ <span id="weekly-est">6</span>
+                        <span data-lang="ru">в&nbsp;неделю</span>
+                        <span data-lang="en">/ wk</span>
+                    </div>
+                </div>
+                <input class="atelier-range" type="range" min="5" max="120" step="5" value="25" data-slider />
+                <div class="slider-ticks">
+                    <span>5</span><span>30</span><span>60</span><span>90</span><span>120+</span>
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap;">
+                    <span class="pill dot">≤ 15 · Solo</span>
+                    <span class="pill dot warn">16–60 · Studio</span>
+                    <span class="pill dot hot">60+ · Agency</span>
+                </div>
+            </div>
+
+            <div class="card" style="padding: 20px 22px; background: rgba(255,255,255,0.5);">
+                <div class="caption" style="color: var(--vermillion); margin-bottom: 8px;">
+                    <span data-lang="ru">Расчёт</span><span data-lang="en">Estimate</span>
+                </div>
+                <p style="font-size: 13.5px; color: var(--ink-soft); line-height: 1.55;">
+                    <span data-lang="ru">На <span id="vol-text" style="font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 16px;">25</span> сценариев в&nbsp;месяц нужно <em class="italic">примерно</em> <strong style="color: var(--ink);"><span id="runs-text">10</span> Trendwatch Run-ов</strong> и&nbsp;<strong style="color: var(--ink);"><span id="cand-text">200</span> Discovery-кандидатов</strong>. Это вписывается в тариф <span id="hint-tier" class="italic accent" style="font-family: var(--serif); font-weight: 500;">Studio</span>.</span>
+                    <span data-lang="en">For <span id="vol-text-en" style="font-family: var(--serif); font-style: italic; color: var(--ink); font-size: 16px;">25</span> scripts / mo you'll need roughly <strong style="color: var(--ink);"><span id="runs-text-en">10</span> Trendwatch runs</strong> and <strong style="color: var(--ink);"><span id="cand-text-en">200</span> Discovery candidates</strong>. That fits <span id="hint-tier-en" class="italic accent" style="font-family: var(--serif); font-weight: 500;">Studio</span>.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- ======= Step 05 — Paywall (recommendation + discount + testimonials) ======= -->
+        <section data-step="4" class="stack-md" style="display: none;">
+            <div>
+                <div class="caption" style="margin-bottom: 8px;">
+                    <span data-lang="ru">Готово · твой план + личное предложение</span>
+                    <span data-lang="en">Done · your plan + personal offer</span>
+                </div>
+                <h2 class="ob-q">
+                    <span data-lang="ru">Вот что мы <em class="italic accent">советуем тебе</em>.</span>
+                    <span data-lang="en">Here's what we <em class="italic accent">recommend</em>.</span>
+                </h2>
+            </div>
+
+            <div class="ob-rec" data-rec-card>
+                <div>
+                    <div class="rec-eyebrow">
+                        <span data-lang="ru">Рекомендованный тариф</span>
+                        <span data-lang="en">Recommended tier</span>
+                    </div>
+                    <h3>
+                        <span data-lang="ru">Тариф <em data-rec-name>Studio</em><br>для&nbsp;твоей мастерской.</span>
+                        <span data-lang="en">The <em data-rec-name>Studio</em> tier<br>for your atelier.</span>
+                    </h3>
+                    <p class="rec-deck" data-rec-tag>Малое агентство / продюсер с командой</p>
+                    <ul data-rec-list>
+                        <li>Discovery + Workshop сжимают research до 20 минут.</li>
+                        <li>3 workspace-а позволят держать клиентов изолированно.</li>
+                        <li>TG handoff из коробки — ТЗ улетает в чат монтажёра одной кнопкой.</li>
+                    </ul>
+                </div>
+
+                <div class="rec-side">
+                    <div>
+                        <div class="rec-billing">
+                            <span data-lang="ru">Цена · со скидкой −30%</span>
+                            <span data-lang="en">Price · with −30% off</span>
+                        </div>
+                        <div class="rec-price">
+                            <span data-rec-price>₽5 243</span>
+                            <small data-rec-sub>/ мес · ежемесячно</small>
+                        </div>
+                        <div style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(243,238,229,0.45); margin-top: 6px;">
+                            <s data-rec-price-old>₽7 490</s>
+                            &nbsp;·&nbsp;
+                            <span data-lang="ru">скидка первые 3 мес</span>
+                            <span data-lang="en">discount, first 3 months</span>
+                        </div>
+                    </div>
+
+                    <!-- Signup — Google + email/password -->
+                    <div class="signup-block">
+                        <div class="signup-eyebrow">
+                            <span data-lang="ru">Создать аккаунт · 7 дней без карты</span>
+                            <span data-lang="en">Create account · 7 days, no card</span>
+                        </div>
+                        <button class="btn-google" type="button">
+                            <span class="g-mark" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 18 18">
+                                    <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.49h4.84a4.14 4.14 0 0 1-1.79 2.72v2.26h2.9c1.7-1.56 2.69-3.87 2.69-6.63z"/>
+                                    <path fill="#34A853" d="M9 18c2.43 0 4.46-.81 5.94-2.18l-2.9-2.26c-.81.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.95v2.33A9 9 0 0 0 9 18z"/>
+                                    <path fill="#FBBC05" d="M3.97 10.71A5.41 5.41 0 0 1 3.68 9c0-.6.1-1.17.29-1.71V4.96H.95A9 9 0 0 0 0 9c0 1.45.35 2.83.95 4.04l3.02-2.33z"/>
+                                    <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.34l2.58-2.58A9 9 0 0 0 9 0 9 9 0 0 0 .95 4.96L3.97 7.3C4.68 5.18 6.66 3.58 9 3.58z"/>
+                                </svg>
+                            </span>
+                            <span data-lang="ru">Войти через Google</span>
+                            <span data-lang="en">Continue with Google</span>
+                        </button>
+
+                        <div class="signup-divider">
+                            <span data-lang="ru">или email</span>
+                            <span data-lang="en">or email</span>
+                        </div>
+
+                        <label class="signup-field">
+                            <input type="email" placeholder="your@email.com" autocomplete="email" />
+                        </label>
+                        <label class="signup-field">
+                            <input type="password" placeholder="•••••••• (мин 8)" autocomplete="new-password" />
+                        </label>
+
+                        <a href="app.html" class="btn btn-primary">
+                            <span data-lang="ru">Создать аккаунт →</span>
+                            <span data-lang="en">Create account →</span>
+                        </a>
+
+                        <p class="signup-fine">
+                            <span data-lang="ru">Активация — на странице подтверждения email. Карта не требуется.</span>
+                            <span data-lang="en">Confirm via the email link. No card required.</span>
+                        </p>
+                    </div>
+
+                    <p class="rec-other">
+                        <span data-lang="ru">Не подходит? Можешь <a href="#paywall-compare">сравнить тарифы</a> или&nbsp;<a href="#">написать нам</a>.</span>
+                        <span data-lang="en">Not a fit? <a href="#paywall-compare">Compare tiers</a> or&nbsp;<a href="#">talk to us</a>.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Discount banner -->
+            <div class="discount-banner">
+                <div class="disc-stamp">−30%</div>
+                <div class="disc-text">
+                    <span data-lang="ru">Скидка <strong>первые 3 месяца</strong> по&nbsp;коду <span class="disc-code">WELCOME30</span>.<br>Только до 30 июня — для&nbsp;первой когорты партнёров.</span>
+                    <span data-lang="en">Off your <strong>first 3 months</strong> with code <span class="disc-code">WELCOME30</span>.<br>Through June 30 — first partner cohort only.</span>
+                </div>
+                <button class="btn btn-primary btn-sm">
+                    <span data-lang="ru">Скопировать код</span>
+                    <span data-lang="en">Copy code</span>
+                </button>
+            </div>
+
+            <!-- Testimonials -->
+            <div style="margin-top: 28px;">
+                <div class="row-between" style="margin-bottom: 8px;">
+                    <div>
+                        <div class="caption" style="margin-bottom: 6px;">
+                            <span data-lang="ru">Отзывы первой когорты</span>
+                            <span data-lang="en">First cohort reviews</span>
+                        </div>
+                        <h3 style="font-family: var(--serif); font-size: 28px; font-weight: 380; letter-spacing: -0.012em;">
+                            <span data-lang="ru">Что говорят те, кто уже&nbsp;внутри.</span>
+                            <span data-lang="en">What those already inside say.</span>
+                        </h3>
+                    </div>
+                    <div class="hstack">
+                        <span class="pill dot">14
+                            <span data-lang="ru">студий</span>
+                            <span data-lang="en">studios</span>
+                        </span>
+                        <span class="pill dot cool">
+                            <span data-lang="ru">средний NPS · 68</span>
+                            <span data-lang="en">avg NPS · 68</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="testimonials">
+                    <div class="tm-card">
+                        <div class="tm-quote">
+                            <span data-lang="ru">Раньше у&nbsp;меня было пятнадцать вкладок. Теперь одна. И&nbsp;полтора лишних часа в&nbsp;день.</span>
+                            <span data-lang="en">I used to have fifteen tabs. Now one. Plus an&nbsp;extra hour and&nbsp;a half each&nbsp;day.</span>
+                        </div>
+                        <div class="tm-attr">
+                            <div class="tm-photo c1">А</div>
+                            <div>
+                                <div class="tm-name">
+                                    <span data-lang="ru">Аня М.</span>
+                                    <span data-lang="en">Anya M.</span>
+                                </div>
+                                <div class="tm-role">
+                                    <span data-lang="ru">продюсер · 4 аккаунта</span>
+                                    <span data-lang="en">producer · 4 accounts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tm-card">
+                        <div class="tm-quote">
+                            <span data-lang="ru">Я нанимал двух джунов, чтобы выживать. Atelier заменил одного — освободил второго на стратегию.</span>
+                            <span data-lang="en">I was hiring two juniors to survive. Atelier replaced one — freed the other for strategy.</span>
+                        </div>
+                        <div class="tm-attr">
+                            <div class="tm-photo c2">Н</div>
+                            <div>
+                                <div class="tm-name">
+                                    <span data-lang="ru">Никита К.</span>
+                                    <span data-lang="en">Nikita K.</span>
+                                </div>
+                                <div class="tm-role">
+                                    <span data-lang="ru">агентство · 18 брендов</span>
+                                    <span data-lang="en">agency · 18 brands</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tm-card">
+                        <div class="tm-quote">
+                            <span data-lang="ru">Я была solo два года. Перешла в&nbsp;команду из&nbsp;трёх — и&nbsp;всё в&nbsp;одной вкладке. Без хаоса в&nbsp;Notion.</span>
+                            <span data-lang="en">I was solo for two years. Scaled to a team of three — all in one tab. No Notion sprawl.</span>
+                        </div>
+                        <div class="tm-attr">
+                            <div class="tm-photo c3">М</div>
+                            <div>
+                                <div class="tm-name">
+                                    <span data-lang="ru">Маша Л.</span>
+                                    <span data-lang="en">Masha L.</span>
+                                </div>
+                                <div class="tm-role">
+                                    <span data-lang="ru">indie → studio</span>
+                                    <span data-lang="en">indie → studio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison expandable -->
+            <details class="compare-pane" id="paywall-compare">
+                <summary>
+                    <span>
+                        <span data-lang="ru">Сравнить все три тарифа</span>
+                        <span data-lang="en">Compare all three tiers</span>
+                    </span>
+                    <span class="chev">▾</span>
+                </summary>
+                <div class="compare-body">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th data-tier-highlight="solo">Solo</th>
+                                <th data-tier-highlight="studio">Studio</th>
+                                <th data-tier-highlight="agency">Agency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span data-lang="ru">Цена / мес</span>
+                                    <span data-lang="en">Price / mo</span>
+                                </td>
+                                <td class="center">
+                                    <span data-lang="ru">₽2 490</span>
+                                    <span data-lang="en">$29</span>
+                                </td>
+                                <td class="center">
+                                    <span data-lang="ru">₽7 490</span>
+                                    <span data-lang="en">$89</span>
+                                </td>
+                                <td class="center">
+                                    <span data-lang="ru">₽20 990</span>
+                                    <span data-lang="en">$249</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span data-lang="ru">Цена со скидкой −30%</span>
+                                    <span data-lang="en">After −30% off</span>
+                                </td>
+                                <td class="center" style="color: var(--vermillion);">
+                                    <span data-lang="ru">₽1 743</span>
+                                    <span data-lang="en">$20</span>
+                                </td>
+                                <td class="center" style="color: var(--vermillion);">
+                                    <span data-lang="ru">₽5 243</span>
+                                    <span data-lang="en">$62</span>
+                                </td>
+                                <td class="center" style="color: var(--vermillion);">
+                                    <span data-lang="ru">₽14 693</span>
+                                    <span data-lang="en">$174</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Workspaces</td>
+                                <td class="center">1</td>
+                                <td class="center">3</td>
+                                <td class="center">∞</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span data-lang="ru">Пользователей</span>
+                                    <span data-lang="en">Users</span>
+                                </td>
+                                <td class="center">1</td>
+                                <td class="center">5</td>
+                                <td class="center">∞</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span data-lang="ru">Discovery / мес</span>
+                                    <span data-lang="en">Discovery / mo</span>
+                                </td>
+                                <td class="center">100</td>
+                                <td class="center">
+                                    <span data-lang="ru">Без лимитов</span>
+                                    <span data-lang="en">Unlimited</span>
+                                </td>
+                                <td class="center">
+                                    <span data-lang="ru">Без лимитов</span>
+                                    <span data-lang="en">Unlimited</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span data-lang="ru">Trendwatch Runs / мес</span>
+                                    <span data-lang="en">Trendwatch runs / mo</span>
+                                </td>
+                                <td class="center">20</td>
+                                <td class="center">
+                                    <span data-lang="ru">Без лимитов</span>
+                                    <span data-lang="en">Unlimited</span>
+                                </td>
+                                <td class="center">
+                                    <span data-lang="ru">Без лимитов</span>
+                                    <span data-lang="en">Unlimited</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Telegram handoff</td>
+                                <td class="center yes">✓</td>
+                                <td class="center yes">✓</td>
+                                <td class="center yes">✓</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span data-lang="ru">Multi-platform descriptions (IG/TT/YT)</span>
+                                    <span data-lang="en">Multi-platform descriptions (IG/TT/YT)</span>
+                                </td>
+                                <td class="center yes">✓</td>
+                                <td class="center yes">✓</td>
+                                <td class="center yes">✓</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span data-lang="ru">AI co-writer (chat по сценарию)</span>
+                                    <span data-lang="en">AI co-writer (chat over script)</span>
+                                </td>
+                                <td class="center yes">✓</td>
+                                <td class="center yes">✓</td>
+                                <td class="center yes">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Linear / Asana / ClickUp</td>
+                                <td class="center no">—</td>
+                                <td class="center yes">✓</td>
+                                <td class="center yes">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Slack / Discord notify</td>
+                                <td class="center no">—</td>
+                                <td class="center yes">✓</td>
+                                <td class="center yes">✓</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span data-lang="ru">Custom webhook</span>
+                                    <span data-lang="en">Custom webhook</span>
+                                </td>
+                                <td class="center no">—</td>
+                                <td class="center no">—</td>
+                                <td class="center yes">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Audit log</td>
+                                <td class="center no">—</td>
+                                <td class="center yes">✓</td>
+                                <td class="center yes">✓</td>
+                            </tr>
+                            <tr>
+                                <td>SSO (Google Workspace)</td>
+                                <td class="center no">—</td>
+                                <td class="center no">—</td>
+                                <td class="center yes">✓</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span data-lang="ru">Поддержка</span>
+                                    <span data-lang="en">Support</span>
+                                </td>
+                                <td class="center">
+                                    <span data-lang="ru">Email</span>
+                                    <span data-lang="en">Email</span>
+                                </td>
+                                <td class="center">
+                                    <span data-lang="ru">Email · 24ч</span>
+                                    <span data-lang="en">Email · 24h</span>
+                                </td>
+                                <td class="center">
+                                    <span data-lang="ru">Priority · 4ч</span>
+                                    <span data-lang="en">Priority · 4h</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+
+            <!-- FAQ-mini / trust badges -->
+            <div style="display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap;">
+                <span class="pill dot">
+                    <span data-lang="ru">Менять тариф в любой момент</span>
+                    <span data-lang="en">Change tier anytime</span>
+                </span>
+                <span class="pill dot cool">
+                    <span data-lang="ru">Workspace переезжает целиком</span>
+                    <span data-lang="en">Workspace moves whole</span>
+                </span>
+                <span class="pill dot warn">
+                    <span data-lang="ru">7 дней trial без карты</span>
+                    <span data-lang="en">7-day trial · no card</span>
+                </span>
+                <span class="pill dot hot">
+                    <span data-lang="ru">Отмена в один клик</span>
+                    <span data-lang="en">Cancel in one click</span>
+                </span>
+            </div>
+
+            <div class="card ink" style="padding: 28px 32px; margin-top: 28px; border-radius: 14px;">
+                <div class="caption" style="margin-bottom: 12px;">
+                    <span data-lang="ru">Что внутри · подробнее</span>
+                    <span data-lang="en">What's inside · details</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 22px; font-size: 13.5px; color: rgba(243,238,229,0.78); line-height: 1.55;">
+                    <div>
+                        <div style="font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--paper); margin-bottom: 6px;">
+                            <span data-lang="ru">Производство</span>
+                            <span data-lang="en">Production</span>
+                        </div>
+                        <span data-lang="ru">Workshop A–L, динамическая persona-brief, Whisper-транскрипция с&nbsp;RU-переводом, AI co-writer, multi-platform descriptions (IG/TT/YT)</span>
+                        <span data-lang="en">Workshop A–L, dynamic persona-brief, Whisper transcription with RU translation, AI co-writer, multi-platform descriptions (IG/TT/YT)</span>
+                    </div>
+                    <div>
+                        <div style="font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--paper); margin-bottom: 6px;">
+                            <span data-lang="ru">Команда</span>
+                            <span data-lang="en">Team</span>
+                        </div>
+                        <span data-lang="ru">TG handoff с ТЗ + рефом + комментарием монтажёру, ассайн с auto-status «in production», email-invites <em style="opacity:0.7;">(soon)</em>, audit log <em style="opacity:0.7;">(soon)</em></span>
+                        <span data-lang="en">TG handoff with brief + reference + montage comment, assign with auto-status «in production», email invites <em style="opacity:0.7;">(soon)</em>, audit log <em style="opacity:0.7;">(soon)</em></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="ob-foot">
+            <button class="ob-back" data-action="back" disabled>
+                <span style="display: inline-block; transform: translateY(-1px);">←</span>
+                <span data-lang="ru">Назад</span><span data-lang="en">Back</span>
+            </button>
+            <button class="btn btn-primary" data-action="next">
+                <span data-lang="ru">Дальше</span><span data-lang="en">Next</span>
+                <span class="arrow">→</span>
+            </button>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="prototype.js"></script>
+<script>
+    const range = document.querySelector('[data-slider]')
+    if (range) {
+        const out  = document.querySelector('[data-slider-out]')
+        const week = document.getElementById('weekly-est')
+        const sync = () => {
+            const v = parseInt(range.value, 10)
+            week.textContent = Math.round(v / 4.3)
+            out.textContent  = v + (v >= 120 ? '+' : '')
+            const setPair = (idRu, idEn, val) => {
+                const a = document.getElementById(idRu); if (a) a.textContent = val
+                const b = document.getElementById(idEn); if (b) b.textContent = val
+            }
+            setPair('vol-text',  'vol-text-en',  v + (v >= 120 ? '+' : ''))
+            setPair('runs-text', 'runs-text-en', Math.max(2, Math.round(v * 0.4)))
+            setPair('cand-text', 'cand-text-en', Math.max(50, Math.round(v * 8)))
+            const tier = v <= 15 ? 'Solo' : v <= 60 ? 'Studio' : 'Agency'
+            setPair('hint-tier', 'hint-tier-en', tier)
+        }
+        range.addEventListener('input', sync)
+        sync()
+    }
+
+    // Step labels per language
+    document.addEventListener('lang:changed', updateStepLabel)
+    function updateStepLabel() {
+        const labelEl = document.querySelector('.ob-progress .step-label')
+        if (!labelEl) return
+        const lang = document.documentElement.getAttribute('lang')
+        const dots = document.querySelectorAll('.ob-progress .dot')
+        const idx = Array.from(dots).findIndex(d => d.classList.contains('is-active'))
+        const labels = {
+            ru: ['Шаг 01 — кто ты', 'Шаг 02 — где затык', 'Шаг 03 — инструменты', 'Шаг 04 — объём', 'Готово — твой план'],
+            en: ['Step 01 — about you', 'Step 02 — bottleneck', 'Step 03 — tools', 'Step 04 — volume', 'Done — your plan'],
+        }
+        labelEl.textContent = (labels[lang] || labels.ru)[idx === -1 ? 0 : idx]
+    }
+    setTimeout(updateStepLabel, 50)
+
+    // Code copy
+    document.querySelectorAll('.disc-code, .discount-banner .btn').forEach(b => {
+        b.addEventListener('click', e => {
+            e.preventDefault()
+            navigator.clipboard?.writeText('WELCOME30').catch(() => {})
+            const original = b.textContent
+            const lang = document.documentElement.getAttribute('lang')
+            b.textContent = lang === 'en' ? '✓ Copied' : '✓ Скопировано'
+            setTimeout(() => { b.textContent = original }, 1400)
+        })
+    })
+</script>
+</body>
+</html>

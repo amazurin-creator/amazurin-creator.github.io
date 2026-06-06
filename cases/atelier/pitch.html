@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Atelier · pitch deck · 20.05.2026</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* =================================================
+           Pitch deck — slides on top of Atelier base styles
+           ================================================= */
+
+        html, body { height: 100%; }
+        body {
+            overflow: hidden;
+            background: var(--paper);
+        }
+        /* Hide the paper-grain at slide scale (it gets noisy at full-bleed).
+           Keep only a faint atmospheric tint via the deck wrapper. */
+        body::before { opacity: 0.18; }
+
+        .deck {
+            position: fixed; inset: 0;
+            overflow: hidden;
+            z-index: 2;
+        }
+        .deck-track {
+            display: flex;
+            height: 100%;
+            width: 1200vw; /* will be overridden per N */
+            transform: translate3d(calc(var(--i, 0) * -100vw), 0, 0);
+            transition: transform .65s cubic-bezier(.7, 0, .15, 1);
+            will-change: transform;
+        }
+
+        .slide {
+            flex: 0 0 100vw;
+            height: 100vh;
+            padding: clamp(28px, 4.5vh, 56px) clamp(32px, 5vw, 96px);
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-content: start;
+            gap: clamp(16px, 2.4vh, 28px);
+        }
+
+        /* ---- Eyebrow + slide grid ---- */
+        .slide-eyebrow {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            display: inline-flex; align-items: center; gap: 12px;
+        }
+        .slide-eyebrow::before {
+            content: '';
+            width: 28px; height: 1px;
+            background: currentColor;
+        }
+        .slide-eyebrow .acc { color: var(--vermillion); }
+
+        .slide h1.s-head {
+            font-family: var(--serif);
+            font-weight: 350;
+            letter-spacing: -0.025em;
+            line-height: 0.98;
+            color: var(--ink);
+            margin: 0;
+            max-width: 22ch;
+        }
+        .slide h1.s-head em {
+            font-style: italic;
+            font-weight: 350;
+        }
+        /* Single-accent helpers: italic-vermillion OR underline-doodle, never both */
+        .slide h1.s-head .acc-ital { font-style: italic; color: var(--vermillion); font-weight: 350; }
+        .slide h1.s-head .acc-und {
+            position: relative; display: inline-block; white-space: nowrap;
+        }
+        .slide h1.s-head .acc-und svg {
+            position: absolute; left: -2%; right: -2%; bottom: -0.18em;
+            width: 104%; height: 0.36em; pointer-events: none;
+            overflow: visible;
+        }
+        .slide h1.s-head .acc-und path {
+            stroke-dasharray: 220;
+            stroke-dashoffset: 220;
+        }
+        .slide.is-in h1.s-head .acc-und path {
+            animation: draw-und 1.05s cubic-bezier(.6,.0,.2,1) .35s forwards;
+        }
+        @keyframes draw-und { to { stroke-dashoffset: 0; } }
+
+        .slide h1.s-head.size-xl  { font-size: clamp(56px, 9.6vw, 148px); line-height: 0.94; max-width: 16ch; }
+        .slide h1.s-head.size-l   { font-size: clamp(40px, 6.4vw, 92px); }
+        .slide h1.s-head.size-m   { font-size: clamp(32px, 4.4vw, 64px); line-height: 1.02; }
+
+        .slide-sub {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 350;
+            color: var(--ink-soft);
+            font-size: clamp(18px, 1.7vw, 26px);
+            line-height: 1.35;
+            max-width: 38ch;
+        }
+        .slide-body {
+            font-family: var(--sans);
+            font-size: clamp(15px, 1.15vw, 18px);
+            line-height: 1.55;
+            color: var(--ink-soft);
+            max-width: 62ch;
+        }
+        .slide-body strong { color: var(--ink); font-weight: 500; }
+        .slide-body em { font-family: var(--serif); font-style: italic; }
+
+        .marg {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--ink-faint);
+            font-size: clamp(13px, 1vw, 15px);
+            max-width: 36ch;
+            line-height: 1.5;
+        }
+
+        /* ---- Reveal-in for slide children ---- */
+        .slide [data-in] {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .65s cubic-bezier(.4, 0, .2, 1),
+                        transform .65s cubic-bezier(.4, 0, .2, 1);
+            transition-delay: calc(var(--i, 0) * 70ms + 120ms);
+        }
+        .slide.is-in [data-in] {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ===========================
+           Deck chrome (bottom bar)
+           =========================== */
+        .deck-chrome {
+            position: fixed;
+            left: 0; right: 0; bottom: 0;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: clamp(16px, 3vw, 36px);
+            padding: 12px clamp(28px, 4vw, 56px) 16px;
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            background: linear-gradient(to top, var(--paper) 50%, rgba(255,255,255,0));
+            pointer-events: none;
+        }
+        .deck-chrome > * { pointer-events: auto; }
+        .deck-chrome .ch-left,
+        .deck-chrome .ch-right {
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .deck-chrome .ch-right .acc { color: var(--vermillion); }
+        .deck-progress {
+            display: flex; gap: 4px;
+            align-items: center;
+        }
+        .deck-progress .tick {
+            flex: 1 1 0;
+            height: 2px;
+            background: var(--rule-color);
+            border-radius: 2px;
+            transition: background .35s ease;
+            position: relative;
+        }
+        .deck-progress .tick.done { background: var(--rule-strong-color); }
+        .deck-progress .tick.cur  { background: var(--vermillion); height: 3px; }
+
+        .deck-nav-btns {
+            position: fixed;
+            bottom: clamp(40px, 6vh, 64px);
+            right: clamp(28px, 4vw, 56px);
+            z-index: 6;
+            display: flex; gap: 8px;
+        }
+        .deck-nav-btns button {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--rule-strong-color);
+            background: var(--paper);
+            color: var(--ink-soft);
+            display: inline-grid; place-items: center;
+            transition: all .2s ease;
+        }
+        .deck-nav-btns button:hover {
+            color: var(--ink);
+            border-color: var(--ink-soft);
+            transform: translateY(-1px);
+        }
+        .deck-nav-btns button:disabled {
+            opacity: 0.3; cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Edge click zones */
+        .deck-edge {
+            position: fixed; top: 0; bottom: 80px;
+            width: 14vw; max-width: 220px;
+            z-index: 3;
+            cursor: pointer;
+        }
+        .deck-edge.l { left: 0; }
+        .deck-edge.r { right: 0; }
+
+        /* ===========================
+           Per-slide layouts
+           =========================== */
+
+        /* 01 — Title */
+        .s-title {
+            grid-template-rows: auto 1fr auto;
+            align-content: stretch;
+            padding-top: clamp(64px, 10vh, 120px);
+            padding-bottom: clamp(64px, 10vh, 120px);
+        }
+        .s-title .t-mark {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 350;
+            font-size: clamp(120px, 22vw, 360px);
+            color: var(--ink);
+            line-height: 0.78;
+            letter-spacing: -0.04em;
+            margin: 0;
+        }
+        .s-title .t-mark .dot {
+            color: var(--vermillion);
+            font-style: normal;
+        }
+        .s-title .t-stack {
+            display: grid;
+            gap: 14px;
+            align-content: center;
+        }
+        .s-title .t-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 24px;
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            color: var(--ink-faint);
+            text-transform: uppercase;
+        }
+
+        /* 02 — Hook */
+        .s-hook { align-content: center; gap: clamp(24px, 4vh, 40px); }
+        .s-hook .hook-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 1.4fr);
+            gap: clamp(40px, 6vw, 100px);
+            align-items: end;
+        }
+        .s-hook .hook-side {
+            border-left: var(--rule);
+            padding-left: clamp(20px, 2vw, 32px);
+            display: grid; gap: 14px;
+        }
+
+        /* 03 — Role */
+        .s-role { align-content: center; gap: clamp(24px, 4vh, 40px); }
+        .s-role .role-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: clamp(40px, 6vw, 100px);
+            align-items: start;
+        }
+        .role-list {
+            display: grid;
+            gap: 18px;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(20px, 1.9vw, 30px);
+            line-height: 1.35;
+            color: var(--ink);
+            font-weight: 350;
+        }
+        .role-list .role-line { display: grid; grid-template-columns: 1.6em 1fr; align-items: baseline; gap: 8px; }
+        .role-list .role-line span:first-child {
+            font-family: var(--mono); font-style: normal;
+            font-size: 11px; color: var(--ink-faint);
+            letter-spacing: 0.14em; padding-top: 0.5em;
+        }
+        .role-list .role-line em { color: var(--vermillion); font-style: italic; }
+
+        /* 04 — Workflow */
+        .s-flow { align-content: center; gap: clamp(28px, 4vh, 44px); }
+        .s-flow .flow-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: clamp(40px, 6vw, 96px);
+            align-items: start;
+        }
+        .flow-stack { display: grid; gap: 22px; }
+        .flow-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 18px;
+            padding: 18px 0;
+            border-bottom: var(--rule);
+            align-items: baseline;
+        }
+        .flow-card:last-child { border-bottom: 0; }
+        .flow-card .fk-num {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--vermillion);
+            letter-spacing: 0.18em;
+        }
+        .flow-card .fk-title {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(20px, 1.6vw, 26px);
+            color: var(--ink);
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+        .flow-card .fk-body {
+            font-size: clamp(14px, 1vw, 16px);
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        /* 05 — Method (one line illustration) */
+        .s-method { align-content: center; gap: clamp(36px, 6vh, 64px); }
+        .s-method .method-line {
+            display: grid; gap: 18px;
+            margin-top: clamp(20px, 4vh, 40px);
+        }
+        .method-line .line-svg {
+            position: relative;
+            height: 6px;
+        }
+        .method-line .line-svg svg { width: 100%; height: 100%; overflow: visible; }
+        .method-line .line-svg path { stroke: var(--vermillion); stroke-width: 1.6; fill: none; stroke-linecap: round;
+            stroke-dasharray: 1400; stroke-dashoffset: 1400; }
+        .slide.is-in .method-line .line-svg path { animation: draw-line 1.6s cubic-bezier(.5, 0, .2, 1) .4s forwards; }
+        @keyframes draw-line { to { stroke-dashoffset: 0; } }
+        .method-line .stops {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--ink-faint);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .method-line .stops > span {
+            border-left: var(--rule);
+            padding: 8px 6px 0;
+        }
+        .method-line .stops > span:first-child { border-color: var(--vermillion); color: var(--vermillion); }
+        .method-line .stops > span:last-child  { border-color: var(--vermillion); color: var(--vermillion); }
+
+        /* 06 — Structure (8-step grid) */
+        .s-struct .step-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border-top: var(--rule);
+            border-left: var(--rule);
+            margin-top: clamp(16px, 3vh, 28px);
+        }
+        .step-grid .step {
+            border-right: var(--rule);
+            border-bottom: var(--rule);
+            padding: clamp(18px, 2.2vh, 26px) clamp(18px, 1.8vw, 24px);
+            display: grid;
+            gap: 6px;
+            align-content: start;
+            min-height: clamp(150px, 22vh, 200px);
+            position: relative;
+        }
+        .step .st-num {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--ink-faint);
+            letter-spacing: 0.18em;
+        }
+        .step .st-name {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(22px, 1.6vw, 28px);
+            color: var(--ink);
+            margin: 2px 0 8px;
+            letter-spacing: -0.01em;
+        }
+        .step .st-body {
+            font-size: 13px;
+            color: var(--ink-soft);
+            line-height: 1.45;
+        }
+        .step.is-key .st-num { color: var(--vermillion); }
+        .step.is-key .st-name { color: var(--vermillion); font-style: italic; font-weight: 350; }
+
+        /* 07 — Inside */
+        .s-inside .ins-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(20px, 2.4vw, 36px);
+            margin-top: clamp(24px, 4vh, 44px);
+        }
+        .ins-card {
+            border-top: 2px solid var(--ink);
+            padding: 18px 0 0;
+            display: grid;
+            gap: 12px;
+            align-content: start;
+        }
+        .ins-card .ic-tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+        .ins-card.acc { border-top-color: var(--vermillion); }
+        .ins-card.acc .ic-tag { color: var(--vermillion); }
+        .ins-card h3 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(22px, 1.9vw, 30px);
+            line-height: 1.15;
+            color: var(--ink);
+            margin: 0;
+            letter-spacing: -0.015em;
+        }
+        .ins-card h3 em { font-style: italic; font-weight: 350; }
+        .ins-card p {
+            font-size: 15px;
+            color: var(--ink-soft);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* 08 — Numbers */
+        .s-numbers { align-content: center; gap: clamp(36px, 6vh, 60px); }
+        .nums-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(24px, 3vw, 48px);
+            margin-top: clamp(8px, 2vh, 20px);
+        }
+        .num-card {
+            display: grid; gap: 10px;
+            border-top: var(--rule-strong);
+            padding-top: 18px;
+        }
+        .num-card .nc-head {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+        .num-card .nc-value {
+            font-family: var(--serif);
+            font-weight: 350;
+            font-size: clamp(56px, 6.5vw, 108px);
+            line-height: 1;
+            color: var(--ink);
+            letter-spacing: -0.03em;
+        }
+        .num-card .nc-value .small {
+            font-size: 0.42em;
+            color: var(--ink-soft);
+            font-style: italic;
+            letter-spacing: 0;
+            margin-left: 0.06em;
+        }
+        .num-card.acc .nc-value { color: var(--vermillion); }
+        .num-card .nc-tail {
+            font-size: 14px;
+            color: var(--ink-soft);
+            line-height: 1.5;
+            max-width: 32ch;
+        }
+        .num-foot {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--ink-faint);
+            font-size: clamp(14px, 1.05vw, 17px);
+            max-width: 72ch;
+        }
+
+        /* 09 — Tier personas */
+        .s-tiers .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(20px, 2.4vw, 36px);
+            margin-top: clamp(24px, 4vh, 44px);
+        }
+        .tier-card {
+            border: var(--rule);
+            border-radius: 4px;
+            padding: clamp(22px, 2.4vw, 30px);
+            display: grid; gap: 14px;
+            align-content: start;
+            background: var(--paper);
+            position: relative;
+            overflow: hidden;
+        }
+        .tier-card.is-pop {
+            border-color: var(--vermillion);
+            background: linear-gradient(180deg, rgba(210, 59, 31, 0.04), transparent 80%);
+        }
+        .tier-card .tc-pop {
+            position: absolute;
+            top: 12px; right: 14px;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--vermillion);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        .tier-card .tc-tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            color: var(--ink-faint);
+            text-transform: uppercase;
+        }
+        .tier-card h3 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(26px, 2.3vw, 36px);
+            color: var(--ink);
+            margin: 0;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+        }
+        .tier-card h3 em { font-style: italic; font-weight: 350; }
+        .tier-card p {
+            font-size: 14px;
+            color: var(--ink-soft);
+            line-height: 1.55;
+            margin: 0;
+        }
+        .tier-card .tc-bullets {
+            display: grid; gap: 6px;
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            color: var(--ink-soft);
+        }
+        .tier-card .tc-bullets li::before {
+            content: '·'; margin-right: 6px; color: var(--ink-faint);
+        }
+
+        /* 10 — Pricing */
+        .s-pricing { align-content: center; gap: clamp(28px, 4vh, 48px); }
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(20px, 2vw, 36px);
+            margin-top: clamp(12px, 2vh, 24px);
+        }
+        .price-card {
+            padding: clamp(22px, 2.4vw, 32px);
+            border: var(--rule);
+            border-radius: 4px;
+            background: var(--paper);
+            display: grid;
+            gap: 16px;
+            align-content: start;
+            min-height: clamp(280px, 38vh, 360px);
+        }
+        .price-card.is-pop {
+            border-color: var(--vermillion);
+            background: linear-gradient(180deg, rgba(210, 59, 31, 0.04), transparent 70%);
+        }
+        .pc-head {
+            display: flex; justify-content: space-between; align-items: baseline;
+            border-bottom: var(--rule);
+            padding-bottom: 14px;
+        }
+        .pc-name {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: clamp(24px, 2vw, 32px);
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+        .price-card.is-pop .pc-name { font-style: italic; color: var(--vermillion); font-weight: 350; }
+        .pc-tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--ink-faint);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+        .pc-price {
+            display: grid; gap: 6px;
+        }
+        .pc-price .now {
+            font-family: var(--serif);
+            font-weight: 350;
+            font-size: clamp(38px, 3.6vw, 52px);
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .price-card.is-pop .pc-price .now { color: var(--vermillion); }
+        .pc-price .per {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--ink-faint);
+            letter-spacing: 0.1em;
+        }
+        .pc-price .promo {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--vermillion);
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+            display: inline-flex; align-items: baseline; gap: 6px;
+        }
+        .pc-price .promo::before {
+            content: '→';
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--vermillion);
+            margin-right: 2px;
+        }
+        .pc-list { display: grid; gap: 7px; font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+        .pc-list li::before { content: '·'; margin-right: 8px; color: var(--ink-faint); }
+        .price-foot {
+            display: flex; gap: 20px; align-items: baseline;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--ink-faint);
+            letter-spacing: 0.08em;
+        }
+        .price-foot .code {
+            display: inline-block;
+            padding: 4px 10px;
+            border: 1px dashed var(--vermillion);
+            color: var(--vermillion);
+            border-radius: 3px;
+            letter-spacing: 0.12em;
+        }
+
+        /* 11 — Status (where we are) */
+        .s-status .status-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(28px, 4vw, 64px);
+            margin-top: clamp(24px, 4vh, 44px);
+        }
+        .status-col h3 {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin: 0 0 18px;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .status-col h3::before {
+            content: ''; width: 14px; height: 1px; background: currentColor;
+        }
+        .status-col.acc h3 { color: var(--vermillion); }
+        .status-col ul { display: grid; gap: 16px; }
+        .status-col li {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(18px, 1.5vw, 22px);
+            line-height: 1.45;
+            color: var(--ink);
+            padding-left: 22px;
+            position: relative;
+            font-weight: 350;
+        }
+        .status-col li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0.6em;
+            width: 12px; height: 1px;
+            background: var(--ink-soft);
+        }
+        .status-col.acc li::before { background: var(--vermillion); }
+        .status-foot {
+            margin-top: clamp(28px, 4vh, 48px);
+            padding-top: 20px;
+            border-top: var(--rule);
+            display: flex; gap: 16px; align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .status-foot .label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            color: var(--vermillion);
+            text-transform: uppercase;
+        }
+        .status-foot .text {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--ink);
+            font-size: clamp(16px, 1.2vw, 20px);
+            line-height: 1.4;
+        }
+
+        /* 12 — Ask */
+        .s-ask { align-content: center; gap: clamp(28px, 4vh, 48px); }
+        .s-ask .ask-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+            gap: clamp(40px, 6vw, 96px);
+            align-items: end;
+        }
+        .ask-actions {
+            display: grid; gap: 16px;
+        }
+        .ask-actions a {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink);
+            padding: 14px 18px;
+            border: 1px solid var(--ink-soft);
+            display: inline-flex; justify-content: space-between; align-items: center; gap: 16px;
+            transition: all .2s ease;
+            border-radius: 2px;
+        }
+        .ask-actions a:hover {
+            background: var(--ink);
+            color: var(--paper);
+            border-color: var(--ink);
+        }
+        .ask-actions a.acc {
+            border-color: var(--vermillion);
+            color: var(--vermillion);
+        }
+        .ask-actions a.acc:hover {
+            background: var(--vermillion);
+            color: var(--paper);
+        }
+        .ask-actions a .arr { font-family: var(--serif); font-style: italic; }
+        .ask-contact {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--ink-soft);
+            font-size: clamp(15px, 1.1vw, 18px);
+            line-height: 1.5;
+        }
+
+        /* ===========================
+           Decorative marks
+           =========================== */
+        .corner-mark {
+            position: absolute;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--ink-ghost);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        .corner-mark.tr { top: clamp(22px, 3vh, 32px); right: clamp(28px, 4vw, 56px); }
+        .corner-mark.bl { bottom: clamp(48px, 6vh, 72px); left: clamp(28px, 4vw, 56px); }
+
+        /* Vermillion star/asterisk decoration */
+        .ast {
+            color: var(--vermillion);
+            font-family: var(--serif);
+            font-style: normal;
+            display: inline-block;
+            transform: translateY(-0.2em);
+        }
+
+        /* ===========================
+           Mobile / tablet adjustments
+           =========================== */
+        @media (max-width: 900px) {
+            .slide {
+                padding: clamp(40px, 6vh, 64px) clamp(24px, 5vw, 32px) clamp(80px, 12vh, 100px);
+            }
+            .s-hook .hook-grid,
+            .s-role .role-grid,
+            .s-flow .flow-grid,
+            .s-ask .ask-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .s-hook .hook-side { border-left: 0; padding-left: 0; border-top: var(--rule); padding-top: 18px; }
+            .s-struct .step-grid { grid-template-columns: repeat(2, 1fr); }
+            .s-inside .ins-grid,
+            .s-tiers .tier-grid,
+            .s-pricing .price-grid,
+            .s-numbers .nums-grid,
+            .s-status .status-grid {
+                grid-template-columns: 1fr;
+            }
+            .deck-nav-btns { bottom: 16px; right: 16px; }
+            .corner-mark { display: none; }
+        }
+
+        /* ===========================
+           Print → PDF export
+           =========================== */
+        @page { size: 1600px 900px; margin: 0; }
+        @media print {
+            body::before { display: none; }
+            body { overflow: visible; }
+            .deck { position: static; overflow: visible; }
+            .deck-track {
+                transform: none !important;
+                display: block !important;
+                width: auto !important;
+            }
+            .slide {
+                page-break-after: always;
+                break-after: page;
+                height: 900px;
+                max-height: 900px;
+                width: 1600px;
+                overflow: hidden;
+                box-shadow: none;
+                background: #fff;
+                padding: 56px 96px;
+                grid-template-columns: 1fr !important;
+            }
+            .deck-chrome,
+            .deck-nav-btns,
+            .deck-edge,
+            .hint-chip,
+            .corner-mark { display: none !important; }
+            .slide [data-in] { opacity: 1 !important; transform: none !important; }
+            .slide h1.s-head .acc-und path { stroke-dashoffset: 0 !important; animation: none !important; }
+            .method-line .line-svg path { stroke-dashoffset: 0 !important; animation: none !important; }
+
+            /* Force desktop layouts (don't honour 900px mobile breakpoint in PDF) */
+            .s-hook .hook-grid { grid-template-columns: minmax(0, 3fr) minmax(0, 1.4fr) !important; }
+            .s-role .role-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) !important; }
+            .s-flow .flow-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) !important; }
+            .s-struct .step-grid { grid-template-columns: repeat(4, 1fr) !important; }
+            .s-inside .ins-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .s-tiers .tier-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .s-pricing .price-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .s-numbers .nums-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .s-status .status-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .s-ask .ask-grid { grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr) !important; }
+
+            /* Tighten density so the tallest slides fit in 900px */
+            .slide h1.s-head.size-xl { font-size: 132px; }
+            .slide h1.s-head.size-l  { font-size: 76px; }
+            .slide h1.s-head.size-m  { font-size: 48px; }
+            .slide-sub  { font-size: 22px; }
+            .slide-body { font-size: 16px; }
+            .marg       { font-size: 14px; }
+
+            .s-struct .step-grid .step { min-height: 150px; padding: 18px 20px; }
+            .step .st-name { font-size: 22px; }
+            .step .st-body { font-size: 12px; }
+
+            .num-card .nc-value { font-size: 72px; }
+            .num-card .nc-tail  { font-size: 13px; }
+            .nums-grid { gap: 32px; }
+
+            .tier-card { padding: 22px; }
+            .tier-card h3 { font-size: 26px; }
+            .tier-card p  { font-size: 13px; }
+            .tier-card .tc-bullets { font-size: 10px; }
+
+            .price-card { padding: 24px; min-height: 0; }
+            .pc-name { font-size: 26px; }
+            .pc-price .now { font-size: 40px; }
+            .pc-list { font-size: 12px; }
+
+            .ins-card h3 { font-size: 24px; }
+            .ins-card p  { font-size: 13px; }
+
+            .status-col li { font-size: 18px; }
+        }
+
+        /* Hint chip top-right on first visit */
+        .hint-chip {
+            position: fixed;
+            top: clamp(20px, 3vh, 32px);
+            right: clamp(28px, 4vw, 56px);
+            z-index: 7;
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            border: 1px solid var(--rule-color);
+            background: var(--paper);
+            padding: 8px 12px;
+            border-radius: 3px;
+            display: inline-flex; align-items: center; gap: 12px;
+            transition: opacity .4s ease;
+        }
+        .hint-chip kbd {
+            font-family: var(--mono);
+            font-size: 10px;
+            padding: 2px 6px;
+            border: 1px solid var(--rule-color);
+            border-radius: 3px;
+            color: var(--ink);
+            background: var(--paper-deep);
+        }
+        .hint-chip.is-out { opacity: 0; pointer-events: none; }
+    </style>
+</head>
+<body>
+
+<a href="/" class="portfolio-back portfolio-back-fixed" title="Back to portfolio">← Portfolio</a>
+
+<!-- Hint chip — auto-hides after 4s or first nav -->
+<div class="hint-chip" id="hintChip">
+    <span>← →</span>
+    <kbd>space</kbd>
+    <kbd>F</kbd>
+    <span style="color: var(--ink-ghost);">·</span>
+    <span>1–9</span>
+</div>
+
+<!-- Edge click zones (left = prev, right = next) -->
+<div class="deck-edge l" data-go="prev" aria-hidden="true"></div>
+<div class="deck-edge r" data-go="next" aria-hidden="true"></div>
+
+<!-- Round nav buttons -->
+<div class="deck-nav-btns">
+    <button id="prevBtn" aria-label="Previous slide">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M10 3 L5 8 L10 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    <button id="nextBtn" aria-label="Next slide">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M6 3 L11 8 L6 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+</div>
+
+<!-- =========================================
+     Deck
+     ========================================= -->
+<div class="deck" id="deck">
+    <div class="deck-track" id="track" style="width: 1200vw;">
+
+        <!-- ==================== 01 — TITLE ==================== -->
+        <section class="slide s-title" data-slide="01">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">Atelier · pitch deck · 20.05.2026</div>
+            </div>
+
+            <div class="t-stack">
+                <h1 class="t-mark" data-in style="--i:1;">Atelier<span class="dot">.</span></h1>
+                <div class="slide-sub" data-in style="--i:2;">
+                    Мастерская для тех, кто <em style="font-style: italic; color: var(--vermillion);">продюсирует</em>.
+                </div>
+                <div class="slide-body" data-in style="--i:3; max-width: 46ch; margin-top: 12px;">
+                    Не платформа. Не CMS. Не «AI-инструмент №&nbsp;47». — Одна линия от тренда до handoff монтажёру в&nbsp;Telegram, в&nbsp;которой контекст накапливается, а&nbsp;не утекает.
+                </div>
+            </div>
+
+            <div class="t-foot" data-in style="--i:4;">
+                <span>12 слайдов · ≈ 6 минут</span>
+                <span style="color: var(--vermillion);">Прожарка питч-деков · 20.05.2026</span>
+            </div>
+
+            <div class="corner-mark tr">01 / 12</div>
+        </section>
+
+        <!-- ==================== 02 — HOOK ==================== -->
+        <section class="slide s-hook" data-slide="02">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">02 · <span class="acc">Hook</span></div>
+            </div>
+
+            <div class="hook-grid">
+                <h1 class="s-head size-l" data-in style="--i:1;">
+                    У&nbsp;вас не один блог.<br>
+                    У&nbsp;вас — <span class="acc-und">пайплайн<svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2,11 C40,2 90,2 130,8 C155,12 175,7 198,4" fill="none" stroke="#d23b1f" stroke-width="2.4" stroke-linecap="round"/></svg></span>.
+                </h1>
+                <div class="hook-side">
+                    <div class="slide-body" data-in style="--i:2;">
+                        Каждое видео проходит десять рук, восемь инструментов и&nbsp;две таблицы — прежде чем выйти в&nbsp;фид.
+                    </div>
+                    <div class="marg" data-in style="--i:3;">
+                        (Или вы делаете вид, что нет — и&nbsp;тогда это видно по&nbsp;тому, как падает регулярность.)
+                    </div>
+                </div>
+            </div>
+
+            <div class="corner-mark tr">02 / 12</div>
+        </section>
+
+        <!-- ==================== 03 — ROLE ==================== -->
+        <section class="slide s-role" data-slide="03">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">03 · <span class="acc">Role</span></div>
+            </div>
+
+            <div class="role-grid">
+                <h1 class="s-head size-l" data-in style="--i:1;">
+                    Продюсер · <em style="color: var(--vermillion);">не креатор</em>.
+                </h1>
+
+                <ul class="role-list" data-in style="--i:2;">
+                    <li class="role-line"><span>01</span><div>Не пишет сценарии — <em>собирает их.</em></div></li>
+                    <li class="role-line"><span>02</span><div>Не снимает — <em>отправляет ТЗ.</em></div></li>
+                    <li class="role-line"><span>03</span><div>Не публикует — <em>координирует команду из четырёх человек по двум таймзонам.</em></div></li>
+                </ul>
+            </div>
+
+            <div class="marg" data-in style="--i:3; margin-top: clamp(24px, 4vh, 48px);">
+                Продюсер — не тот, кто появляется в&nbsp;кадре. Это тот, благодаря кому в&nbsp;кадре кто-то появляется.
+            </div>
+
+            <div class="corner-mark tr">03 / 12</div>
+        </section>
+
+        <!-- ==================== 04 — WORKFLOW ==================== -->
+        <section class="slide s-flow" data-slide="04">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">04 · <span class="acc">Workflow</span></div>
+            </div>
+
+            <div class="flow-grid">
+                <h1 class="s-head size-m" data-in style="--i:1;">
+                    Полдюжины вкладок.<br>
+                    Контекст утекает <em style="color: var(--vermillion);">на стыках.</em>
+                </h1>
+
+                <div class="flow-stack">
+                    <div class="flow-card" data-in style="--i:2;">
+                        <div class="fk-num">A</div>
+                        <div>
+                            <div class="fk-title">Каждый делает один шаг.</div>
+                            <div class="fk-body">ChatGPT, Apify, Notion, Sheets, DM-донорам — никто не держит всю цепочку. Переключение контекста — двадцать раз в&nbsp;день.</div>
+                        </div>
+                    </div>
+                    <div class="flow-card" data-in style="--i:3;">
+                        <div class="fk-num">B</div>
+                        <div>
+                            <div class="fk-title">На стыках — час и&nbsp;одна важная деталь.</div>
+                            <div class="fk-body">Транскрипт в&nbsp;одном чате. Перевод в&nbsp;другом. Бриф редактору — в&nbsp;третьем. Кому-то всегда «забыли скинуть».</div>
+                        </div>
+                    </div>
+                    <div class="flow-card" data-in style="--i:4;">
+                        <div class="fk-num">C</div>
+                        <div>
+                            <div class="fk-title">Продюсер становится бутылочным горлом.</div>
+                            <div class="fk-body">Монтажёр простаивает, потому что ТЗ всё ещё в&nbsp;черновике — собирается руками из&nbsp;пяти источников.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="corner-mark tr">04 / 12</div>
+        </section>
+
+        <!-- ==================== 05 — METHOD ==================== -->
+        <section class="slide s-method" data-slide="05">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">05 · <span class="acc">Method</span></div>
+            </div>
+
+            <h1 class="s-head size-l" data-in style="--i:1;">
+                Одна линия. <span style="color: var(--vermillion);">Discovery&nbsp;→&nbsp;Handoff.</span>
+            </h1>
+
+            <div class="slide-body" data-in style="--i:2; font-size: clamp(17px, 1.3vw, 21px); max-width: 64ch;">
+                Каждый шаг знает, что было до&nbsp;него, и&nbsp;готовит вход для следующего. Контекст не теряется — <strong>он накапливается</strong>.
+            </div>
+
+            <div class="method-line" data-in style="--i:3;">
+                <div class="line-svg">
+                    <svg viewBox="0 0 1400 6" preserveAspectRatio="none">
+                        <path d="M2,3 Q200,1 350,3 T700,3 T1050,3 T1398,3" />
+                    </svg>
+                </div>
+                <div class="stops">
+                    <span>Discovery</span>
+                    <span>Pools</span>
+                    <span>Tracking</span>
+                    <span>Workshop</span>
+                    <span>Productions</span>
+                    <span>Uploads</span>
+                    <span>Posts</span>
+                    <span>Analytics</span>
+                </div>
+            </div>
+
+            <div class="marg" data-in style="--i:4; margin-top: clamp(24px, 4vh, 40px);">
+                Восемь шагов · одна студия. Performance из&nbsp;Analytics возвращается в&nbsp;Discovery scoring — линия замыкается.
+            </div>
+
+            <div class="corner-mark tr">05 / 12</div>
+        </section>
+
+        <!-- ==================== 06 — STRUCTURE ==================== -->
+        <section class="slide s-struct" data-slide="06">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">06 · <span class="acc">Structure</span></div>
+            </div>
+
+            <h1 class="s-head size-m" data-in style="--i:1; max-width: 28ch;">
+                Восемь шагов · <em style="color: var(--vermillion);">одна студия.</em>
+            </h1>
+
+            <div class="step-grid" data-in style="--i:2;">
+                <div class="step">
+                    <div class="st-num">01</div>
+                    <div class="st-name">Discovery</div>
+                    <div class="st-body">LLM-поиск донор-блогеров + Apify-верификация. Знаешь, у&nbsp;кого подсматривать.</div>
+                </div>
+                <div class="step">
+                    <div class="st-num">02</div>
+                    <div class="st-name">Pools</div>
+                    <div class="st-body">Именованные группы донор-блогеров по&nbsp;клиенту или проекту.</div>
+                </div>
+                <div class="step">
+                    <div class="st-num">03</div>
+                    <div class="st-name">Tracking</div>
+                    <div class="st-body">Apify-scrape по&nbsp;расписанию, фильтр виральности, лента с&nbsp;тумбами.</div>
+                </div>
+                <div class="step is-key">
+                    <div class="st-num">04</div>
+                    <div class="st-name">Workshop</div>
+                    <div class="st-body">Whisper-транскрипт → перевод → адаптация → ТЗ. Здесь начинается ремесло.</div>
+                </div>
+                <div class="step">
+                    <div class="st-num">05</div>
+                    <div class="st-name">Productions</div>
+                    <div class="st-body">TG-handoff в&nbsp;чат монтажёра. Linear&nbsp;/ Slack — по&nbsp;росту.</div>
+                </div>
+                <div class="step">
+                    <div class="st-num">06</div>
+                    <div class="st-name">Uploads</div>
+                    <div class="st-body">Финальные файлы, превью, метаданные.</div>
+                </div>
+                <div class="step">
+                    <div class="st-num">07</div>
+                    <div class="st-name">Posts</div>
+                    <div class="st-body">Публикации по&nbsp;расписанию. Координация команды.</div>
+                </div>
+                <div class="step">
+                    <div class="st-num">08</div>
+                    <div class="st-name">Analytics</div>
+                    <div class="st-body">Performance возвращается в&nbsp;Discovery scoring. Линия замыкается.</div>
+                </div>
+            </div>
+
+            <div class="corner-mark tr">06 / 12</div>
+        </section>
+
+        <!-- ==================== 07 — INSIDE ==================== -->
+        <section class="slide s-inside" data-slide="07">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">07 · <span class="acc">Inside</span></div>
+            </div>
+
+            <h1 class="s-head size-m" data-in style="--i:1;">
+                Три вещи, <em style="color: var(--vermillion);">ради которых</em> это построено.
+            </h1>
+
+            <div class="ins-grid">
+                <div class="ins-card acc" data-in style="--i:2;">
+                    <div class="ic-tag">A · Workshop · A–L</div>
+                    <h3>Спредшит из&nbsp;двенадцати колонок, который <em>ведёт</em> сценарий от транскрипта до approve.</h3>
+                    <p>Не дашборд, не Notion-таблица — рабочее место. Опис · IG/TT/YT · → TG handoff. Один экран, один процесс.</p>
+                </div>
+                <div class="ins-card" data-in style="--i:3;">
+                    <div class="ic-tag">B · AI co-writer</div>
+                    <h3>Чат у&nbsp;сценария — помнит контекст, пишет на твоём языке.</h3>
+                    <p>Floating bottom-right, всегда под рукой. Не «вкладка», не «копипаста промпта» — соавтор внутри ремесла, а&nbsp;не вокруг него.</p>
+                </div>
+                <div class="ins-card" data-in style="--i:4;">
+                    <div class="ic-tag">C · Telegram handoff</div>
+                    <h3>Пакетная отправка ТЗ монтажёру в&nbsp;TG-чат.</h3>
+                    <p>Без копипасты, без потерь. Карточка автоматически переезжает в&nbsp;«in production». Команда живёт в&nbsp;Telegram — Atelier с&nbsp;этим не воюет.</p>
+                </div>
+            </div>
+
+            <div class="corner-mark tr">07 / 12</div>
+        </section>
+
+        <!-- ==================== 08 — NUMBERS ==================== -->
+        <section class="slide s-numbers" data-slide="08">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">08 · <span class="acc">Effect</span></div>
+            </div>
+
+            <h1 class="s-head size-m" data-in style="--i:1;">
+                Что показали замеры · <em style="color: var(--vermillion);">pilot 14 продюсеров.</em>
+            </h1>
+
+            <div class="nums-grid">
+                <div class="num-card acc" data-in style="--i:2;">
+                    <div class="nc-head">Время от тренда до ТЗ</div>
+                    <div class="nc-value">36ч <span class="small">→ 30мин</span></div>
+                    <div class="nc-tail">Среднее по&nbsp;продюсеру, 12&nbsp;недель замера. 4 — до&nbsp;подключения, 8 — после.</div>
+                </div>
+                <div class="num-card" data-in style="--i:3;">
+                    <div class="nc-head">Сценариев в неделю</div>
+                    <div class="nc-value">×2.4</div>
+                    <div class="nc-tail">Пропускная способность на&nbsp;продюсера, среднее за&nbsp;квартал. С&nbsp;ростом — без найма.</div>
+                </div>
+                <div class="num-card" data-in style="--i:4;">
+                    <div class="nc-head">Креатив vs координация</div>
+                    <div class="nc-value">50<span style="font-size: 0.5em; vertical-align: 0.3em;">%</span></div>
+                    <div class="nc-tail">Доля времени, отнятая у&nbsp;«переключения окон» и&nbsp;возвращённая в&nbsp;креатив.</div>
+                </div>
+            </div>
+
+            <div class="num-foot" data-in style="--i:5;">
+                <span class="ast">*</span>&nbsp;Аня М., продюсер 4&nbsp;клиентских аккаунтов: «Раньше у&nbsp;меня было пятнадцать вкладок. Теперь — одна. И&nbsp;полтора лишних часа в&nbsp;день.»
+            </div>
+
+            <div class="corner-mark tr">08 / 12</div>
+        </section>
+
+        <!-- ==================== 09 — TIERS ==================== -->
+        <section class="slide s-tiers" data-slide="09">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">09 · <span class="acc">Tier</span></div>
+            </div>
+
+            <h1 class="s-head size-m" data-in style="--i:1;">
+                Три размера <em style="color: var(--vermillion);">ателье</em>.
+            </h1>
+
+            <div class="tier-grid">
+                <div class="tier-card" data-in style="--i:2;">
+                    <div class="tc-tag">Solo · Indie creator</div>
+                    <h3>Один блог,<br>один <em>я</em>.</h3>
+                    <p>Ведёшь один блог, монтажёр на&nbsp;фрилансе. Нужен tool, который заменит десяток вкладок и&nbsp;освободит время на&nbsp;креатив.</p>
+                    <ul class="tc-bullets">
+                        <li>1 workspace</li>
+                        <li>TG handoff</li>
+                        <li>AI co-writer</li>
+                    </ul>
+                </div>
+                <div class="tier-card is-pop" data-in style="--i:3;">
+                    <div class="tc-pop">★ Популярный</div>
+                    <div class="tc-tag">Studio · Малое агентство</div>
+                    <h3>1–3 блога,<br>команда <em>есть</em>.</h3>
+                    <p>1–3 клиентских блога, редактор и&nbsp;монтажёр. Нужны workspace-ы под клиентов, TG-handoff отдельно на&nbsp;каждого монтажёра, audit-log и&nbsp;комменты.</p>
+                    <ul class="tc-bullets">
+                        <li>3 workspaces</li>
+                        <li>Все интеграции</li>
+                        <li>Audit log + комменты</li>
+                    </ul>
+                </div>
+                <div class="tier-card" data-in style="--i:4;">
+                    <div class="tc-tag">Agency · Большое агентство</div>
+                    <h3>4+ клиентов,<br>роли и&nbsp;<em>права</em>.</h3>
+                    <p>Команда из&nbsp;нескольких продюсеров, права по&nbsp;workspace-ам, отдельные политики, SSO в&nbsp;планах. Под аккаунт-менеджмент и&nbsp;консолидированный отчёт клиенту.</p>
+                    <ul class="tc-bullets">
+                        <li>∞ workspaces</li>
+                        <li>Роли + права</li>
+                        <li>Консолидированные отчёты</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="corner-mark tr">09 / 12</div>
+        </section>
+
+        <!-- ==================== 10 — PRICING ==================== -->
+        <section class="slide s-pricing" data-slide="10">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">10 · <span class="acc">Pricing</span></div>
+            </div>
+
+            <h1 class="s-head size-m" data-in style="--i:1;">
+                Подписка · trial 7&nbsp;дней <em style="color: var(--vermillion);">без карты</em>.
+            </h1>
+
+            <div class="price-grid">
+                <div class="price-card" data-in style="--i:2;">
+                    <div class="pc-head">
+                        <div class="pc-name">Solo</div>
+                        <div class="pc-tag">Indie</div>
+                    </div>
+                    <div class="pc-price">
+                        <div class="now">$29</div>
+                        <div class="per">/ мес</div>
+                        <div class="promo">$20 первые 3&nbsp;мес · WELCOME30</div>
+                    </div>
+                    <ul class="pc-list">
+                        <li>1 workspace</li>
+                        <li>Discovery + Workshop</li>
+                        <li>TG handoff</li>
+                        <li>AI co-writer · базовый</li>
+                    </ul>
+                </div>
+                <div class="price-card is-pop" data-in style="--i:3;">
+                    <div class="pc-head">
+                        <div class="pc-name">Studio</div>
+                        <div class="pc-tag">★ Популярный</div>
+                    </div>
+                    <div class="pc-price">
+                        <div class="now">$89</div>
+                        <div class="per">/ мес</div>
+                        <div class="promo">$62 первые 3&nbsp;мес · WELCOME30</div>
+                    </div>
+                    <ul class="pc-list">
+                        <li>3 workspaces</li>
+                        <li>Все интеграции</li>
+                        <li>Audit log + комменты на&nbsp;сценариях</li>
+                        <li>AI co-writer · полный</li>
+                    </ul>
+                </div>
+                <div class="price-card" data-in style="--i:4;">
+                    <div class="pc-head">
+                        <div class="pc-name">Agency</div>
+                        <div class="pc-tag">Команда</div>
+                    </div>
+                    <div class="pc-price">
+                        <div class="now">$249</div>
+                        <div class="per">/ мес</div>
+                        <div class="promo">$174 первые 3&nbsp;мес · WELCOME30</div>
+                    </div>
+                    <ul class="pc-list">
+                        <li>∞ workspaces</li>
+                        <li>Роли и&nbsp;права</li>
+                        <li>Консолидированные отчёты</li>
+                        <li>SSO · soon</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="price-foot" data-in style="--i:5;">
+                <span class="code">WELCOME30</span>
+                <span>−30% на&nbsp;первые 3 месяца · до&nbsp;30&nbsp;июня 2026 · для&nbsp;первой когорты партнёров</span>
+            </div>
+
+            <div class="corner-mark tr">10 / 12</div>
+        </section>
+
+        <!-- ==================== 11 — STATUS ==================== -->
+        <section class="slide s-status" data-slide="11">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">11 · <span class="acc">Status</span></div>
+            </div>
+
+            <h1 class="s-head size-m" data-in style="--i:1;">
+                Где мы — и&nbsp;где <em style="color: var(--vermillion);">не дошли.</em>
+            </h1>
+
+            <div class="status-grid">
+                <div class="status-col" data-in style="--i:2;">
+                    <h3>Готово · что собрано</h3>
+                    <ul>
+                        <li>Дизайн собран целиком — превью открыто на&nbsp;трёх HTML-файлах (Manifesto · Onboarding · ЛК)</li>
+                        <li>Пайплайн на&nbsp;8&nbsp;шагов спроектирован end-to-end</li>
+                        <li>Закрытое pilot-исследование с&nbsp;14&nbsp;продюсерами — методология замеров</li>
+                        <li>Опубликована партнёрская скидка WELCOME30 — до&nbsp;30&nbsp;июня</li>
+                    </ul>
+                </div>
+                <div class="status-col acc" data-in style="--i:3;">
+                    <h3>Не дошли · честно</h3>
+                    <ul>
+                        <li>Paying users — ещё нет; целимся в&nbsp;первую когорту до&nbsp;30&nbsp;июня</li>
+                        <li>Публичный launch — после партнёрской волны, не раньше Q3</li>
+                        <li>Мобильное приложение — после web GA</li>
+                        <li>SSO + большие enterprise-функции — soon, не сейчас</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="status-foot" data-in style="--i:4;">
+                <span class="label">Аск</span>
+                <span class="text">50&nbsp;платящих продюсеров за&nbsp;trial-волну · знакомство с&nbsp;агентствами на&nbsp;3+ клиента · фидбек от&nbsp;тех, кто реально продюсирует.</span>
+            </div>
+
+            <div class="corner-mark tr">11 / 12</div>
+        </section>
+
+        <!-- ==================== 12 — ASK ==================== -->
+        <section class="slide s-ask" data-slide="12">
+            <div data-in style="--i:0;">
+                <div class="slide-eyebrow">12 · <span class="acc">Ask</span></div>
+            </div>
+
+            <h1 class="s-head size-l" data-in style="--i:1;">
+                Откройте превью.<br>
+                Пройдите подбор.<br>
+                Скажите, <em style="color: var(--vermillion);">где косо.</em>
+            </h1>
+
+            <div class="ask-grid">
+                <div class="ask-actions" data-in style="--i:2;">
+                    <a href="index.html">
+                        <span>Манифест &middot; index.html</span>
+                        <span class="arr">→</span>
+                    </a>
+                    <a href="onboarding.html" class="acc">
+                        <span>Подбор тарифа · 90 секунд</span>
+                        <span class="arr">→</span>
+                    </a>
+                    <a href="app.html">
+                        <span>Демо ЛК · все 8 шагов</span>
+                        <span class="arr">→</span>
+                    </a>
+                </div>
+                <div class="ask-contact" data-in style="--i:3;">
+                    Прожарка питч-деков · 20&nbsp;мая&nbsp;2026<br>
+                    Стрим 19:15&nbsp;МСК&nbsp;/&nbsp;Кипр · YouTube live<br>
+                    <br>
+                    Скидка <span style="font-family: var(--mono); color: var(--vermillion); font-style: normal;">WELCOME30</span> — −30% на&nbsp;первые 3 месяца, действует до&nbsp;30&nbsp;июня.
+                </div>
+            </div>
+
+            <div class="corner-mark tr">12 / 12 · конец</div>
+        </section>
+
+    </div>
+</div>
+
+<!-- ===========================
+     Deck chrome (bottom)
+     =========================== -->
+<div class="deck-chrome">
+    <div class="ch-left">Atelier · pitch · 20.05.2026</div>
+    <div class="deck-progress" id="progress"></div>
+    <div class="ch-right">
+        <span id="idx">01</span> <span style="color: var(--ink-ghost);">/</span> <span>12</span>
+    </div>
+</div>
+
+<!-- Base atelier behaviours (count-up, reveal, lang-toggle — noops when not present) -->
+<script src="prototype.js"></script>
+
+<!-- ===========================
+     Deck navigation
+     =========================== -->
+<script>
+(function () {
+    'use strict';
+
+    const track = document.getElementById('track');
+    const slides = Array.from(track.querySelectorAll('.slide'));
+    const total = slides.length;
+    const progressBar = document.getElementById('progress');
+    const idxLabel = document.getElementById('idx');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const hint = document.getElementById('hintChip');
+
+    // Sync the track width with slide count (in case I miscount)
+    track.style.width = (total * 100) + 'vw';
+
+    // Build progress ticks
+    progressBar.innerHTML = '';
+    const ticks = [];
+    for (let k = 0; k < total; k++) {
+        const t = document.createElement('div');
+        t.className = 'tick';
+        t.dataset.k = k;
+        t.addEventListener('click', () => go(k));
+        progressBar.appendChild(t);
+        ticks.push(t);
+    }
+
+    let i = 0;
+
+    function hintOut() {
+        if (!hint || hint.classList.contains('is-out')) return;
+        hint.classList.add('is-out');
+    }
+    setTimeout(hintOut, 4200);
+
+    function update() {
+        document.documentElement.style.setProperty('--i', i);
+        track.style.transform = `translate3d(${-i * 100}vw, 0, 0)`;
+        slides.forEach((s, k) => s.classList.toggle('is-in', k === i));
+        ticks.forEach((t, k) => {
+            t.classList.toggle('done', k < i);
+            t.classList.toggle('cur', k === i);
+        });
+        idxLabel.textContent = String(i + 1).padStart(2, '0');
+        prevBtn.disabled = (i === 0);
+        nextBtn.disabled = (i === total - 1);
+        const hash = '#' + String(i + 1).padStart(2, '0');
+        if (location.hash !== hash) history.replaceState(null, '', hash);
+        document.title = `Atelier · pitch · ${String(i + 1).padStart(2, '0')} / ${total}`;
+    }
+
+    function go(n) {
+        const next = Math.max(0, Math.min(total - 1, n));
+        if (next === i) return;
+        i = next;
+        hintOut();
+        update();
+    }
+    function next() { go(i + 1); }
+    function prev() { go(i - 1); }
+
+    // Read hash on load
+    const fromHash = parseInt((location.hash || '').replace(/[^\d]/g, ''), 10);
+    if (Number.isFinite(fromHash) && fromHash >= 1 && fromHash <= total) {
+        i = fromHash - 1;
+    }
+    update();
+    // Re-trigger is-in on the initial slide (since update toggled it once)
+    requestAnimationFrame(() => slides[i].classList.add('is-in'));
+
+    // Keyboard
+    document.addEventListener('keydown', (e) => {
+        // Don't hijack form inputs
+        if (e.target && /input|textarea|select/i.test(e.target.tagName)) return;
+
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+            e.preventDefault(); next();
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            e.preventDefault(); prev();
+        } else if (e.key === 'Home') {
+            e.preventDefault(); go(0);
+        } else if (e.key === 'End') {
+            e.preventDefault(); go(total - 1);
+        } else if (/^[1-9]$/.test(e.key)) {
+            const k = parseInt(e.key, 10) - 1;
+            if (k < total) go(k);
+        } else if (e.key === '0') {
+            // 0 → slide 10 (since 1-9 covers 1-9)
+            if (total >= 10) go(9);
+        } else if (e.key === 'f' || e.key === 'F') {
+            if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+            else document.exitFullscreen?.();
+        } else if (e.key === 'Escape') {
+            // No-op intentionally — Escape collapses fullscreen natively
+        }
+    });
+
+    // Buttons
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+
+    // Edge clicks
+    document.querySelectorAll('.deck-edge').forEach(el => {
+        el.addEventListener('click', () => {
+            if (el.dataset.go === 'next') next(); else prev();
+        });
+    });
+
+    // Touch swipe
+    let touchX = null, touchY = null;
+    track.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        touchX = e.touches[0].clientX;
+        touchY = e.touches[0].clientY;
+    }, { passive: true });
+    track.addEventListener('touchend', (e) => {
+        if (touchX === null) return;
+        const dx = (e.changedTouches[0].clientX - touchX);
+        const dy = (e.changedTouches[0].clientY - touchY);
+        touchX = touchY = null;
+        if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+        if (dx < 0) next(); else prev();
+    }, { passive: true });
+
+    // Hash change (e.g. forward/back nav)
+    window.addEventListener('hashchange', () => {
+        const k = parseInt((location.hash || '').replace(/[^\d]/g, ''), 10);
+        if (Number.isFinite(k) && k >= 1 && k <= total) go(k - 1);
+    });
+
+    // Wheel — allow horizontal trackpad nudges to advance (with throttle)
+    let wheelLock = false;
+    window.addEventListener('wheel', (e) => {
+        if (wheelLock) return;
+        // Detect strong horizontal intent only
+        if (Math.abs(e.deltaX) > 40 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+            wheelLock = true;
+            if (e.deltaX > 0) next(); else prev();
+            setTimeout(() => { wheelLock = false; }, 700);
+        }
+    }, { passive: true });
+})();
+</script>
+
+</body>
+</html>
