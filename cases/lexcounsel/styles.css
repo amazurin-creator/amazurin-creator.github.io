@@ -149,26 +149,32 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 56px; }
 .lx-practice-list li {
   display: grid;
   grid-template-columns: 60px 1fr;
-  gap: 40px;
+  grid-template-areas:
+    "num head"
+    ".   body";
+  column-gap: 40px;
+  row-gap: 10px;
   padding: 36px 0;
   border-top: 1px solid var(--rule);
 }
 .lx-practice-list li:last-child { border-bottom: 1px solid var(--rule); }
 .lx-practice-list .num {
+  grid-area: num;
   font-family: var(--serif);
   font-style: italic;
   font-size: 24px;
   color: var(--gold);
 }
 .lx-practice-list h3 {
+  grid-area: head;
   font-family: var(--serif);
   font-weight: 500;
   font-size: 26px;
   color: var(--navy);
-  margin-bottom: 10px;
   letter-spacing: -0.005em;
 }
 .lx-practice-list p {
+  grid-area: body;
   color: var(--fg-soft);
   font-size: 16px;
   line-height: 1.55;
@@ -370,13 +376,30 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 56px; }
 @media (max-width: 900px) {
   .lx-consult { grid-template-columns: 1fr; }
   .lx-approach-grid { grid-template-columns: 1fr; gap: 32px; }
-  .lx-practice-list li { grid-template-columns: 40px 1fr; gap: 20px; }
+  .lx-practice-list li { grid-template-columns: 40px 1fr; column-gap: 20px; }
   main { padding: 0 24px; }
-  .lx-header { padding: 18px 24px; }
-  .lx-header nav { gap: 18px; font-size: 12px; }
+  .lx-header { padding: 18px 24px; flex-wrap: wrap; gap: 12px; }
+  .lx-header nav { gap: 18px; font-size: 12px; flex-wrap: wrap; }
   .lx-chamber { padding: 28px; }
   .lx-meta { grid-template-columns: 1fr; gap: 24px; }
   .lx-footer { padding: 24px; flex-direction: column; gap: 8px; }
+  .lx-hero { padding: 80px 0 56px; }
+  .lx-questions { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  main { padding: 0 18px; }
+  .lx-header { padding: 14px 18px; }
+  .lx-header nav { font-size: 11px; gap: 12px; }
+  .lx-headline { font-size: clamp(32px, 9vw, 48px); }
+  .lx-deck { font-size: 18px; }
+  .lx-h2 { font-size: clamp(28px, 7vw, 36px); }
+  .lx-chamber { padding: 22px 20px; }
+  .lx-question { font-size: 18px; }
+  .lx-response { font-size: 17px; }
+  .lx-practice-list li { padding: 24px 0; }
+  .lx-practice-list h3 { font-size: 22px; }
+  .lx-letterhead-mark { font-size: 14px; letter-spacing: 0.35em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
