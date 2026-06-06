@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wavelet — sound, rewritten</title>
+  <meta name="description" content="Wavelet is an AI audio studio. Voice, score, foley — synthesized in seconds, sounding like it took a week.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wv-bg" aria-hidden="true"></div>
+
+  <header class="wv-header">
+    <a class="wv-brand" href="/">WAVELET</a>
+    <nav>
+      <a href="#patches">Patches</a>
+      <a href="#studio">Studio</a>
+      <a href="#manifesto">Manifesto</a>
+      <a href="/">← Portfolio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wv-hero">
+      <p class="wv-eyebrow">AUDIO · GENERATION · LIVE</p>
+      <h1 class="wv-headline">
+        SOUND,<br>
+        <span class="hl">REWRITTEN</span>.
+      </h1>
+      <div class="wv-hero-row">
+        <p class="wv-sub">
+          Wavelet is an AI audio studio. Voice. Score. Foley. Ambience.<br>
+          Synthesized in seconds — sounding like it took a week.
+        </p>
+        <button class="wv-hero-play" id="hero-play" aria-label="Play hero sample">
+          <span class="play-icon">▶</span>
+          <span class="play-label">Hit play</span>
+        </button>
+      </div>
+      <canvas id="hero-waveform" class="wv-hero-waveform" aria-hidden="true"></canvas>
+    </section>
+
+    <section class="wv-marquee" aria-hidden="true">
+      <div class="wv-marquee-inner">
+        <span>VOICE GEN</span><span>·</span>
+        <span>SCORE</span><span>·</span>
+        <span>FOLEY</span><span>·</span>
+        <span>AMBIENT</span><span>·</span>
+        <span>DUB</span><span>·</span>
+        <span>SFX</span><span>·</span>
+        <span>MASTERING</span><span>·</span>
+        <span>VOICE GEN</span><span>·</span>
+        <span>SCORE</span><span>·</span>
+        <span>FOLEY</span><span>·</span>
+        <span>AMBIENT</span><span>·</span>
+        <span>DUB</span><span>·</span>
+        <span>SFX</span><span>·</span>
+        <span>MASTERING</span><span>·</span>
+      </div>
+    </section>
+
+    <section class="wv-patches" id="patches">
+      <header class="wv-section-head">
+        <p class="wv-eyebrow">PATCHES</p>
+        <h2 class="wv-h2">FROM A WHISPER<br>TO A WALL OF SOUND.</h2>
+      </header>
+
+      <div class="wv-patch-grid">
+        <article class="wv-patch wv-patch-1">
+          <h3>WHISPER</h3>
+          <p>Intimate ASMR-grade voice. Studio close-mic, breath, room. For meditation apps, audio journalism, lullaby tech.</p>
+          <span class="wv-patch-tag">VOICE</span>
+        </article>
+        <article class="wv-patch wv-patch-2">
+          <h3>ANTHEM</h3>
+          <p>Stadium-scale instrumental cues. Lush strings, gated drums, four-bar swells. For trailers, sport, brand films.</p>
+          <span class="wv-patch-tag">SCORE</span>
+        </article>
+        <article class="wv-patch wv-patch-3">
+          <h3>CINEMA</h3>
+          <p>Deep ambience, sub bass, controlled tension. Trailer beds, video game underscore, documentary backbone.</p>
+          <span class="wv-patch-tag">AMBIENT</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="wv-studio" id="studio">
+      <header class="wv-section-head">
+        <p class="wv-eyebrow">DEMO STUDIO</p>
+        <h2 class="wv-h2">PICK A PATCH.<br>HIT PLAY.</h2>
+        <p class="wv-section-sub">Live waveform. Synthesized on your device. No streaming.</p>
+      </header>
+
+      <div class="wv-deck">
+        <div class="wv-pads">
+          <button class="wv-pad active" data-patch="whisper">
+            <span class="pad-no">01</span>
+            <span class="pad-name">Whisper</span>
+            <span class="pad-meta">8s · A♭ minor</span>
+          </button>
+          <button class="wv-pad" data-patch="anthem">
+            <span class="pad-no">02</span>
+            <span class="pad-name">Anthem</span>
+            <span class="pad-meta">10s · D major</span>
+          </button>
+          <button class="wv-pad" data-patch="cinema">
+            <span class="pad-no">03</span>
+            <span class="pad-name">Cinema</span>
+            <span class="pad-meta">12s · E♭ drone</span>
+          </button>
+        </div>
+
+        <div class="wv-stage">
+          <div class="wv-stage-top">
+            <div class="wv-stage-meta">
+              <span class="wv-now-playing" id="now-playing">Whisper · ready</span>
+              <span class="wv-timer" id="wv-timer">00:00 / 00:08</span>
+            </div>
+            <button class="wv-transport" id="wv-play" aria-label="Play">
+              <span id="wv-play-icon">▶</span>
+            </button>
+          </div>
+          <canvas id="wv-wave" class="wv-wave-canvas"></canvas>
+          <div class="wv-spectrum" id="wv-spectrum"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wv-manifesto" id="manifesto">
+      <h2 class="wv-h2">SOUND IS NOT A FILE.<br>IT IS A FEELING.</h2>
+      <div class="wv-manifesto-grid">
+        <p>The last generation of AI audio was about <em>imitation</em>. Clone a voice. Mimic a track. Wavelet is about <em>composition</em>. Direct a performance. Sculpt a mood. Build a sonic identity that's yours, not copied.</p>
+        <p>Wavelet runs locally when you want privacy, in the cloud when you want power. Models trained on licensed catalogues only. Every output is yours, royalty-free, in perpetuity.</p>
+      </div>
+    </section>
+
+    <section class="wv-cta">
+      <h2 class="wv-h2 wv-h2-center">JOIN THE STUDIO.</h2>
+      <a class="wv-button" href="#">REQUEST ACCESS →</a>
+    </section>
+  </main>
+
+  <footer class="wv-footer">
+    <span>WAVELET — A CONCEPT BY A. MAZURIN — 2026</span>
+    <span>NO REAL AUDIO LICENSED OR INFRINGED</span>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 05 · Wavelet</p>
+    <h2>Sound as a brand material.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI audio generation studio aimed at creative professionals. The site has to feel as bold and expressive as the product would sound.</p>
+
+    <h3>Who is it for?</h3>
+    <p>Directors, ad creatives, content producers, podcasters — people who already know what they want and need a fast, capable instrument, not a karaoke tool.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Brutalist oversized type (Archivo Black) — sound is bold, the type carries the loudness.</li>
+      <li>Spectral gradient (cyan → magenta → orange) — the visual language of audio: spectrum analyzers, waveforms, EQ.</li>
+      <li>Real Web Audio API synthesis for the demo — not pre-recorded clips. The user hears something different every time, generated on their device. The interaction <em>is</em> the proof.</li>
+      <li>Live waveform canvas + spectrum bars — the page is visibly listening to itself.</li>
+      <li>Marquee strip — relentless motion, like a tape machine.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>Energy, expressiveness, capability. The page should make a creative think "this is mine" within seconds. Restraint would have been the wrong choice.</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
