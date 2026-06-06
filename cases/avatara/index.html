@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avatara — AI creators for your brand</title>
+  <meta name="description" content="Virtual influencers built for your brand. AI-generated content creators. Real reach, zero filming.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="av-header">
+    <a class="av-brand" href="/">
+      avatara<span class="av-dot">.</span>
+    </a>
+    <nav>
+      <a href="#industries">Industries</a>
+      <a href="#calculator">Reach</a>
+      <a href="#roster">Roster</a>
+      <a href="#contact" class="av-cta-nav">Book a creator →</a>
+      <a href="/" class="av-back">← Portfolio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="av-hero">
+      <h1 class="av-headline">
+        We create<br>
+        <span class="av-hl">AI creators</span><br>
+        for your brand.
+      </h1>
+      <div class="av-hero-row">
+        <p class="av-sub">
+          Virtual content creators tailored to your industry. No filming. No production. No talent management. Real reach, in any market.
+        </p>
+        <div class="av-hero-cta">
+          <a class="av-button" href="#calculator">Calculate your reach →</a>
+          <a class="av-button av-button-ghost" href="#roster">See the roster</a>
+        </div>
+      </div>
+      <div class="av-hero-stats">
+        <div><span class="av-stat-num">214</span><span class="av-stat-lbl">creators deployed</span></div>
+        <div><span class="av-stat-num">38</span><span class="av-stat-lbl">brands served</span></div>
+        <div><span class="av-stat-num">4.2B</span><span class="av-stat-lbl">total impressions</span></div>
+        <div><span class="av-stat-num">0</span><span class="av-stat-lbl">filming days required</span></div>
+      </div>
+    </section>
+
+    <section class="av-industries" id="industries">
+      <h2 class="av-h2">Built for every industry.</h2>
+      <p class="av-h2-sub">We design creators that look like they belong in your category — from the first frame.</p>
+
+      <div class="av-industry-grid">
+        <a class="av-industry" href="#">
+          <span class="av-icon">🤖</span>
+          <h3>Tech</h3>
+          <p>Product launches, dev relations, SaaS evergreen content.</p>
+        </a>
+        <a class="av-industry" href="#">
+          <span class="av-icon">₿</span>
+          <h3>Crypto</h3>
+          <p>Market analysis, project explainers, native-feeling memes.</p>
+        </a>
+        <a class="av-industry" href="#">
+          <span class="av-icon">💄</span>
+          <h3>Beauty</h3>
+          <p>Tutorials, product reviews, GRWM-style daily content.</p>
+        </a>
+        <a class="av-industry" href="#">
+          <span class="av-icon">🏋️</span>
+          <h3>Fitness</h3>
+          <p>Form checks, programs, transformation testimonials.</p>
+        </a>
+        <a class="av-industry" href="#">
+          <span class="av-icon">✈️</span>
+          <h3>Travel</h3>
+          <p>Destination guides, hotel reviews, "a day in" formats.</p>
+        </a>
+        <a class="av-industry" href="#">
+          <span class="av-icon">🍳</span>
+          <h3>Food</h3>
+          <p>Recipes, restaurant features, ingredient deep-dives.</p>
+        </a>
+        <a class="av-industry" href="#">
+          <span class="av-icon">📈</span>
+          <h3>Finance</h3>
+          <p>Stock takes, personal finance, fintech product education.</p>
+        </a>
+        <a class="av-industry" href="#">
+          <span class="av-icon">🎨</span>
+          <h3>Lifestyle</h3>
+          <p>Fashion, home design, daily-vlog and aesthetic content.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="av-calculator" id="calculator">
+      <div class="av-calc-grid">
+        <div>
+          <p class="av-eyebrow">Reach calculator</p>
+          <h2 class="av-h2">Move the sliders.<br>See what you'd ship.</h2>
+          <p class="av-section-sub">Based on average engagement across our 214 active creators. Real numbers, no fluff.</p>
+        </div>
+        <div class="av-calc">
+          <div class="av-slider-row">
+            <label for="creators-slider">
+              <span class="av-slider-name">Avatars</span>
+              <span class="av-slider-val" id="creators-val">3</span>
+            </label>
+            <input id="creators-slider" type="range" min="1" max="20" value="3" step="1">
+            <div class="av-slider-meta">
+              <span>1</span>
+              <span>20 creators</span>
+            </div>
+          </div>
+
+          <div class="av-slider-row">
+            <label for="posts-slider">
+              <span class="av-slider-name">Posts per week</span>
+              <span class="av-slider-val" id="posts-val">5</span>
+            </label>
+            <input id="posts-slider" type="range" min="1" max="14" value="5" step="1">
+            <div class="av-slider-meta">
+              <span>1</span>
+              <span>14 posts</span>
+            </div>
+          </div>
+
+          <div class="av-slider-row">
+            <label for="quality-slider">
+              <span class="av-slider-name">Production tier</span>
+              <span class="av-slider-val" id="quality-val">Standard</span>
+            </label>
+            <input id="quality-slider" type="range" min="1" max="3" value="2" step="1">
+            <div class="av-slider-meta">
+              <span>Lite</span>
+              <span>Premium</span>
+            </div>
+          </div>
+
+          <div class="av-calc-results">
+            <div class="av-calc-card highlight">
+              <span class="av-calc-num" id="reach-num">0</span>
+              <span class="av-calc-lbl">monthly reach (projected)</span>
+            </div>
+            <div class="av-calc-card">
+              <span class="av-calc-num" id="posts-num">0</span>
+              <span class="av-calc-lbl">posts shipped / month</span>
+            </div>
+            <div class="av-calc-card">
+              <span class="av-calc-num" id="cost-num">$0</span>
+              <span class="av-calc-lbl">monthly investment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="av-roster" id="roster">
+      <p class="av-eyebrow">The roster</p>
+      <h2 class="av-h2">Meet a few creators.</h2>
+
+      <div class="av-roster-grid">
+        <article class="av-creator">
+          <div class="av-creator-portrait" style="background:linear-gradient(135deg,#FFD2A8,#FF8FB1)">
+            <span class="av-creator-emoji">👩🏻</span>
+          </div>
+          <div class="av-creator-meta">
+            <h3>Mara</h3>
+            <p class="av-creator-niche">Beauty · 22</p>
+          </div>
+          <div class="av-creator-stats">
+            <div><strong>1.2M</strong><span>followers</span></div>
+            <div><strong>8.4%</strong><span>engagement</span></div>
+            <div><strong>$24K</strong><span>monthly</span></div>
+          </div>
+        </article>
+
+        <article class="av-creator">
+          <div class="av-creator-portrait" style="background:linear-gradient(135deg,#1A1A1A,#5C5C5C)">
+            <span class="av-creator-emoji">🧑🏽</span>
+          </div>
+          <div class="av-creator-meta">
+            <h3>Nico</h3>
+            <p class="av-creator-niche">Tech · 27</p>
+          </div>
+          <div class="av-creator-stats">
+            <div><strong>840K</strong><span>followers</span></div>
+            <div><strong>9.1%</strong><span>engagement</span></div>
+            <div><strong>$31K</strong><span>monthly</span></div>
+          </div>
+        </article>
+
+        <article class="av-creator">
+          <div class="av-creator-portrait" style="background:linear-gradient(135deg,#C5F02E,#7BB627)">
+            <span class="av-creator-emoji">👨🏼</span>
+          </div>
+          <div class="av-creator-meta">
+            <h3>Theo</h3>
+            <p class="av-creator-niche">Finance · 31</p>
+          </div>
+          <div class="av-creator-stats">
+            <div><strong>2.1M</strong><span>followers</span></div>
+            <div><strong>6.8%</strong><span>engagement</span></div>
+            <div><strong>$52K</strong><span>monthly</span></div>
+          </div>
+        </article>
+
+        <article class="av-creator">
+          <div class="av-creator-portrait" style="background:linear-gradient(135deg,#A8E6FF,#5C9DD9)">
+            <span class="av-creator-emoji">👩🏼</span>
+          </div>
+          <div class="av-creator-meta">
+            <h3>Iris</h3>
+            <p class="av-creator-niche">Travel · 25</p>
+          </div>
+          <div class="av-creator-stats">
+            <div><strong>620K</strong><span>followers</span></div>
+            <div><strong>11.2%</strong><span>engagement</span></div>
+            <div><strong>$18K</strong><span>monthly</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="av-faq">
+      <p class="av-eyebrow">Honest questions</p>
+      <h2 class="av-h2">The things people actually ask.</h2>
+
+      <div class="av-faq-list">
+        <details>
+          <summary>Are the audiences real?</summary>
+          <p>Yes. Avatara creators publish on Instagram, TikTok, YouTube, and X. Followers, comments, DMs — all from real humans. We do not buy traffic. The reach is earned the same way human creators earn it.</p>
+        </details>
+        <details>
+          <summary>How do you disclose AI-generated content?</summary>
+          <p>Every Avatara creator's profile and post is clearly labelled per FTC and platform AI-disclosure guidelines. Trust is the entire product; deception would destroy it within a quarter.</p>
+        </details>
+        <details>
+          <summary>Can we license a creator exclusively?</summary>
+          <p>Yes. Exclusive licensing transfers full creative control of the creator's persona, posting cadence, and brand affiliations to your team. Premium tier only.</p>
+        </details>
+        <details>
+          <summary>What happens if the algorithm changes?</summary>
+          <p>Our creators are platform-portable. The persona is the asset, not the account. If a platform collapses, the creator moves. This is the structural advantage of digital talent.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="av-contact" id="contact">
+      <h2 class="av-h2 av-h2-center">Ready to ship?</h2>
+      <p class="av-section-sub av-section-sub-center">Book a 20-minute strategy call. We'll model your reach against your category and propose a creator within 48 hours.</p>
+      <a class="av-button av-button-large" href="#">Book a creator →</a>
+    </section>
+  </main>
+
+  <footer class="av-footer">
+    <div class="av-footer-brand">avatara<span class="av-dot">.</span></div>
+    <div class="av-footer-meta">
+      <span>Concept design · A. Mazurin · 2026</span>
+      <span>AI-generated. Disclosed accordingly.</span>
+    </div>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 10 · Avatara</p>
+    <h2>The AI agency, reimagined.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI virtual-influencer agency, modelled aesthetically on ai-content.agency at the user's request. The pitch: virtual content creators built for brands across verticals.</p>
+
+    <h3>Who is it for?</h3>
+    <p>Marketing leads, brand managers, and growth teams — people who already work with creator agencies and recognise that AI-generated talent is a new lever, not a gimmick.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Pure white, near-black, single neon-green accent (#C5F02E) — the bold-but-clean palette of the reference site.</li>
+      <li>Inter heavy weights for the hero — the page leads with type-as-statement.</li>
+      <li>Emoji as functional icons for industries — the reference site's trick, retained here because it works: instant recognition, zero cognitive load.</li>
+      <li>Live reach calculator with three sliders — the interactive centerpiece. Numbers update as you move them; the calculator IS the pitch.</li>
+      <li>Roster cards with synthetic-creator portraits — gradients in place of photos. Honest, since these aren't real people.</li>
+      <li>FAQ uses native &lt;details&gt;/&lt;summary&gt; — zero JS, accessible, fast.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>Confidence and pragmatism. AI-creator agencies are still novel — the design has to feel established without pretending to be a 20-year-old shop. The reference site nails this; we honour it.</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
