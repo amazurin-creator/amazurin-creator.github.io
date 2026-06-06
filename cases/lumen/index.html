@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lumen — an AI image studio, curated like a gallery</title>
+  <meta name="description" content="Lumen is an AI image studio for art directors and creatives. Editorial, not algorithmic. A curator, not a slot machine.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="lm-header">
+    <a class="lm-brand" href="/">
+      LUMEN<span class="lm-brand-dot"></span>
+    </a>
+    <nav class="lm-nav">
+      <a href="#gallery">Gallery</a>
+      <a href="#studio">Studio</a>
+      <a href="#editions">Editions</a>
+      <a href="/">← Portfolio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="lm-hero" id="gallery">
+      <div class="lm-hero-grid" aria-hidden="true">
+        <figure class="lm-hero-tile lm-h-01"><img src="https://picsum.photos/seed/lumen-hero-01/900/1200" alt=""></figure>
+        <figure class="lm-hero-tile lm-h-02"><img src="https://picsum.photos/seed/lumen-hero-02/900/900" alt=""></figure>
+        <figure class="lm-hero-tile lm-h-03"><img src="https://picsum.photos/seed/lumen-hero-03/900/1400" alt=""></figure>
+        <figure class="lm-hero-tile lm-h-04"><img src="https://picsum.photos/seed/lumen-hero-04/900/1100" alt=""></figure>
+        <figure class="lm-hero-tile lm-h-05"><img src="https://picsum.photos/seed/lumen-hero-05/900/1300" alt=""></figure>
+        <figure class="lm-hero-tile lm-h-06"><img src="https://picsum.photos/seed/lumen-hero-06/900/900" alt=""></figure>
+        <figure class="lm-hero-tile lm-h-07"><img src="https://picsum.photos/seed/lumen-hero-07/900/1200" alt=""></figure>
+        <figure class="lm-hero-tile lm-h-08"><img src="https://picsum.photos/seed/lumen-hero-08/900/1100" alt=""></figure>
+        <figure class="lm-hero-tile lm-h-09"><img src="https://picsum.photos/seed/lumen-hero-09/900/1500" alt=""></figure>
+      </div>
+      <div class="lm-hero-veil"></div>
+      <div class="lm-hero-copy">
+        <p class="lm-folio">LUMEN · ISSUE 01 · SPRING 2026</p>
+        <h1 class="lm-h1">
+          <em>An image</em>,<br>
+          before you knew<br>
+          you wanted it.
+        </h1>
+        <p class="lm-deck">An AI image studio, curated like a gallery — for the people who already have taste.</p>
+      </div>
+      <div class="lm-hero-scroll" aria-hidden="true">
+        <span class="lm-mono">SCROLL · TO BEGIN</span>
+      </div>
+    </section>
+
+    <section class="lm-rule"><span>§ I · STUDIO</span></section>
+
+    <section class="lm-studio" id="studio">
+      <header class="lm-studio-head">
+        <p class="lm-eyebrow">PROMPT TO GALLERY</p>
+        <h2 class="lm-h2">Describe a picture.<br><em>Receive a wing.</em></h2>
+        <p class="lm-studio-sub">Lumen does not throw four images at you and ask which is least wrong. It reads your intent, selects, sequences, and presents — the way a curator would hang a wall.</p>
+      </header>
+
+      <div class="lm-chips" role="tablist" aria-label="Prompt presets">
+        <button class="lm-chip active" data-preset="brutalist">Brutalist still life</button>
+        <button class="lm-chip" data-preset="editorial">Editorial portrait</button>
+        <button class="lm-chip" data-preset="cinematic">Cinematic landscape</button>
+        <button class="lm-chip" data-preset="surreal">Surreal minimal</button>
+        <button class="lm-chip" data-preset="fashion">Studio fashion</button>
+        <button class="lm-chip" data-preset="botanical">Botanical study</button>
+      </div>
+
+      <form class="lm-prompt" id="lm-prompt" autocomplete="off">
+        <span class="lm-prompt-arrow" aria-hidden="true">→</span>
+        <input class="lm-prompt-input" id="lm-prompt-input" type="text" placeholder="soft window light, late afternoon, melancholic">
+        <button class="lm-prompt-submit" type="submit">Generate</button>
+      </form>
+
+      <div class="lm-stage">
+        <div class="lm-gallery" id="lm-gallery" aria-live="polite">
+          <!-- populated by JS -->
+        </div>
+        <div class="lm-shimmer" id="lm-shimmer" aria-hidden="true"></div>
+      </div>
+
+      <div class="lm-reading">
+        <p class="lm-reading-label">LUMEN'S READING</p>
+        <p class="lm-reading-text" id="lm-reading">Lumen read your intent as: <em>weight, shadow, and the geometry of restraint</em>. 6 of 247 results, sorted by editorial fit.</p>
+      </div>
+    </section>
+
+    <section class="lm-rule"><span>§ II · EDITIONS</span></section>
+
+    <section class="lm-editions" id="editions">
+      <header class="lm-editions-head">
+        <p class="lm-eyebrow">CURATED RELEASES</p>
+        <h2 class="lm-h2">Editions, <em>not feeds.</em></h2>
+        <p class="lm-studio-sub">Three times a season, our editors and the model publish a closed set. Read it like a magazine, not a feed.</p>
+      </header>
+
+      <div class="lm-editions-rail">
+        <article class="lm-edition">
+          <div class="lm-edition-frame">
+            <img src="https://picsum.photos/seed/lumen-edition-01/1200/1500" alt="Edition 01 hero">
+            <span class="lm-edition-num">01</span>
+          </div>
+          <div class="lm-edition-meta">
+            <p class="lm-mono">EDITION 01 · 24 PLATES</p>
+            <h3>Quiet Rooms</h3>
+            <p class="lm-edition-desc">Interiors after the conversation has ended. Long shadows, dust in the light, the chair pushed back from the table.</p>
+          </div>
+        </article>
+        <article class="lm-edition">
+          <div class="lm-edition-frame lm-edition-dark">
+            <img src="https://picsum.photos/seed/lumen-edition-02/1200/1500" alt="Edition 02 hero">
+            <span class="lm-edition-num">02</span>
+          </div>
+          <div class="lm-edition-meta">
+            <p class="lm-mono">EDITION 02 · 18 PLATES</p>
+            <h3>Slow Motion</h3>
+            <p class="lm-edition-desc">Bodies caught mid-gesture, fabric still falling, water not yet hitting the floor. The frame between two frames.</p>
+          </div>
+        </article>
+        <article class="lm-edition">
+          <div class="lm-edition-frame">
+            <img src="https://picsum.photos/seed/lumen-edition-03/1200/1500" alt="Edition 03 hero">
+            <span class="lm-edition-num">03</span>
+          </div>
+          <div class="lm-edition-meta">
+            <p class="lm-mono">EDITION 03 · 30 PLATES</p>
+            <h3>Forgotten Light</h3>
+            <p class="lm-edition-desc">Sun on a wall no one is looking at. The hour after blue, the hour before black. Landscapes in the corner of an eye.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="lm-rule"><span>§ III · A MANIFESTO</span></section>
+
+    <section class="lm-manifesto">
+      <header class="lm-manifesto-head">
+        <p class="lm-eyebrow">ON METHOD</p>
+        <h2 class="lm-h2">Curation, <em>not casino.</em></h2>
+      </header>
+
+      <div class="lm-manifesto-body">
+        <p class="lm-mfst-p">
+          <span class="lm-dropcap">T</span>he current generation of image tools has the metabolism of a slot machine. Type a prompt, receive a pile, reroll, reroll again. The interface treats vision as a probability distribution and the user as a gambler. We watched art directors — actual ones — open these tools, generate forty images in ninety seconds, and close the tab. They were not impressed. They were tired.
+        </p>
+        <p class="lm-mfst-p">
+          Lumen is the opposite proposition. We believe a tool for image-makers should behave like a curator, not a croupier. It should read intent, select with confidence, and present a small, sequenced wall. It should fail in a particular way rather than succeed in a generic one. We are building Lumen for the people who already have an eye — who know precisely what they want, and refuse to look at the eight images they did not.
+        </p>
+      </div>
+    </section>
+
+    <section class="lm-cta">
+      <p class="lm-eyebrow">PRIVATE BETA</p>
+      <h2 class="lm-h2">Request <em>an invitation.</em></h2>
+      <p class="lm-cta-sub">Lumen is opening, slowly, to a small list of studios, magazines, and independent art directors. Tell us what you are working on.</p>
+      <a class="lm-button" href="#">Request invitation →</a>
+      <p class="lm-cta-foot lm-mono">REPLIES IN 3–5 DAYS · NO WAITLIST GAMES</p>
+    </section>
+  </main>
+
+  <footer class="lm-footer">
+    <div class="lm-foot-l">
+      <p class="lm-foot-mark">L</p>
+      <p class="lm-mono">LUMEN STUDIO · CONCEPT DESIGN · A. MAZURIN · 2026</p>
+    </div>
+    <div class="lm-foot-r">
+      <p class="lm-mono">SET IN PLAYFAIR DISPLAY, INTER, JETBRAINS MONO.</p>
+      <p class="lm-mono">IMAGES VIA PICSUM · NO AI WAS HARMED.</p>
+    </div>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 06 · Lumen</p>
+    <h2>The gallery, not the cafeteria.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI image studio that treats image-making like editorial work, not slot-machine reroll. The user describes a picture; Lumen returns a curated, sequenced selection — a wall, not a feed.</p>
+
+    <h3>Who is it for?</h3>
+    <p>Art directors, fashion editors, creative directors, photographers, magazine designers — people who already have taste and are insulted by being shown a grid of four mediocre options.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Cream paper (#F5F1EA), warm black ink, single muted bronze accent. The visual home of print magazines, not SaaS dashboards. The page should feel like the table at Aesop, not the inside of Discord.</li>
+      <li>Oversized italic Playfair serif headlines. A friendly sans (Inter, Söhne) would soften the proposition. Lumen is not friendly — it is exacting. The italic communicates editorial authority before a word is read.</li>
+      <li>Picsum image URLs throughout, generated deterministically from named seeds (lumen-brut-01, lumen-fash-03, etc.). Stable, varied, free of subject-matter assumptions. Image-first pages built on purple gradient placeholders die in the first second; real photography buys you everything.</li>
+      <li>The studio interaction replaces the entire gallery in a single shimmer transition — no "loading 1 of 4" busywork, no progress bars. Curators do not show their work; they present the finished wall.</li>
+      <li>Hard 4px / 0px corners throughout, no drop shadows on framing. The gallery aesthetic means the frame is silent so the picture can speak. SaaS-style rounded rectangles would have killed it instantly.</li>
+      <li>Asymmetric grid with deliberate span variations (some images tall, some square, some wide). A perfect 3×2 grid reads as Pinterest; uneven proportions read as a magazine spread.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>Discrimination. The visitor should feel — in the first five seconds — that this product was built by someone who knows the difference between a generated image and a chosen one, and refuses to confuse the two.</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

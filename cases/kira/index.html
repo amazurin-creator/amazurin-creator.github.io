@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kira Ito — ML engineer in Tokyo</title>
+  <meta name="description" content="Personal site of Kira Ito, an ML engineer based in Tokyo. Currently with Sakana AI. Selected work, writing, and where to find her.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="ki-header">
+    <a class="ki-brand" href="#top" aria-label="Kira Ito, home">
+      <span class="ki-brand-name">Kira Ito</span>
+      <span class="ki-brand-pulse" id="brand-pulse" aria-label="Recently updated"></span>
+    </a>
+    <p class="ki-status">
+      <span class="ki-dot" aria-hidden="true"></span>
+      <span class="ki-status-label">Currently</span>
+      <span class="ki-status-sep" aria-hidden="true">·</span>
+      <span>Open to research collaborations</span>
+    </p>
+    <nav class="ki-nav">
+      <a href="/">← Portfolio</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <section class="ki-hero">
+      <h1 class="ki-h1">Kira Ito.</h1>
+      <p class="ki-strapline">ML engineer in Tokyo. Currently with Sakana AI.</p>
+      <div class="ki-about">
+        <p>I work on the parts of language models that decide what to attend to and when to stop. Before Sakana I spent three years at Preferred Networks, and before that I read mathematics at the University of Tokyo.</p>
+        <p>I write here irregularly. I read more than I publish. If our work overlaps, I'd be glad to hear from you.</p>
+      </div>
+    </section>
+
+    <hr class="ki-rule">
+
+    <section class="ki-section" id="now" aria-labelledby="now-heading">
+      <h2 id="now-heading" class="ki-h2">Now</h2>
+      <ul class="ki-now" id="now-list">
+        <li class="now-item" data-key="routing">
+          <button class="now-toggle" aria-expanded="false">
+            <span class="now-bullet" aria-hidden="true">●</span>
+            <span class="now-label">Working on adaptive context routing for long-horizon agents.</span>
+            <span class="now-date">since Mar</span>
+          </button>
+          <div class="now-detail" hidden>
+            <p>The idea: most agent frameworks treat the context window like a stack. We're testing whether a learned router — trained on the same trajectories the agent ran — can decide which past observations to keep verbatim, which to compress, and which to forget. Early results suggest the gains compound on tasks longer than ~40 steps. Paper in draft.</p>
+          </div>
+        </li>
+        <li class="now-item" data-key="tokyoml">
+          <button class="now-toggle" aria-expanded="false">
+            <span class="now-bullet" aria-hidden="true">●</span>
+            <span class="now-label">Co-organising TokyoML reading group (Wed 7pm, all welcome).</span>
+            <span class="now-date">since Jan</span>
+          </button>
+          <div class="now-detail" hidden>
+            <p>About thirty of us meet at a small studio in Yanaka. One paper a week, chosen by whoever volunteers. No slides, no demos — just the paper and an hour of arguing about it in a mix of Japanese and English. We had a good session on the Mamba follow-ups last month. Mail me if you want the calendar invite.</p>
+          </div>
+        </li>
+        <li class="now-item" data-key="hofstadter">
+          <button class="now-toggle" aria-expanded="false">
+            <span class="now-bullet" aria-hidden="true">●</span>
+            <span class="now-label">Reading Hofstadter's <em>Le Ton Beau de Marot</em> a second time.</span>
+            <span class="now-date">since Feb</span>
+          </button>
+          <div class="now-detail" hidden>
+            <p>It is the right book to be reading while building a translation tool, and the right book to be reading while not building one. Hofstadter's argument — that constraint is the engine of meaning, not its obstacle — has come to feel less like literary theory and more like a research note on what we are doing to language with very large models.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="ki-rule">
+
+    <section class="ki-section" id="work" aria-labelledby="work-heading">
+      <h2 id="work-heading" class="ki-h2">Selected work</h2>
+      <ol class="ki-list">
+
+        <li class="ki-entry">
+          <p class="ki-entry-meta">
+            <span class="ki-year">2025</span>
+            <em class="ki-title">Routing what to remember: learned context selection for long-horizon agents.</em>
+            <span class="ki-venue">NeurIPS · main track</span>
+          </p>
+          <p class="ki-desc">With M. Aoki and D. Park. We introduce a small learned policy that sits inside the agent loop and decides, per step, which prior observations to keep, compress, or drop. On four long-horizon benchmarks the router matches a 4× larger context window at a fraction of the cost.</p>
+          <a class="ki-link" href="#" aria-label="Read the paper">→ paper</a>
+        </li>
+
+        <li class="ki-entry">
+          <p class="ki-entry-meta">
+            <span class="ki-year">2025</span>
+            <em class="ki-title">Evolving optimisers — what a year of Sakana taught me.</em>
+            <span class="ki-venue">JaxCon Tokyo · invited talk</span>
+          </p>
+          <p class="ki-desc">A practitioner's account of using evolutionary search to discover optimiser updates that beat hand-tuned baselines on three internal workloads. The honest version, including the months where nothing worked.</p>
+          <a class="ki-link" href="#" aria-label="Watch the talk">→ talk</a>
+        </li>
+
+        <li class="ki-entry">
+          <p class="ki-entry-meta">
+            <span class="ki-year">2024</span>
+            <em class="ki-title">What we actually learned from preference data.</em>
+            <span class="ki-venue">Essay · personal site</span>
+          </p>
+          <p class="ki-desc">A long blog post arguing that most public conversations about RLHF conflate three different things — annotator preference, model preference, and downstream task quality — and that the resulting confusion has cost the field at least a year.</p>
+          <a class="ki-link" href="#" aria-label="Read the essay">→ essay</a>
+        </li>
+
+        <li class="ki-entry">
+          <p class="ki-entry-meta">
+            <span class="ki-year">2024</span>
+            <em class="ki-title">Yakumo — a translation tool for Japanese literary prose.</em>
+            <span class="ki-venue">Side project · open source</span>
+          </p>
+          <p class="ki-desc">A small CLI tool that wraps a fine-tuned model with the kind of editorial scaffolding human translators actually want: ruby gloss for kanji, a panel for register choices, a sidecar of source ambiguities flagged but not resolved. Used quietly by a handful of translators I know.</p>
+          <a class="ki-link" href="#" aria-label="View the project on GitHub">→ github</a>
+        </li>
+
+        <li class="ki-entry">
+          <p class="ki-entry-meta">
+            <span class="ki-year">2023</span>
+            <em class="ki-title">On apprenticeship in machine learning.</em>
+            <span class="ki-venue">Asterisk Magazine · issue 06</span>
+          </p>
+          <p class="ki-desc">A short essay about what we have lost by professionalising ML research training, and what working as a junior next to an experienced engineer can still do that no course or paper can.</p>
+          <a class="ki-link" href="#" aria-label="Read in Asterisk">→ essay</a>
+        </li>
+
+      </ol>
+    </section>
+
+    <hr class="ki-rule">
+
+    <section class="ki-section" id="writing" aria-labelledby="writing-heading">
+      <h2 id="writing-heading" class="ki-h2">Writing</h2>
+      <ul class="ki-writing">
+        <li>
+          <p class="ki-writing-head">
+            <em class="ki-writing-title">A small grammar of agent failure.</em>
+            <span class="ki-writing-date">Feb 2026</span>
+          </p>
+          <p class="ki-writing-sub">Six recurring shapes of failure I keep seeing in long-running agents, and a vocabulary for naming them.</p>
+        </li>
+        <li>
+          <p class="ki-writing-head">
+            <em class="ki-writing-title">On reading papers slowly.</em>
+            <span class="ki-writing-date">Nov 2025</span>
+          </p>
+          <p class="ki-writing-sub">A defence of the obsolete habit of reading one paper a week, in full, with a pen.</p>
+        </li>
+        <li>
+          <p class="ki-writing-head">
+            <em class="ki-writing-title">Why I stopped using benchmarks I had not built.</em>
+            <span class="ki-writing-date">Aug 2025</span>
+          </p>
+          <p class="ki-writing-sub">Notes from a year of writing my own evaluations — what improved, what didn't, what I'd warn against.</p>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="ki-rule">
+
+    <section class="ki-section" id="elsewhere" aria-labelledby="elsewhere-heading">
+      <h2 id="elsewhere-heading" class="ki-h2">Elsewhere</h2>
+      <p class="ki-elsewhere">
+        <a href="#" class="ki-extlink">GitHub</a><span class="ki-sep" aria-hidden="true"> · </span><a href="#" class="ki-extlink">X</a><span class="ki-sep" aria-hidden="true"> · </span><a href="#" class="ki-extlink">Email</a><span class="ki-sep" aria-hidden="true"> · </span><a href="#" class="ki-extlink">RSS</a><span class="ki-sep" aria-hidden="true"> · </span><a href="#" class="ki-extlink">Google Scholar</a>
+      </p>
+    </section>
+
+    <hr class="ki-rule">
+
+    <section class="ki-section ki-colophon" id="colophon" aria-labelledby="colophon-heading">
+      <h2 id="colophon-heading" class="ki-h2">Colophon</h2>
+      <p class="ki-foot-note">
+        This site is set in IBM Plex — Serif for the body, Sans for the small headings, Mono for the labels. Hosted on GitHub Pages. No analytics, no cookies, no fonts loaded from a tracker.
+      </p>
+      <p class="ki-foot-note">
+        Comfort matters more than aesthetic purity, though, and you can <button type="button" id="contrast-toggle" class="ki-contrast-toggle" aria-pressed="false">soften the contrast</button> if the ink feels too dark.
+      </p>
+      <p class="ki-edited">Last edited Mar 14, 2026.</p>
+    </section>
+
+  </main>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Visiting card · Kira Ito</p>
+    <h2>The personal site as a calling card.</h2>
+
+    <h3>What is this?</h3>
+    <p>A personal site for an ML engineer/researcher, designed against the conventions of "developer portfolio" templates. The brief was the bio link in a working researcher's profile — the page that gets clicked by recruiters, journalists, conference organisers, and prospective collaborators.</p>
+
+    <h3>Who is it for?</h3>
+    <p>People who already half-know who Kira is — they've seen her name on a paper, in a thread, in a programme. They want one minute of orientation, not a sales pitch.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Bone-white paper (#FAF8F3), deep ink, one muted red dot. The page reads like a printed bookplate rather than a software product.</li>
+      <li>IBM Plex everywhere — Serif for prose, Sans for small headings, Mono for labels. A typeface released as open-source by an old computer company, which suits the subject.</li>
+      <li>Single column, max-width 720px, generous line-height. Classical proportions; no two-column flex showcase.</li>
+      <li>No shadows, no gradients, no rounded corners except 999px on the contrast toggle. Border-thin separators only.</li>
+      <li>A "Now" section instead of a "Bio" — what someone is doing this month says more than what they did in 2018.</li>
+      <li>Interactivity is almost absent. The "Now" items expand for a paragraph; a soft pulse marks the page as recently updated; a small toggle softens the contrast. Nothing else moves.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>Editorial restraint. Most personal sites for engineers default to dark mode, neon gradients, and a hero animation; the signal those choices send is "I have not yet decided who I am." This page goes the other way — quiet, serif, asymmetric — to suggest someone who has already done the deciding.</p>
+
+    <h3>Why a "Now" page beats a "Bio" page</h3>
+    <p>A bio is a résumé. A Now page is an invitation. The first tells you what someone has been; the second tells you whether they would be interesting to talk to this week. For a calling card, the second is the better question.</p>
+
+    <h3>The site as a published artifact</h3>
+    <p>A personal site is closer to a small book than a marketing funnel — issued occasionally, edited carefully, signed at the end. The footer date is part of the meaning. So is the colophon.</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

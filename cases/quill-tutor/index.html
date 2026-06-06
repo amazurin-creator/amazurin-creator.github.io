@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quill Tutor — learn at your own rhythm</title>
+  <meta name="description" content="An AI tutor for kids, families, and curious adults. Curiosity-led learning, never gamified-shame.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="qt-header">
+    <a class="qt-brand" href="/">
+      <svg class="qt-feather" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M26 5C16 6 9 13 7 22c-1 3-1 5 1 5 1 0 2-1 2-2l1-3c2 0 5-1 7-3l-3-1c2-1 4-2 5-4l-3 0c2-2 4-4 5-7l-3 1c2-2 3-3 4-3z" fill="#FF8E72"/>
+        <path d="M7 25l-2 3" stroke="#2C2417" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </svg>
+      Quill
+    </a>
+    <nav class="qt-nav">
+      <a href="#subjects">Subjects</a>
+      <a href="#how">How it works</a>
+      <a href="#parents">Parents</a>
+      <a class="qt-back" href="/">← Portfolio</a>
+    </nav>
+    <div class="qt-actions">
+      <a href="#" class="qt-btn qt-btn-ghost">Sign in</a>
+      <a href="#cta" class="qt-btn qt-btn-primary">Try free</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="qt-hero">
+      <div class="qt-hero-copy">
+        <p class="qt-eyebrow">A friendlier kind of tutor</p>
+        <h1 class="qt-headline">Learn at<br>your own<br><span class="qt-hl">rhythm.</span></h1>
+        <p class="qt-sub">
+          Quill is an AI tutor that follows curiosity, not a leaderboard. No streaks to break, no badges to chase — just patient guidance, one question at a time.
+        </p>
+        <div class="qt-hero-cta">
+          <a class="qt-btn qt-btn-primary qt-btn-lg" href="#quiz">Try a 30-second quiz →</a>
+          <a class="qt-btn qt-btn-ghost qt-btn-lg" href="#parents">For parents</a>
+        </div>
+      </div>
+      <div class="qt-hero-art" aria-hidden="true">
+        <svg id="hero-character" class="qt-character" viewBox="0 0 240 240">
+          <!-- soft shadow -->
+          <ellipse cx="120" cy="218" rx="78" ry="10" fill="#2C2417" opacity="0.06"/>
+          <!-- body -->
+          <path d="M120 40 C70 40 42 78 42 128 C42 184 76 210 120 210 C164 210 198 184 198 128 C198 78 170 40 120 40 Z" fill="#FF8E72"/>
+          <!-- belly highlight -->
+          <ellipse cx="120" cy="148" rx="44" ry="38" fill="#FFD571" opacity="0.55"/>
+          <!-- left cheek blush -->
+          <circle cx="78" cy="142" r="9" fill="#FFB6A0" opacity="0.8"/>
+          <circle cx="162" cy="142" r="9" fill="#FFB6A0" opacity="0.8"/>
+          <!-- eyes -->
+          <circle cx="96" cy="118" r="7" fill="#2C2417"/>
+          <circle cx="144" cy="118" r="7" fill="#2C2417"/>
+          <circle cx="98" cy="115" r="2.4" fill="#FFFFFF"/>
+          <circle cx="146" cy="115" r="2.4" fill="#FFFFFF"/>
+          <!-- smile -->
+          <path d="M104 140 Q120 154 136 140" stroke="#2C2417" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <!-- book in arms -->
+          <rect x="74" y="168" width="92" height="34" rx="6" fill="#C2A0E8"/>
+          <rect x="74" y="168" width="92" height="34" rx="6" fill="none" stroke="#2C2417" stroke-width="2.5"/>
+          <line x1="120" y1="168" x2="120" y2="202" stroke="#2C2417" stroke-width="2.5"/>
+          <line x1="86" y1="180" x2="110" y2="180" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          <line x1="86" y1="190" x2="106" y2="190" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          <line x1="130" y1="180" x2="154" y2="180" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          <line x1="130" y1="190" x2="150" y2="190" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+          <!-- antenna -->
+          <line x1="120" y1="40" x2="120" y2="20" stroke="#2C2417" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="120" cy="16" r="6" fill="#9DDEC1"/>
+          <!-- little arms -->
+          <circle cx="48" cy="160" r="12" fill="#FF8E72"/>
+          <circle cx="192" cy="160" r="12" fill="#FF8E72"/>
+        </svg>
+        <!-- floating shapes -->
+        <svg class="qt-float qt-float-1" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#C2A0E8"/></svg>
+        <svg class="qt-float qt-float-2" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="8" fill="#FFD571"/></svg>
+        <svg class="qt-float qt-float-3" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L36 20 L20 36 L4 20 Z" fill="#9DDEC1"/></svg>
+        <svg class="qt-float qt-float-4" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 L24 16 L36 18 L27 26 L30 38 L20 32 L10 38 L13 26 L4 18 L16 16 Z" fill="#FFD571"/></svg>
+      </div>
+      <div class="qt-subjects" id="subjects">
+        <a class="qt-subject qt-subject-coral" href="#">
+          <span class="qt-subject-icon">+ ×</span>
+          <span>Math</span>
+        </a>
+        <a class="qt-subject qt-subject-lavender" href="#">
+          <span class="qt-subject-icon">A</span>
+          <span>Reading</span>
+        </a>
+        <a class="qt-subject qt-subject-mint" href="#">
+          <span class="qt-subject-icon">⌬</span>
+          <span>Science</span>
+        </a>
+        <a class="qt-subject qt-subject-yellow" href="#">
+          <span class="qt-subject-icon">¡Hola!</span>
+          <span>Languages</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="qt-quiz-section" id="quiz">
+      <header class="qt-section-head">
+        <p class="qt-eyebrow">Try it now</p>
+        <h2 class="qt-h2">A 30-second quiz.</h2>
+        <p class="qt-section-sub">Three questions across three subjects. No score, no leaderboard — just a sense of the rhythm.</p>
+      </header>
+
+      <div class="qt-quiz-stage">
+        <div class="qt-quiz-side">
+          <svg id="quiz-character" class="qt-character qt-character-small" viewBox="0 0 240 240" aria-hidden="true">
+            <ellipse cx="120" cy="218" rx="78" ry="10" fill="#2C2417" opacity="0.06"/>
+            <path d="M120 40 C70 40 42 78 42 128 C42 184 76 210 120 210 C164 210 198 184 198 128 C198 78 170 40 120 40 Z" fill="#FF8E72"/>
+            <ellipse cx="120" cy="148" rx="44" ry="38" fill="#FFD571" opacity="0.55"/>
+            <circle cx="78" cy="142" r="9" fill="#FFB6A0" opacity="0.8"/>
+            <circle cx="162" cy="142" r="9" fill="#FFB6A0" opacity="0.8"/>
+            <circle cx="96" cy="118" r="7" fill="#2C2417"/>
+            <circle cx="144" cy="118" r="7" fill="#2C2417"/>
+            <circle cx="98" cy="115" r="2.4" fill="#FFFFFF"/>
+            <circle cx="146" cy="115" r="2.4" fill="#FFFFFF"/>
+            <path id="qc-mouth" d="M104 140 Q120 154 136 140" stroke="#2C2417" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+            <line x1="120" y1="40" x2="120" y2="20" stroke="#2C2417" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="120" cy="16" r="6" fill="#9DDEC1"/>
+            <circle cx="48" cy="160" r="12" fill="#FF8E72"/>
+            <circle cx="192" cy="160" r="12" fill="#FF8E72"/>
+          </svg>
+          <div class="qt-confetti" id="confetti" aria-hidden="true"></div>
+          <p class="qt-prompt-line" id="prompt-line">Pick the answer that feels right. Wrong picks just earn you a hint.</p>
+        </div>
+
+        <div class="qt-quiz-card" id="quiz-card">
+          <div class="qt-progress">
+            <span class="qt-dot active" data-step="1"></span>
+            <span class="qt-dot" data-step="2"></span>
+            <span class="qt-dot" data-step="3"></span>
+          </div>
+          <p class="qt-question-tag" id="question-tag">Math · Question 1 of 3</p>
+          <h3 class="qt-question" id="question-text">What's 7 × 8?</h3>
+          <div class="qt-options" id="options"></div>
+          <p class="qt-hint" id="hint" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="qt-approach" id="how">
+      <header class="qt-section-head">
+        <p class="qt-eyebrow">How it works</p>
+        <h2 class="qt-h2">Built for kids who think differently.</h2>
+      </header>
+      <div class="qt-cards">
+        <article class="qt-card qt-card-lavender">
+          <div class="qt-card-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#FFFFFF"/><path d="M14 24 Q24 10 34 24 Q24 38 14 24Z" fill="#C2A0E8"/><circle cx="24" cy="24" r="5" fill="#2C2417"/></svg>
+          </div>
+          <h3>Adaptive pacing</h3>
+          <p>Quill watches how long a problem takes, where you pause, when you re-read. It slows down before you ask it to.</p>
+        </article>
+        <article class="qt-card qt-card-mint">
+          <div class="qt-card-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#FFFFFF"/><path d="M14 26 Q24 36 34 26" stroke="#2C2417" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="18" cy="20" r="2.5" fill="#2C2417"/><circle cx="30" cy="20" r="2.5" fill="#2C2417"/></svg>
+          </div>
+          <h3>No streaks, no shame</h3>
+          <p>Miss a day? Nothing breaks. We deliberately don't use streak counters or red-flag notifications. Learning isn't a punishment loop.</p>
+        </article>
+        <article class="qt-card qt-card-yellow">
+          <div class="qt-card-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="#FFFFFF"/><path d="M16 24 L22 30 L34 18" stroke="#2C2417" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+          <h3>Curiosity tracking</h3>
+          <p>The questions a kid <em>asks</em> matter more than the ones they get right. Quill notices and follows the thread.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="qt-parents" id="parents">
+      <div class="qt-parents-copy">
+        <p class="qt-eyebrow">For parents</p>
+        <h2 class="qt-h2">What you actually see.</h2>
+        <p class="qt-section-sub">A weekly digest — warm, not surveillance-y. We tell you what your kid explored, not how long they stared at a screen.</p>
+        <ul class="qt-parents-list">
+          <li>One short summary, every Sunday morning.</li>
+          <li>Topics explored, not minutes tracked.</li>
+          <li>Suggested questions you can ask at dinner.</li>
+        </ul>
+      </div>
+      <div class="qt-dashboard">
+        <div class="qt-dash-head">
+          <div class="qt-dash-avatar">L</div>
+          <div>
+            <p class="qt-dash-name">Lily, age 9</p>
+            <p class="qt-dash-week">Week of May 25 — May 31</p>
+          </div>
+          <span class="qt-dash-pill">Sunday digest</span>
+        </div>
+        <p class="qt-dash-line">
+          <span class="qt-dash-em">This week</span>, Lily explored <strong>4 topics</strong>, asked <strong>12 questions</strong>, and mastered <strong>fractions</strong>.
+        </p>
+        <div class="qt-dash-grid">
+          <div class="qt-dash-item">
+            <span class="qt-dash-num">4</span>
+            <span class="qt-dash-lbl">topics explored</span>
+          </div>
+          <div class="qt-dash-item">
+            <span class="qt-dash-num">12</span>
+            <span class="qt-dash-lbl">questions asked</span>
+          </div>
+          <div class="qt-dash-item">
+            <span class="qt-dash-num">1</span>
+            <span class="qt-dash-lbl">concept mastered</span>
+          </div>
+        </div>
+        <div class="qt-dash-topic">
+          <p class="qt-dash-topic-label">Curiosity thread</p>
+          <p class="qt-dash-topic-text">"Why do some fractions equal whole numbers?" — Lily, Wednesday</p>
+        </div>
+        <div class="qt-dash-suggest">
+          <p class="qt-dash-suggest-label">Try asking her</p>
+          <p class="qt-dash-suggest-text">"If you split a pizza into 8 slices and eat 8, did you eat the whole pizza? How would you write that?"</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="qt-cta" id="cta">
+      <div class="qt-cta-inner">
+        <svg class="qt-cta-character" viewBox="0 0 240 240" aria-hidden="true">
+          <path d="M120 40 C70 40 42 78 42 128 C42 184 76 210 120 210 C164 210 198 184 198 128 C198 78 170 40 120 40 Z" fill="#FDF8F0"/>
+          <ellipse cx="120" cy="148" rx="44" ry="38" fill="#FFD571" opacity="0.7"/>
+          <circle cx="96" cy="118" r="7" fill="#2C2417"/>
+          <circle cx="144" cy="118" r="7" fill="#2C2417"/>
+          <path d="M104 140 Q120 154 136 140" stroke="#2C2417" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <line x1="120" y1="40" x2="120" y2="20" stroke="#FDF8F0" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="120" cy="16" r="6" fill="#9DDEC1"/>
+        </svg>
+        <h2 class="qt-cta-title">Start free for 14 days.</h2>
+        <p class="qt-cta-sub">No card. No streaks. Just a kid, a question, and a patient tutor.</p>
+        <a class="qt-btn qt-btn-cream qt-btn-lg" href="#">Try Quill free →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="qt-footer">
+    <div class="qt-foot-brand">
+      <svg class="qt-feather" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M26 5C16 6 9 13 7 22c-1 3-1 5 1 5 1 0 2-1 2-2l1-3c2 0 5-1 7-3l-3-1c2-1 4-2 5-4l-3 0c2-2 4-4 5-7l-3 1c2-2 3-3 4-3z" fill="#FF8E72"/>
+      </svg>
+      Quill
+    </div>
+    <p>Concept design · A. Mazurin · 2026</p>
+    <p>A friendlier kind of tutor.</p>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 07 · Quill Tutor</p>
+    <h2>Warmth without infantilizing.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI tutor aimed at kids (8-14), families, and adult learners returning to subjects. The wedge: curiosity-led, never gamified-shame.</p>
+
+    <h3>Who is it for?</h3>
+    <p>Parents picking a learning tool for their kid, and adults who want to be students again. Both audiences are tired of red-flag streak notifications and dopamine-trap leaderboards.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Most ed-tech for kids defaults to one of two bad places — gamified-shame (Duolingo's owl, streaks, leaderboards) or kindergarten clip art (Comic Sans, googly eyes). Quill rejects both.</li>
+      <li>Warm cream background (#FDF8F0) instead of pure white — signals "this is your space, no pressure". Pure white reads as classroom, as test.</li>
+      <li>Nunito for everything — rounded letterforms feel friendly, but the type is still serious enough that an adult learner doesn't feel patronised. Comic Sans would have killed it.</li>
+      <li>Coral + lavender + sunshine yellow + mint — a soft, optimistic palette that reads as "morning light" rather than "preschool". Each accent has a job: coral is for action, lavender for thinking, yellow for celebration, mint for affirmation.</li>
+      <li>The character is geometric, not anthropomorphised. Two dots and a smile — universally recognised, no specific age, gender, or species. A blob anyone can project onto.</li>
+      <li>The quiz centerpiece celebrates correctness with confetti and a "Nice." card — positive reinforcement, but small and specific. No fireworks, no XP gain, no leaderboard.</li>
+      <li>On wrong answers: a gentle shake, soft-red highlight, and a hint. The hint reframes — "Almost. Hint: think about ..." — never "Wrong. Try again." Tone is everything.</li>
+      <li>24px border radius on cards, 999px on buttons — rounded geometry is the visual language of "safe to touch".</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>That learning software can be warm and confident at the same time. The page should feel like a children's book illustrator and a typography nerd collaborated — soft, but never sloppy. A parent should look and think "I'd let my kid use this." An adult learner should look and think "this isn't going to make me feel dumb."</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

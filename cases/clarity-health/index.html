@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clarity — understand your symptoms, without panic</title>
+  <meta name="description" content="A calm AI health guide for the moments before you see a doctor. Reviewed by physicians. Not a diagnostic tool.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="ch-header">
+    <a class="ch-brand" href="/">
+      <span class="ch-dot" aria-hidden="true"></span>
+      <span class="ch-name">Clarity</span>
+    </a>
+    <nav class="ch-nav">
+      <a href="#symptoms">Symptoms</a>
+      <a href="#approach">Approach</a>
+      <a href="#privacy">Privacy</a>
+      <a href="/" class="ch-nav-back">← Portfolio</a>
+    </nav>
+    <a class="ch-app-link" href="#symptoms">Open app</a>
+  </header>
+
+  <main>
+    <section class="ch-hero">
+      <p class="ch-pre">Reviewed by physicians · Not a diagnostic tool</p>
+      <h1>Understand your symptoms.<br><span class="ch-soft">Without panic.</span></h1>
+      <p class="ch-sub">Clarity is a calm second opinion for the hours before you see a doctor. We won't diagnose you, and we won't tell you it's the worst-case scenario. We'll help you think clearly about what you're feeling.</p>
+      <div class="ch-trust">
+        <div class="ch-trust-item">
+          <span class="ch-trust-num">12,000</span>
+          <span class="ch-trust-lbl">patient questions answered weekly</span>
+        </div>
+        <div class="ch-trust-item">
+          <span class="ch-trust-num">23</span>
+          <span class="ch-trust-lbl">physicians on our review board</span>
+        </div>
+        <div class="ch-trust-item">
+          <span class="ch-trust-num">HIPAA</span>
+          <span class="ch-trust-lbl">compliant. Encrypted end-to-end.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ch-demo" id="symptoms">
+      <header class="ch-demo-head">
+        <p class="ch-eyebrow">Symptom selector</p>
+        <h2>Tell us a little. Take your time.</h2>
+        <p class="ch-demo-sub">There are no urgent questions here. Pick the words that feel closest to what you're noticing.</p>
+      </header>
+
+      <div class="ch-selector">
+        <fieldset class="ch-row" data-axis="location">
+          <legend class="ch-row-label">Where is the pain or discomfort?</legend>
+          <div class="ch-chips" role="radiogroup">
+            <button type="button" class="ch-chip" data-axis="location" data-value="head">Head</button>
+            <button type="button" class="ch-chip" data-axis="location" data-value="chest">Chest</button>
+            <button type="button" class="ch-chip" data-axis="location" data-value="stomach">Stomach</button>
+            <button type="button" class="ch-chip" data-axis="location" data-value="back">Back</button>
+            <button type="button" class="ch-chip" data-axis="location" data-value="joints">Joints</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="ch-row" data-axis="quality">
+          <legend class="ch-row-label">How would you describe it?</legend>
+          <div class="ch-chips" role="radiogroup">
+            <button type="button" class="ch-chip" data-axis="quality" data-value="throbbing">Throbbing</button>
+            <button type="button" class="ch-chip" data-axis="quality" data-value="sharp">Sharp</button>
+            <button type="button" class="ch-chip" data-axis="quality" data-value="dull">Dull</button>
+            <button type="button" class="ch-chip" data-axis="quality" data-value="burning">Burning</button>
+            <button type="button" class="ch-chip" data-axis="quality" data-value="tight">Tight</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="ch-row" data-axis="duration">
+          <legend class="ch-row-label">How long has it been there?</legend>
+          <div class="ch-chips" role="radiogroup">
+            <button type="button" class="ch-chip" data-axis="duration" data-value="hours">A few hours</button>
+            <button type="button" class="ch-chip" data-axis="duration" data-value="overnight">Overnight</button>
+            <button type="button" class="ch-chip" data-axis="duration" data-value="days">A few days</button>
+            <button type="button" class="ch-chip" data-axis="duration" data-value="week">A week+</button>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="ch-result" id="ch-result" aria-live="polite">
+        <div class="ch-result-empty" id="ch-result-empty">
+          <span class="ch-result-mark" aria-hidden="true">○</span>
+          <p>Pick a few signals to begin.</p>
+        </div>
+
+        <div class="ch-result-body" id="ch-result-body" hidden>
+          <header class="ch-result-head">
+            <p class="ch-eyebrow">Reading the signals</p>
+            <h3 id="ch-result-title">A gentle starting point</h3>
+            <p class="ch-result-summary" id="ch-result-summary"></p>
+          </header>
+
+          <div class="ch-result-grid">
+            <article class="ch-card ch-card-explain">
+              <h4>Possible explanations</h4>
+              <ul id="ch-card-explain"></ul>
+              <p class="ch-card-foot">Listed in rough order of how commonly they appear — never as a diagnosis.</p>
+            </article>
+
+            <article class="ch-card ch-card-doctor" id="ch-card-doctor-wrap">
+              <h4>When to see a doctor</h4>
+              <p class="ch-card-body" id="ch-card-doctor"></p>
+              <p class="ch-card-foot" id="ch-card-doctor-foot"></p>
+            </article>
+
+            <article class="ch-card ch-card-now">
+              <h4>What you can do now</h4>
+              <ul id="ch-card-now"></ul>
+              <p class="ch-card-foot">Small, gentle steps. None of these replace medical care.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ch-not" id="approach">
+      <header class="ch-section-head">
+        <p class="ch-eyebrow">What Clarity does NOT do</p>
+        <h2>The lines we hold, on purpose.</h2>
+      </header>
+      <div class="ch-not-grid">
+        <article class="ch-not-card">
+          <span class="ch-not-mark">—</span>
+          <h3>No diagnosis</h3>
+          <p>We point toward possibilities, never conclusions. A diagnosis is a clinical act. We are not clinicians.</p>
+        </article>
+        <article class="ch-not-card">
+          <span class="ch-not-mark">—</span>
+          <h3>No prescriptions</h3>
+          <p>We will never recommend a treatment, a dose, or a drug. Decisions about medication belong to you and a physician.</p>
+        </article>
+        <article class="ch-not-card">
+          <span class="ch-not-mark">—</span>
+          <h3>No replacing your doctor</h3>
+          <p>We're a primer, not a practitioner. Clarity is what you read on the train to your appointment, not instead of it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ch-advisors">
+      <header class="ch-section-head">
+        <p class="ch-eyebrow">Built with physicians</p>
+        <h2>Every answer is reviewed by clinicians who practice.</h2>
+        <p class="ch-section-sub">A standing board of 23 doctors across primary care, neurology, cardiology, gastroenterology and emergency medicine. Four of them sign off on the symptom modules you'll meet today.</p>
+      </header>
+      <div class="ch-advisor-grid">
+        <article class="ch-advisor">
+          <div class="ch-monogram">MK</div>
+          <p class="ch-advisor-name">Dr. Maya Kapoor</p>
+          <p class="ch-advisor-meta">Internal medicine · Mayo Clinic</p>
+        </article>
+        <article class="ch-advisor">
+          <div class="ch-monogram">JO</div>
+          <p class="ch-advisor-name">Dr. Jonas Okafor</p>
+          <p class="ch-advisor-meta">Emergency medicine · Mass General</p>
+        </article>
+        <article class="ch-advisor">
+          <div class="ch-monogram">SL</div>
+          <p class="ch-advisor-name">Dr. Sara Lindqvist</p>
+          <p class="ch-advisor-meta">Neurology · Karolinska Institute</p>
+        </article>
+        <article class="ch-advisor">
+          <div class="ch-monogram">RC</div>
+          <p class="ch-advisor-name">Dr. Ren Chen</p>
+          <p class="ch-advisor-meta">Gastroenterology · UCSF Health</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ch-privacy" id="privacy">
+      <header class="ch-section-head">
+        <p class="ch-eyebrow">Privacy, plainly</p>
+        <h2>Your symptoms stay yours.</h2>
+      </header>
+      <div class="ch-privacy-grid">
+        <article class="ch-privacy-item">
+          <h3>End-to-end encrypted</h3>
+          <p>Everything you write in Clarity is encrypted on your device before it leaves it. We can't read your history. Neither can your insurer.</p>
+        </article>
+        <article class="ch-privacy-item">
+          <h3>No ad targeting</h3>
+          <p>We don't sell health data. We don't run ads. Clarity is funded by a flat monthly subscription, full stop.</p>
+        </article>
+        <article class="ch-privacy-item">
+          <h3>Yours to delete</h3>
+          <p>One tap clears your entire history. We keep no shadow copies, no analytics tied to your identity, no exceptions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ch-cta">
+      <div class="ch-cta-card">
+        <p class="ch-eyebrow">For the in-between moments</p>
+        <h2>When you're not sure if you should see a doctor — that's what Clarity is for.</h2>
+        <a class="ch-button" href="#symptoms">Try Clarity — free</a>
+        <p class="ch-cta-foot">No card, no account on the first visit. Just a calmer way to think.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ch-footer">
+    <span>Clarity Health · Concept design by A. Mazurin · 2026</span>
+    <span>This is a portfolio concept. Not a real medical service.</span>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 03 · Clarity Health</p>
+    <h2>Calm by design.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI health guide aimed at patients researching symptoms. It exists in the space WebMD has owned and broken: the late-night search where a worried person looks up "chest tightness" and walks away convinced they're dying.</p>
+
+    <h3>Who is it for?</h3>
+    <p>People who are noticing something in their body and trying to decide whether to see a doctor. They are not patients yet. They are anxious adults with a search bar.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Calm UX <em>is</em> the product strategy. Healthcare is a category where the dominant incumbents thrive on engagement-by-anxiety. The competitive wedge is the opposite: lower the heart rate, then explain.</li>
+      <li>Mint and deep teal instead of red and yellow. Alarm colours are how WebMD signals seriousness. We signal seriousness with restraint instead. Coral appears only in the "see a doctor" card, and only when warranted — it has to keep its meaning.</li>
+      <li>Whitespace as anti-anxiety design. Dense pages feel like waiting rooms. We use a single page width, a generous vertical rhythm, and a soft mint surface that lets the text breathe.</li>
+      <li>The product refuses to diagnose. The "What Clarity does NOT do" section is a feature, not a disclaimer. It's the part most patients quote when recommending the app.</li>
+      <li>The symptom selector is chips, not a search bar. A chip rewards a single thoughtful tap. A search bar invites a panicked monologue. Three short prompts force the user to slow down and notice their body in three different ways before any "results" appear.</li>
+      <li>Results never lead with worst-case. The "Possible explanations" card is ordered by prevalence, not severity, and every card carries a footer reminding the reader these are not diagnoses.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>That a healthcare product can be the calmest object on the user's screen. The whole page should feel like the moment a doctor sits down, takes a breath, and says "okay, let's think about this together." That tone — equal parts patient and serious — is the whole brand.</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -431,6 +431,289 @@ main { padding: 0 48px; max-width: 1400px; margin: 0 auto; }
   letter-spacing: 0.12em;
 }
 
+/* ===== Stage 3 preview blocks ===== */
+
+.preview-clarity-live {
+  background: #ECFDF5;
+  border-color: #D1FAE5;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 14px 16px;
+  font-family: var(--sans);
+}
+.preview-clarity-live .cl-dot {
+  width: 8px; height: 8px;
+  background: #0F766E;
+  border-radius: 50%;
+  display: inline-block;
+}
+.preview-clarity-live .cl-line {
+  font-size: 12px;
+  color: #0F766E;
+  font-weight: 500;
+}
+.preview-clarity-live .cl-pills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.preview-clarity-live .cl-pills span {
+  font-size: 10px;
+  background: #fff;
+  color: #0F766E;
+  padding: 3px 8px;
+  border-radius: 99px;
+  border: 1px solid #D1FAE5;
+}
+
+.preview-lumen-live {
+  background: #1A1714;
+  border-color: #1A1714;
+  padding: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  gap: 1px;
+  font-family: 'Playfair Display', serif;
+  overflow: hidden;
+}
+.preview-lumen-live img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.2) contrast(1.05);
+}
+.preview-lumen-live .lum-caption {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  font-size: 11px;
+  color: #F5F1EA;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  letter-spacing: 0.04em;
+}
+.preview-lumen-live .lum-caption em {
+  font-style: italic;
+  color: #E6D4B0;
+}
+
+.preview-quill-live {
+  background: #FDF8F0;
+  border-color: #F5E8D8;
+  padding: 12px 16px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.preview-quill-live svg {
+  width: 56px; height: 32px;
+  flex-shrink: 0;
+}
+.preview-quill-live .qu-pill {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 99px;
+  color: #2C2417;
+}
+.qu-coral { background: #FFB8A8; }
+.qu-lav { background: #DCCAF0; }
+.qu-yel { background: #FFE499; }
+.qu-mint { background: #BDEDD3; }
+
+/* ===== Visiting cards section ===== */
+
+.preview-kira-live {
+  background: #FAF8F3;
+  border-color: #E8E4D8;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 14px 18px;
+  font-family: 'IBM Plex Serif', Georgia, serif;
+}
+.preview-kira-live .kr-dot {
+  width: 6px; height: 6px;
+  background: #C4452F;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.preview-kira-live .kr-name {
+  font-size: 22px;
+  font-weight: 500;
+  color: #0A0A0A;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.preview-kira-live .kr-bio {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #5A5A56;
+}
+.preview-kira-live .kr-now {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #C4452F;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.preview-stellar-live {
+  background: #F4EFE3;
+  border-color: #DCCEB6;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 14px 18px;
+  font-family: 'Cormorant Garamond', serif;
+}
+.preview-stellar-live .st-mark {
+  font-size: 14px;
+  letter-spacing: 0.4em;
+  color: #0F2547;
+  font-weight: 600;
+  font-style: italic;
+}
+.preview-stellar-live .st-rule {
+  width: 30px;
+  height: 1px;
+  background: #B8956A;
+  display: block;
+  margin: 2px 0;
+}
+.preview-stellar-live .st-line {
+  font-size: 17px;
+  color: #0F2547;
+  font-style: italic;
+  line-height: 1.15;
+}
+.preview-stellar-live .st-sub {
+  font-family: var(--sans);
+  font-size: 10px;
+  color: #6B6450;
+  letter-spacing: 0.04em;
+}
+
+/* ===== Marketing section ===== */
+
+.preview-cadence-live {
+  background: #FAFAFC;
+  border-color: #E4E7EC;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  padding: 12px 14px;
+  font-family: var(--sans);
+}
+.preview-cadence-live .cd-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 11px;
+}
+.preview-cadence-live .cd-label {
+  color: #5B6477;
+  font-weight: 500;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.preview-cadence-live .cd-input {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #E4E7EC;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #0B1320;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.preview-cadence-live .cd-bars {
+  display: flex;
+  gap: 3px;
+  margin-top: 2px;
+}
+.preview-cadence-live .cd-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(13, 148, 136, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.preview-cadence-live .cd-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #0D9488, #06B6D4);
+  border-radius: 2px;
+}
+.preview-cadence-live .cd-pred {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: #0D9488;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  align-self: flex-end;
+}
+
+.preview-spark-live {
+  background: #0A0A0F;
+  border-color: #0A0A0F;
+  padding: 14px 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.preview-spark-live .sp-bg-grad {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 110% 110%, rgba(255, 26, 119, 0.35), transparent 50%),
+    radial-gradient(circle at -10% -10%, rgba(0, 229, 255, 0.25), transparent 50%);
+  pointer-events: none;
+}
+.preview-spark-live .sp-headline {
+  position: relative;
+  z-index: 1;
+  font-family: 'Anton', 'Archivo Black', sans-serif;
+  font-size: 24px;
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+.preview-spark-live .sp-headline em {
+  font-style: italic;
+  background: linear-gradient(110deg, #00E5FF, #FF1A77, #FFC400);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.preview-spark-live .sp-pills {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 6px;
+  font-size: 14px;
+}
+.preview-spark-live .sp-pills span {
+  width: 22px; height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 .card-meta {
   display: flex;
   justify-content: space-between;

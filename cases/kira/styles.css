@@ -1,0 +1,525 @@
+/* Kira Ito — personal site / visiting card.
+   Editorial restraint: bone paper, deep ink, one muted red dot.
+   Single column, classical proportions, no chrome. */
+
+:root {
+  --paper: #FAF8F3;
+  --paper-soft: #F4F1E8;
+  --ink: #0A0A0A;
+  --ink-soft: #5A5A56;
+  --ink-quiet: #8B8A82;
+  --rule: #D9D5C7;
+  --rule-soft: #E6E2D5;
+  --accent: #C4452F;
+
+  --serif: 'IBM Plex Serif', 'Newsreader', Georgia, serif;
+  --mono: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+
+  --col: 720px;
+  --gutter: 32px;
+
+  --notes-accent: var(--ink);
+  --notes-accent-fg: var(--paper);
+}
+
+/* Reduced-contrast variant — same palette, gentler ink. */
+:root[data-contrast="soft"] {
+  --ink: #2C2A24;
+  --ink-soft: #6F6E68;
+  --ink-quiet: #999688;
+  --rule: #E4DFD0;
+  --paper: #FBF9F4;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Header ---------- */
+
+.ki-header {
+  max-width: var(--col);
+  margin: 0 auto;
+  padding: 36px var(--gutter) 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.ki-brand {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.ki-brand-pulse {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: 0;
+  transform: translateY(-1px);
+}
+.ki-brand-pulse.is-active {
+  opacity: 1;
+  animation: brand-pulse 2.8s ease-out 3;
+}
+@keyframes brand-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(196, 69, 47, 0.55); }
+  70%  { box-shadow: 0 0 0 9px rgba(196, 69, 47, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(196, 69, 47, 0); }
+}
+
+.ki-status {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: start;
+  margin-left: 4px;
+}
+.ki-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+  display: inline-block;
+}
+.ki-status-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-quiet);
+  font-size: 11px;
+}
+.ki-status-sep { color: var(--ink-quiet); }
+
+.ki-nav {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.ki-nav a {
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.ki-nav a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+/* ---------- Main column ---------- */
+
+main {
+  max-width: var(--col);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 96px;
+}
+
+.ki-rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 56px 0;
+}
+
+/* ---------- Hero ---------- */
+
+.ki-hero {
+  padding-top: 72px;
+}
+
+.ki-h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(56px, 8vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 18px;
+  color: var(--ink);
+}
+
+.ki-strapline {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  letter-spacing: 0;
+  margin: 0 0 36px;
+  line-height: 1.5;
+}
+
+.ki-about {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 18px;
+  line-height: 1.75;
+  max-width: 60ch;
+}
+.ki-about p { margin: 0 0 14px; }
+.ki-about p:last-child { margin-bottom: 0; }
+
+/* ---------- Section heads ---------- */
+
+.ki-section { scroll-margin-top: 32px; }
+
+.ki-h2 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  margin: 0 0 28px;
+}
+
+/* ---------- Now ---------- */
+
+.ki-now {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.now-item {
+  border-top: 1px solid var(--rule-soft);
+}
+.now-item:last-child {
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.now-toggle {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 14px;
+  width: 100%;
+  padding: 18px 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink);
+  text-align: left;
+  transition: color 200ms ease;
+}
+.now-toggle:hover { color: var(--ink); }
+.now-toggle:hover .now-label { color: var(--ink); }
+.now-bullet {
+  color: var(--accent);
+  font-size: 11px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+.now-label {
+  color: var(--ink-soft);
+  transition: color 200ms ease;
+}
+.now-label em { font-style: italic; }
+.now-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-quiet);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.now-detail {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 380ms cubic-bezier(0.4, 0, 0.2, 1), opacity 320ms ease, padding 320ms ease;
+  opacity: 0;
+  padding: 0 0 0 26px;
+}
+.now-detail.is-open {
+  max-height: 480px;
+  opacity: 1;
+  padding-bottom: 18px;
+}
+.now-detail p {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 58ch;
+  border-left: 1px solid var(--rule);
+  padding-left: 16px;
+}
+
+.now-item[data-open="true"] .now-toggle .now-label { color: var(--ink); }
+
+/* ---------- Selected work ---------- */
+
+.ki-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: entry;
+}
+
+.ki-entry {
+  padding: 28px 0 30px;
+  border-top: 1px solid var(--rule-soft);
+}
+.ki-entry:last-child {
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.ki-entry-meta {
+  margin: 0 0 10px;
+  font-size: 17px;
+  line-height: 1.55;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 14px;
+}
+.ki-year {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-quiet);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  min-width: 38px;
+}
+.ki-title {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.4;
+}
+.ki-venue {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.ki-desc {
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.65;
+  margin: 0 0 12px;
+  max-width: 64ch;
+}
+
+.ki-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.ki-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Writing ---------- */
+
+.ki-writing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ki-writing li {
+  padding: 20px 0;
+  border-top: 1px solid var(--rule-soft);
+}
+.ki-writing li:last-child {
+  border-bottom: 1px solid var(--rule-soft);
+}
+.ki-writing-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 4px;
+}
+.ki-writing-title {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--ink);
+}
+.ki-writing-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-quiet);
+  letter-spacing: 0.04em;
+}
+.ki-writing-sub {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* ---------- Elsewhere ---------- */
+
+.ki-elsewhere {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 2;
+  margin: 0;
+}
+.ki-extlink {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.ki-extlink:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.ki-sep {
+  color: var(--ink-quiet);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+/* ---------- Colophon ---------- */
+
+.ki-colophon {
+  color: var(--ink-soft);
+}
+.ki-foot-note {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+  max-width: 60ch;
+  font-style: italic;
+}
+.ki-edited {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-quiet);
+  letter-spacing: 0.06em;
+  margin: 32px 0 0;
+  text-transform: lowercase;
+}
+
+.ki-contrast-toggle {
+  font: inherit;
+  font-style: italic;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 0 0 1px;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 0;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+.ki-contrast-toggle:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.ki-contrast-toggle[aria-pressed="true"]::after {
+  content: " ✓";
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 11px;
+  color: var(--accent);
+}
+
+/* ---------- Notes-panel accent override ---------- */
+
+.notes-trigger {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  :root { --gutter: 22px; }
+  .ki-header {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand nav"
+      "status status";
+    gap: 14px;
+    padding-top: 28px;
+  }
+  .ki-brand { grid-area: brand; }
+  .ki-nav { grid-area: nav; }
+  .ki-status { grid-area: status; margin-left: 0; flex-wrap: wrap; }
+
+  .ki-hero { padding-top: 48px; }
+  .ki-h1 { font-size: 52px; }
+  .ki-about { font-size: 17px; }
+
+  .ki-rule { margin: 44px 0; }
+
+  .now-toggle {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "bullet label"
+      ". date";
+    column-gap: 12px;
+    row-gap: 4px;
+    font-size: 17px;
+  }
+  .now-bullet { grid-area: bullet; }
+  .now-label  { grid-area: label; }
+  .now-date   { grid-area: date; }
+
+  .ki-entry-meta { gap: 4px 12px; }
+  .ki-title { font-size: 18px; }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .now-detail {
+    transition: none;
+  }
+  .ki-brand-pulse.is-active {
+    animation: none;
+    box-shadow: none;
+  }
+}

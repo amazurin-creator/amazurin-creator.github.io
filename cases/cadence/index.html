@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadence — Email that opens itself.</title>
+  <meta name="description" content="AI-native email marketing. Subject lines, segments, send times — all written, scored, and scheduled for you. Ship a campaign in four minutes, not four hours.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="cd-header">
+    <a class="cd-brand" href="/">
+      <span class="cd-dot" aria-hidden="true"></span>Cadence
+    </a>
+    <nav class="cd-nav">
+      <a href="#product">Product</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#customers">Customers</a>
+      <a href="#changelog">Changelog</a>
+      <a href="/" class="cd-nav-back">← Portfolio</a>
+    </nav>
+    <div class="cd-nav-actions">
+      <a href="#" class="cd-link-muted">Sign in</a>
+      <a href="#cta" class="cd-btn cd-btn-primary">Get started</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="cd-hero">
+      <p class="cd-badge">
+        <span class="cd-badge-tag">New</span>
+        Smart Segments are live
+      </p>
+      <h1 class="cd-headline">
+        Email that <span class="cd-italic">opens itself</span>.
+      </h1>
+      <p class="cd-hero-sub">
+        Cadence writes the subject line, picks the segment, and sends at the moment your reader is most likely to tap. You write the idea — it ships the campaign.
+      </p>
+
+      <div class="cd-hero-actions">
+        <a href="#demo" class="cd-btn cd-btn-primary cd-btn-lg">Try the demo →</a>
+        <a href="#pricing" class="cd-btn cd-btn-ghost cd-btn-lg">See pricing</a>
+      </div>
+
+      <div class="cd-hero-stats">
+        <div class="cd-stat">
+          <span class="cd-stat-num">+34%</span>
+          <span class="cd-stat-lbl">avg. open rate</span>
+        </div>
+        <div class="cd-stat">
+          <span class="cd-stat-num">4×</span>
+          <span class="cd-stat-lbl">faster send</span>
+        </div>
+        <div class="cd-stat">
+          <span class="cd-stat-num">$0.0008</span>
+          <span class="cd-stat-lbl">per email</span>
+        </div>
+        <div class="cd-stat">
+          <span class="cd-stat-num">47K</span>
+          <span class="cd-stat-lbl">operators trust us</span>
+        </div>
+      </div>
+
+      <div class="cd-composer" aria-hidden="true">
+        <div class="cd-composer-chrome">
+          <span class="cd-chrome-dot dot-r"></span>
+          <span class="cd-chrome-dot dot-y"></span>
+          <span class="cd-chrome-dot dot-g"></span>
+          <span class="cd-chrome-title">New campaign · Q3 launch</span>
+          <span class="cd-chrome-badge">draft · auto-saved</span>
+        </div>
+        <div class="cd-composer-body">
+          <div class="cd-composer-row">
+            <span class="cd-field-label">To</span>
+            <span class="cd-field-value">
+              <span class="cd-pill">Engaged past 30d</span>
+              <span class="cd-pill cd-pill-soft">2,841 readers</span>
+            </span>
+          </div>
+          <div class="cd-composer-row">
+            <span class="cd-field-label">Subject</span>
+            <span class="cd-field-value">
+              <span id="composer-original" class="cd-subject-strike">A new feature you should check out</span>
+              <span class="cd-rewrite-tag">Cadence rewrite</span>
+              <span id="composer-rewrite" class="cd-subject-rewrite"></span><span id="composer-cursor" class="cd-cursor"></span>
+            </span>
+          </div>
+          <div class="cd-composer-row cd-composer-row-body">
+            <span class="cd-field-label">Preview</span>
+            <span class="cd-field-value cd-preview-text">Hey Sara — three things shipped this week that change how you'll write to your list…</span>
+          </div>
+          <div class="cd-composer-foot">
+            <div class="cd-foot-meta">
+              <span class="cd-meta-chip">Send window · Wed 9:14am</span>
+              <span class="cd-meta-chip">Predicted open · <strong>41.2%</strong></span>
+              <span class="cd-meta-chip">Spam risk · <strong>low</strong></span>
+            </div>
+            <button class="cd-btn cd-btn-primary cd-btn-sm" type="button">Send now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cd-demo" id="demo">
+      <div class="cd-demo-header">
+        <p class="cd-eyebrow">Live demo · no signup</p>
+        <h2 class="cd-h2">Score your subject line. Right now.</h2>
+        <p class="cd-h2-sub">Type anything. Cadence rates it across five dimensions, predicts the open rate, and writes you two A/B variants — in under a second.</p>
+      </div>
+
+      <div class="cd-demo-card">
+        <div class="cd-demo-input-row">
+          <label class="cd-demo-input-wrap">
+            <span class="cd-demo-input-label">Subject line</span>
+            <input
+              id="subject-input"
+              type="text"
+              maxlength="120"
+              class="cd-demo-input"
+              placeholder="Type your subject line…"
+              autocomplete="off"
+              spellcheck="false"
+            >
+          </label>
+          <div class="cd-prediction" id="prediction-pill">
+            <span class="cd-prediction-lbl">Pred. open</span>
+            <span class="cd-prediction-val" id="prediction-val">—</span>
+          </div>
+        </div>
+
+        <div class="cd-demo-body">
+          <div class="cd-scores">
+            <h4 class="cd-sub-h">How it scored</h4>
+            <ul class="cd-score-list" id="score-list">
+              <li class="cd-score" data-key="curiosity">
+                <div class="cd-score-head">
+                  <span class="cd-score-name">Curiosity</span>
+                  <span class="cd-score-val">0</span>
+                </div>
+                <div class="cd-score-bar"><span class="cd-score-fill"></span></div>
+                <p class="cd-score-hint">Does it make me want to open?</p>
+              </li>
+              <li class="cd-score" data-key="urgency">
+                <div class="cd-score-head">
+                  <span class="cd-score-name">Urgency</span>
+                  <span class="cd-score-val">0</span>
+                </div>
+                <div class="cd-score-bar"><span class="cd-score-fill"></span></div>
+                <p class="cd-score-hint">Why open now, not later?</p>
+              </li>
+              <li class="cd-score" data-key="clarity">
+                <div class="cd-score-head">
+                  <span class="cd-score-name">Clarity</span>
+                  <span class="cd-score-val">0</span>
+                </div>
+                <div class="cd-score-bar"><span class="cd-score-fill"></span></div>
+                <p class="cd-score-hint">Can a tired reader parse it?</p>
+              </li>
+              <li class="cd-score" data-key="length">
+                <div class="cd-score-head">
+                  <span class="cd-score-name">Length</span>
+                  <span class="cd-score-val">0</span>
+                </div>
+                <div class="cd-score-bar"><span class="cd-score-fill"></span></div>
+                <p class="cd-score-hint">Ideal: 32–58 characters.</p>
+              </li>
+              <li class="cd-score" data-key="spam">
+                <div class="cd-score-head">
+                  <span class="cd-score-name">Spam risk</span>
+                  <span class="cd-score-val">0</span>
+                </div>
+                <div class="cd-score-bar cd-score-bar-inverse"><span class="cd-score-fill"></span></div>
+                <p class="cd-score-hint">Lower is better. Inverse scored.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cd-variants">
+            <div class="cd-variants-head">
+              <h4 class="cd-sub-h">Cadence suggests two A/B variants</h4>
+              <p class="cd-variants-strategy" id="variants-strategy">Type to see suggestions.</p>
+            </div>
+            <ol class="cd-variants-list" id="variants-list">
+              <li class="cd-variant" data-empty>
+                <span class="cd-variant-tag">A</span>
+                <span class="cd-variant-text cd-variant-placeholder">Variant A will appear here…</span>
+              </li>
+              <li class="cd-variant" data-empty>
+                <span class="cd-variant-tag">B</span>
+                <span class="cd-variant-text cd-variant-placeholder">Variant B will appear here…</span>
+              </li>
+            </ol>
+
+            <div class="cd-chip-row">
+              <span class="cd-eyebrow-small">Try one</span>
+              <button class="cd-try-chip" type="button" data-fill="Last call on the 30% summer discount">Last call on the 30% summer discount</button>
+              <button class="cd-try-chip" type="button" data-fill="You left something in your cart">You left something in your cart</button>
+              <button class="cd-try-chip" type="button" data-fill="A new feature shipped today">A new feature shipped today</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cd-features" id="product">
+      <p class="cd-eyebrow cd-eyebrow-center">Three things AI changes about email</p>
+      <h2 class="cd-h2 cd-h2-center">It stops being a chore.</h2>
+
+      <div class="cd-feature-grid">
+        <article class="cd-feature">
+          <span class="cd-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 8h24M4 16h18M4 24h12"/>
+              <circle cx="26" cy="22" r="4"/>
+              <path d="M26 19v3l2 1.5"/>
+            </svg>
+          </span>
+          <h3 class="cd-feature-h">Subject lines that actually open.</h3>
+          <p class="cd-feature-p">Cadence generates a dozen drafts, scores them against your audience's history, and picks the winner. You approve — or rewrite by tapping a dimension.</p>
+        </article>
+
+        <article class="cd-feature">
+          <span class="cd-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="5"/>
+              <circle cx="22" cy="20" r="5"/>
+              <path d="M16 16l3 1"/>
+              <path d="M27 7l-2 2M5 25l2-2"/>
+            </svg>
+          </span>
+          <h3 class="cd-feature-h">Segments that update themselves.</h3>
+          <p class="cd-feature-p">Describe the segment in plain English — "everyone who skipped my last two emails" — and Cadence keeps it fresh. No CSV exports. No SQL.</p>
+        </article>
+
+        <article class="cd-feature">
+          <span class="cd-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="16" r="11"/>
+              <path d="M16 9v7l5 3"/>
+            </svg>
+          </span>
+          <h3 class="cd-feature-h">Send times that respect your audience.</h3>
+          <p class="cd-feature-p">Per-reader send timing. Tuesday 7:42am for one, Sunday 11:09pm for another. Open rates rise; unsubscribes fall. You set the deadline, Cadence picks the moment.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cd-quotes" id="customers">
+      <p class="cd-eyebrow cd-eyebrow-center">Customers</p>
+      <h2 class="cd-h2 cd-h2-center">Operators, not enterprises.</h2>
+
+      <div class="cd-quote-grid">
+        <figure class="cd-quote">
+          <blockquote>"We replaced four hours of weekly campaign work with twenty minutes. The team got their Fridays back, and the open rate went up. Both of those are true at the same time."</blockquote>
+          <figcaption>
+            <span class="cd-avatar" style="background:linear-gradient(135deg,#FB7185,#FBBF24)">RM</span>
+            <span class="cd-quote-meta">
+              <strong>Rosa Mendel</strong>
+              <span>Head of Growth · Halewood SaaS</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="cd-quote">
+          <blockquote>"Klaviyo could do this in theory. Cadence does it on Tuesday morning while I get coffee. The Smart Segments feature alone paid for the year inside the first month."</blockquote>
+          <figcaption>
+            <span class="cd-avatar" style="background:linear-gradient(135deg,#0D9488,#06B6D4)">JF</span>
+            <span class="cd-quote-meta">
+              <strong>Jamie Faulkner</strong>
+              <span>Ecommerce Lead · Northbrook Apparel</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="cd-quote">
+          <blockquote>"The subject line predictor is the kind of feature you don't realise you've been missing until you've used it. I will never write a subject blind again."</blockquote>
+          <figcaption>
+            <span class="cd-avatar" style="background:linear-gradient(135deg,#8B5CF6,#0D9488)">PE</span>
+            <span class="cd-quote-meta">
+              <strong>Priya Estevez</strong>
+              <span>Marketing Operator · Quill &amp; Co.</span>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="cd-pricing" id="pricing">
+      <p class="cd-eyebrow cd-eyebrow-center">Pricing</p>
+      <h2 class="cd-h2 cd-h2-center">Simple. Like the product.</h2>
+      <p class="cd-pricing-sub">No "contact sales" tier. No hidden seat fees. Cancel any month.</p>
+
+      <div class="cd-tiers">
+        <article class="cd-tier">
+          <header class="cd-tier-head">
+            <h3 class="cd-tier-name">Starter</h3>
+            <p class="cd-tier-desc">For your first 5,000 readers.</p>
+            <p class="cd-tier-price">
+              <span class="cd-tier-amount">$29</span>
+              <span class="cd-tier-period">/ month</span>
+            </p>
+          </header>
+          <ul class="cd-tier-features">
+            <li>Up to 5,000 contacts</li>
+            <li>20,000 emails per month</li>
+            <li>AI subject lines + scoring</li>
+            <li>Two A/B variants per send</li>
+            <li>Email + chat support</li>
+          </ul>
+          <a href="#cta" class="cd-btn cd-btn-ghost cd-btn-block">Start free</a>
+        </article>
+
+        <article class="cd-tier cd-tier-featured">
+          <span class="cd-tier-flag">Most popular</span>
+          <header class="cd-tier-head">
+            <h3 class="cd-tier-name">Operator</h3>
+            <p class="cd-tier-desc">For teams sending weekly.</p>
+            <p class="cd-tier-price">
+              <span class="cd-tier-amount">$89</span>
+              <span class="cd-tier-period">/ month</span>
+            </p>
+          </header>
+          <ul class="cd-tier-features">
+            <li>Up to 25,000 contacts</li>
+            <li>200,000 emails per month</li>
+            <li>Everything in Starter, plus —</li>
+            <li>Smart Segments (natural language)</li>
+            <li>Per-reader send time optimization</li>
+            <li>Deliverability monitoring</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#cta" class="cd-btn cd-btn-primary cd-btn-block">Start free</a>
+        </article>
+
+        <article class="cd-tier">
+          <header class="cd-tier-head">
+            <h3 class="cd-tier-name">Scale</h3>
+            <p class="cd-tier-desc">For multi-brand operators.</p>
+            <p class="cd-tier-price">
+              <span class="cd-tier-amount">$249</span>
+              <span class="cd-tier-period">/ month</span>
+            </p>
+          </header>
+          <ul class="cd-tier-features">
+            <li>Up to 100,000 contacts</li>
+            <li>1,000,000 emails per month</li>
+            <li>Everything in Operator, plus —</li>
+            <li>Dedicated IP &amp; warm-up</li>
+            <li>Multi-workspace</li>
+            <li>Custom data sources</li>
+            <li>SOC 2, SSO, audit logs</li>
+          </ul>
+          <a href="#cta" class="cd-btn cd-btn-ghost cd-btn-block">Start free</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="cd-cta" id="cta">
+      <div class="cd-cta-inner">
+        <h2 class="cd-cta-h">Try Cadence free for 30 days. No card.</h2>
+        <p class="cd-cta-sub">Connect your list in two clicks. Ship your first AI-scored campaign before lunch.</p>
+        <form class="cd-cta-form" id="cta-form" novalidate>
+          <input
+            id="cta-email"
+            class="cd-cta-email"
+            type="email"
+            placeholder="you@company.com"
+            aria-label="Work email"
+            required
+          >
+          <button class="cd-btn cd-btn-light cd-btn-lg" type="submit">Start free →</button>
+        </form>
+        <p class="cd-cta-mini" id="cta-mini">Average operator sees their first campaign perform inside 48 hours.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cd-footer" id="changelog">
+    <div class="cd-footer-grid">
+      <div class="cd-footer-col cd-footer-brand-col">
+        <a class="cd-brand cd-footer-brand" href="/">
+          <span class="cd-dot" aria-hidden="true"></span>Cadence
+        </a>
+        <p class="cd-footer-tag">Email that opens itself.</p>
+      </div>
+
+      <div class="cd-footer-col">
+        <h5 class="cd-footer-h">Product</h5>
+        <a href="#product">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#demo">Subject demo</a>
+        <a href="#changelog">Changelog</a>
+        <a href="#">Integrations</a>
+      </div>
+
+      <div class="cd-footer-col">
+        <h5 class="cd-footer-h">Company</h5>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Press kit</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="cd-footer-col">
+        <h5 class="cd-footer-h">Resources</h5>
+        <a href="#">Operator playbook</a>
+        <a href="#">Deliverability guide</a>
+        <a href="#">Case studies</a>
+        <a href="#">Help center</a>
+      </div>
+
+      <div class="cd-footer-col">
+        <h5 class="cd-footer-h">Legal</h5>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">DPA</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+
+    <div class="cd-footer-rule"></div>
+    <div class="cd-footer-meta">
+      <span>Cadence · concept design · A. Mazurin · 2026</span>
+      <span>Not affiliated with any existing product.</span>
+    </div>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Marketing · Cadence</p>
+    <h2>SaaS without the gradient soup.</h2>
+
+    <h3>What is this?</h3>
+    <p>A marketing page for an AI-native email tool, built around a single interactive demo. The page sells the product by letting the visitor use the product before they sign anything.</p>
+
+    <h3>Who is it for?</h3>
+    <p>Marketing operators at small-to-mid SaaS companies, and ecommerce growth managers — the people who actually ship campaigns. Not VPs. Not buyers' committees. The person at the keyboard.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Confident teal (#0D9488) instead of the default purple-violet that every AI-SaaS landing page reaches for. The category looks identical; the palette is the cheapest way to look unlike it.</li>
+      <li>A serif italic accent word in the headline — "<em>opens itself</em>" — to break the sans-serif marketing template. One Newsreader italic is the entire ornament budget.</li>
+      <li>The subject-line A/B predictor is the centerpiece. You can ship something in thirty seconds — without entering an email, without booking a demo. The demo IS the pitch.</li>
+      <li>Five scoring dimensions, not twenty. Most analytics tools drown the user in stats; the page rejects that, and the product would too.</li>
+      <li>Pricing has three tiers, no "contact sales" upsell. A real number on every tier is itself a value proposition.</li>
+      <li>Testimonials use initials-in-gradient avatars instead of stock photos. Honest, since this is a concept site.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>That a marketing tool can read as a tool, not as a deck. Confidence without bombast. The page should make a tired marketing operator feel like the product respects their time.</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
