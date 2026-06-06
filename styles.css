@@ -808,6 +808,80 @@ main { padding: 0 48px; max-width: 1400px; margin: 0 auto; }
 .case-card.live:hover .card-cta { color: #5D6F1F; }
 .card-cta.dim { color: var(--muted); font-style: italic; font-weight: 400; }
 
+/* Works list — no design, just real production work */
+.works { padding-bottom: 32px; }
+.works-intro {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 22px);
+  color: #2A2A26;
+  max-width: 56ch;
+  margin: -16px 0 48px;
+  line-height: 1.45;
+}
+.works-group { margin-bottom: 56px; }
+.works-group h3 {
+  font-family: var(--sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin-bottom: 0;
+  font-weight: 600;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 12px;
+}
+.works-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.works-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 180px;
+  gap: 32px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.work-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+.work-desc {
+  font-size: 15px;
+  color: #2A2A26;
+  line-height: 1.55;
+  max-width: 60ch;
+}
+.work-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+.works-footnote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--muted);
+  margin-top: 16px;
+  max-width: 60ch;
+}
+
+@media (max-width: 800px) {
+  .works-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 18px 0;
+  }
+  .work-meta { text-align: left; font-size: 10px; }
+  .work-name { font-size: 19px; }
+}
+
 /* About */
 .about-body { max-width: 60ch; padding-bottom: 32px; }
 .about-body p { margin-bottom: 20px; color: #2A2A26; font-size: 17px; line-height: 1.6; }
