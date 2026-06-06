@@ -1,0 +1,124 @@
+/* Designer Notes — shared across all cases.
+   Each case page provides content via <template id="designer-notes">.
+   The trigger button uses neutral styling; cases can override the
+   --notes-accent custom property to tint it to their palette. */
+
+.notes-trigger {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: var(--notes-accent, #111);
+  color: var(--notes-accent-fg, #fff);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.notes-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.notes-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100vw);
+  background: #FAFAF7;
+  color: #111;
+  z-index: 110;
+  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.18);
+  transform: translateX(100%);
+  transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  padding: 32px 28px 64px;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+.notes-panel.open { transform: translateX(0); }
+
+.notes-panel h2 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0 0 4px;
+  letter-spacing: -0.01em;
+}
+
+.notes-panel .notes-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+.notes-panel h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin: 24px 0 8px;
+  font-weight: 600;
+}
+
+.notes-panel p, .notes-panel li {
+  font-size: 15px;
+  color: #2A2A28;
+}
+
+.notes-panel ul { padding-left: 18px; }
+.notes-panel li { margin-bottom: 6px; }
+
+.notes-panel a.notes-back {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 10px 18px;
+  border: 1px solid #111;
+  border-radius: 999px;
+  color: #111;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.notes-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: #111;
+}
+
+.notes-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 16, 0.45);
+  z-index: 105;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+.notes-backdrop.open { opacity: 1; pointer-events: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .notes-panel, .notes-backdrop, .notes-trigger {
+    transition: none;
+  }
+}
