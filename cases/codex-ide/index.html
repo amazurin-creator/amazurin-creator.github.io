@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex IDE — the IDE that thinks alongside you</title>
+  <meta name="description" content="An AI coding assistant that reasons about your code instead of guessing tokens. Built for engineers.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="cx-header">
+    <a class="cx-brand" href="/">
+      <span class="cx-logo">⌬</span> codex
+    </a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#demo">Try it</a>
+      <a href="/">← Portfolio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="cx-hero">
+      <p class="badge">Now in beta · macOS · Linux · Windows</p>
+      <h1>
+        The IDE that
+        <span class="grad">thinks</span>
+        alongside you.
+      </h1>
+      <p class="sub">
+        Codex is not autocomplete. It's a junior engineer that read your codebase last night and is sitting beside you, watching the cursor, ready when you are.
+      </p>
+      <div class="cx-editor" aria-hidden="true">
+        <div class="cx-editor-chrome">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="cx-filename">solve.ts</span>
+          <span class="cx-chip">main · ✓ saved</span>
+        </div>
+        <pre class="cx-code"><code><span class="ln">1</span><span class="kw">function</span> <span class="fn">solveBoard</span>(board: <span class="ty">Board</span>): <span class="ty">Solution</span> {
+<span class="ln">2</span>  <span class="kw">const</span> queue = [<span class="fn">initialState</span>(board)];
+<span class="ln">3</span>  <span class="kw">while</span> (queue.length) {
+<span class="ln">4</span>    <span class="kw">const</span> state = queue.<span class="fn">shift</span>()!;
+<span class="ln">5</span>    <span id="hero-typed"></span><span id="hero-ghost" class="ghost"></span><span id="hero-cursor" class="cursor"></span>
+<span class="ln">6</span>  }
+<span class="ln">7</span>}</code></pre>
+      </div>
+    </section>
+
+    <section class="cx-features" id="features">
+      <div class="cx-feature">
+        <span class="f-tag">REASON</span>
+        <h3>It thinks before it types.</h3>
+        <p>Codex breaks problems down. You see the plan it formed before any code lands in your file. You can edit the plan. The code follows from it.</p>
+      </div>
+      <div class="cx-feature">
+        <span class="f-tag">CITE</span>
+        <h3>Every suggestion comes with sources.</h3>
+        <p>When Codex writes a function, it shows you the three places in your codebase it learned the pattern from. No more hallucinated APIs.</p>
+      </div>
+      <div class="cx-feature">
+        <span class="f-tag">REFACTOR</span>
+        <h3>Multi-file edits, atomically.</h3>
+        <p>Rename a type, change a contract — Codex proposes the whole edit set, you review one diff, accept all or none. No half-finished states.</p>
+      </div>
+      <div class="cx-feature">
+        <span class="f-tag">LEARN</span>
+        <h3>It gets better in your repo.</h3>
+        <p>Codex builds a per-repo model of your conventions, your linters, your patterns. The 100th suggestion is sharper than the first.</p>
+      </div>
+    </section>
+
+    <section class="cx-demo" id="demo">
+      <p class="eyebrow">Try the editor</p>
+      <h2>Tab to accept. Esc to dismiss.</h2>
+      <p class="demo-sub">Pick a prompt. Watch Codex think out loud.</p>
+
+      <div class="cx-prompts">
+        <button class="prompt-btn active" data-prompt="parse">Parse a CSV</button>
+        <button class="prompt-btn" data-prompt="debounce">Debounce a callback</button>
+        <button class="prompt-btn" data-prompt="cache">Memoize a result</button>
+      </div>
+
+      <div class="cx-workspace">
+        <aside class="cx-reasoning">
+          <h4>Codex is reasoning</h4>
+          <ol id="reasoning-list"></ol>
+        </aside>
+        <div class="cx-editor cx-editor-demo">
+          <div class="cx-editor-chrome">
+            <span class="dot dot-r"></span>
+            <span class="dot dot-y"></span>
+            <span class="dot dot-g"></span>
+            <span class="cx-filename" id="demo-filename">demo.ts</span>
+            <span class="cx-chip">codex · proposed</span>
+          </div>
+          <pre class="cx-code"><code id="demo-code"></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="cx-cta">
+      <h2>Designed for engineers who ship.</h2>
+      <a class="cx-button" href="#">Download beta →</a>
+    </section>
+  </main>
+
+  <footer class="cx-footer">
+    <span>codex · concept design · 2026</span>
+    <span>not affiliated with any existing product</span>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 04 · Codex IDE</p>
+    <h2>An IDE that takes AI seriously.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI coding assistant that emphasises reasoning over completion. It looks like a developer tool because it's <em>for</em> developers.</p>
+
+    <h3>Who is it for?</h3>
+    <p>Working software engineers — not learners, not vibe-coders. People who can read code faster than they can read English explanations of code.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>GitHub dark (#0D1117) — the visual home of engineers. No marketing-deck gradient.</li>
+      <li>JetBrains Mono everywhere, even for prose. The whole page reads like a terminal.</li>
+      <li>The hero IDE mockup uses real-looking TypeScript with the AI suggestion in gray, exactly how ghost-text completions render in real editors. Recognisable instantly.</li>
+      <li>Animated typing in the hero — the page feels alive within 500ms.</li>
+      <li>Feature blocks use action-verb tags (REASON, CITE, REFACTOR, LEARN) instead of nouns. Engineers respond to verbs.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>Seriousness and craft. The page should pass the "screenshot in a hacker-news thread" test — an engineer should look and think "this team is competent".</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
