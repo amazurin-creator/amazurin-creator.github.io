@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LexCounsel — measured AI counsel for immigration</title>
+  <meta name="description" content="An AI counsel for the most consequential immigration decisions of your life. Precise. Cited. Calm.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="lx-header">
+    <a class="lx-brand" href="/">
+      <svg class="lx-monogram" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M8 6 L8 26 M8 6 L24 6 M8 16 L20 16 M8 26 L24 26" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="square"/>
+      </svg>
+      <span>LEXCOUNSEL</span>
+    </a>
+    <nav>
+      <a href="#practice">Practice</a>
+      <a href="#counsel">Counsel</a>
+      <a href="#approach">Approach</a>
+      <a href="/" class="lx-back">← Portfolio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="lx-hero">
+      <p class="lx-eyebrow">Established 2026 · A new firm</p>
+      <h1 class="lx-headline">
+        For the most <em>consequential</em><br>
+        decisions of your life,<br>
+        a measured counsel.
+      </h1>
+      <p class="lx-deck">
+        LexCounsel is an AI immigration counsel built by attorneys, not by engineers. Every response is cited. Every claim is traceable. Every reading of the statute is shown.
+      </p>
+      <div class="lx-rule"></div>
+      <div class="lx-meta">
+        <div><span class="lx-meta-num">2,400+</span><span class="lx-meta-lbl">cases reviewed</span></div>
+        <div><span class="lx-meta-num">98.4%</span><span class="lx-meta-lbl">citation accuracy</span></div>
+        <div><span class="lx-meta-num">$0</span><span class="lx-meta-lbl">first consultation</span></div>
+      </div>
+    </section>
+
+    <section class="lx-practice" id="practice">
+      <h2 class="lx-h2">Practice areas.</h2>
+      <ol class="lx-practice-list">
+        <li>
+          <span class="num">I.</span>
+          <h3>Employment-based immigration</h3>
+          <p>H-1B, O-1, L-1, EB-1, EB-2, EB-3. Petitions, transfers, status changes, RFE responses.</p>
+        </li>
+        <li>
+          <span class="num">II.</span>
+          <h3>Permanent residency</h3>
+          <p>PERM labor certification, I-140, I-485, adjustment of status, consular processing.</p>
+        </li>
+        <li>
+          <span class="num">III.</span>
+          <h3>Family-based immigration</h3>
+          <p>Spouse and fiancé visas, parent and child petitions, removal of conditions on residency.</p>
+        </li>
+        <li>
+          <span class="num">IV.</span>
+          <h3>Citizenship & naturalization</h3>
+          <p>N-400, oath ceremonies, dual citizenship guidance, denial appeals.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="lx-counsel" id="counsel">
+      <p class="lx-eyebrow">Live consultation</p>
+      <h2 class="lx-h2">Ask a question.</h2>
+      <p class="lx-h2-sub">Choose from a sample of real client questions. LexCounsel responds as it would in chambers — measured, with citations.</p>
+
+      <div class="lx-consult">
+        <aside class="lx-questions">
+          <button class="lx-q active" data-q="transfer">
+            "Can my H-1B be transferred while my I-140 is pending?"
+          </button>
+          <button class="lx-q" data-q="travel">
+            "I'm on H-1B with approved I-140. Can I travel internationally?"
+          </button>
+          <button class="lx-q" data-q="cap">
+            "What is the H-1B cap-exempt employer rule for universities?"
+          </button>
+        </aside>
+
+        <div class="lx-chamber">
+          <div class="lx-letterhead">
+            <span class="lx-letterhead-mark">L · C</span>
+            <span class="lx-letterhead-date" id="lx-date"></span>
+          </div>
+          <div class="lx-question" id="lx-question"></div>
+          <div class="lx-divider">
+            <span class="lx-divider-tag">COUNSEL'S RESPONSE</span>
+          </div>
+          <div class="lx-response" id="lx-response"></div>
+          <div class="lx-citations" id="lx-citations"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lx-approach" id="approach">
+      <h2 class="lx-h2">Our approach.</h2>
+      <div class="lx-approach-grid">
+        <div>
+          <span class="lx-approach-num">01</span>
+          <h3>We do not hallucinate.</h3>
+          <p>Every citation links to USCIS, the Federal Register, or a published precedent. If a question has no clear answer in the law, we say so — and recommend a licensed attorney.</p>
+        </div>
+        <div>
+          <span class="lx-approach-num">02</span>
+          <h3>We do not replace your lawyer.</h3>
+          <p>LexCounsel is a research instrument. For petitions, RFEs, and appeals, a human attorney is essential and we will tell you when to engage one.</p>
+        </div>
+        <div>
+          <span class="lx-approach-num">03</span>
+          <h3>We are bound by ethics.</h3>
+          <p>No client data leaves our infrastructure. No third-party model training on your case. No tracking, no cookies, no ads. Confidentiality is the cornerstone of counsel.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lx-cta">
+      <p class="lx-eyebrow">Begin</p>
+      <h2 class="lx-h2 lx-h2-center">A consultation costs nothing.<br>Your peace of mind, everything.</h2>
+      <a class="lx-button" href="#">Request consultation</a>
+    </section>
+  </main>
+
+  <footer class="lx-footer">
+    <div>LEXCOUNSEL · ESTD. 2026</div>
+    <div>CONCEPT DESIGN · A. MAZURIN · NOT LEGAL ADVICE</div>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 01 · LexCounsel</p>
+    <h2>The opposite of legal-tech.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI immigration counsel positioned as a serious firm — not a chatbot startup. The fictional product reads like a 100-year-old practice with new tools, not the other way around.</p>
+
+    <h3>Who is it for?</h3>
+    <p>High-stakes immigration clients: O-1 candidates, EB-1 petitioners, families navigating visa transitions. People for whom the right answer matters more than the cheapest answer.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Deep navy, ivory, and gold rule lines — the inherited visual language of established law firms. Trust without effort.</li>
+      <li>Cormorant Garamond for headlines — a classical book serif. Reads as old-money, not LegalZoom.</li>
+      <li>Practice areas as Roman numerals — the conventions of a printed firm letterhead.</li>
+      <li>The "chamber" consultation interface is styled as a letterhead document. AI typing appears as a deliberate, slow response — not a chat-app bubble.</li>
+      <li>Inline citations are superscript links to authoritative sources, mimicking how attorneys actually annotate memos.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>Gravitas, restraint, expertise. The page should not contain a single emoji, gradient, or marketing buzzword. The visual quietness is the brand promise.</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
