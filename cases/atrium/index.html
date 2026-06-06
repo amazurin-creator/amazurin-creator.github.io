@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atrium Research — a reading room for AI-augmented inquiry</title>
+  <meta name="description" content="An AI research assistant for scholars, journalists, and serious readers. Citations native. Marginalia welcome.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="at-header">
+    <a class="at-brand" href="/">
+      <span class="at-mark">A</span>
+      <span class="at-name">Atrium Research</span>
+    </a>
+    <nav>
+      <a href="#essay">The thesis</a>
+      <a href="#reading">Reading room</a>
+      <a href="#colophon">Colophon</a>
+      <a href="/">← Portfolio</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="at-page">
+
+      <header class="at-folio">
+        <p>Issue 01 · Spring 2026 · §I</p>
+        <p>Pages I — VIII</p>
+      </header>
+
+      <section class="at-essay" id="essay">
+        <p class="at-eyebrow">An introduction</p>
+        <h1 class="at-h1">A reading room<br>for the AI-augmented mind.</h1>
+        <p class="at-deck">
+          Atrium is a research assistant for scholars, journalists, and serious readers. It does not summarize for you. It does not <em>think</em> for you. It reads with you — surfaces the citations, finds the contradictions, holds the margin notes.
+        </p>
+
+        <div class="at-spread">
+          <div class="at-spread-body">
+            <p class="at-drop"><span class="at-dropcap">T</span>he problem with the current generation of AI research tools is that they have inherited the chatbot interface — a paradigm wholly unsuited to the work of inquiry. A reader does not converse with their sources. They <em>annotate</em> them. They <em>cross-reference</em>. They <em>doubt</em>. The interface for scholarly work must be a reading room, not a help desk.</p>
+            <p>Atrium is therefore organised around the long text and its margins. The model reads alongside you, citations appear inline, and contested claims surface in the marginalia rather than collapsing into a confident sentence. You retain the labour of judgment, which is the labour of thought.<sup class="at-cite" data-cite="1">1</sup></p>
+            <p>What follows is a working demonstration. Query the reading room with one of three prepared topics. Observe how the system constructs its argument — and how it shows its work.</p>
+          </div>
+          <aside class="at-margin">
+            <p class="at-margin-note">
+              <span class="at-margin-num">1</span>
+              On the moral economy of research interfaces, see Wineburg's <em>Why Learn History</em>, ch. 4. The argument extends naturally to machine-mediated inquiry.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <hr class="at-divider">
+
+      <section class="at-reading" id="reading">
+        <p class="at-eyebrow">Reading room</p>
+        <h2 class="at-h2">Pose an inquiry.</h2>
+
+        <div class="at-queries">
+          <button class="at-query active" data-q="alignment">
+            <span class="at-query-roman">§ I</span>
+            <span class="at-query-text">"What does the literature say about AI alignment circa 2025?"</span>
+          </button>
+          <button class="at-query" data-q="reading">
+            <span class="at-query-roman">§ II</span>
+            <span class="at-query-text">"Trace the history of close reading as a method."</span>
+          </button>
+          <button class="at-query" data-q="markets">
+            <span class="at-query-roman">§ III</span>
+            <span class="at-query-text">"Show me dissent on Efficient Markets Hypothesis."</span>
+          </button>
+        </div>
+
+        <div class="at-results" id="at-results">
+          <!-- populated by JS -->
+        </div>
+      </section>
+
+      <hr class="at-divider">
+
+      <section class="at-colophon" id="colophon">
+        <p class="at-eyebrow">Colophon</p>
+        <h2 class="at-h2">Our editorial principles.</h2>
+
+        <div class="at-principles">
+          <article>
+            <h3>I. The text is sovereign.</h3>
+            <p>Atrium will not summarise away a difficult passage. The reader's encounter with the original is the encounter that matters. Our role is to make that encounter easier to enter, not to replace it.</p>
+          </article>
+          <article>
+            <h3>II. Citations are not decoration.</h3>
+            <p>Every claim Atrium surfaces is anchored to its source. We treat the reading list as the product, not the answer. A scholar should be able to verify any claim within three clicks.</p>
+          </article>
+          <article>
+            <h3>III. Dissent is preserved.</h3>
+            <p>Where a literature contains genuine disagreement, Atrium will show you the disagreement — in the margin, not the body. We do not collapse contested fields into false consensus.</p>
+          </article>
+        </div>
+
+        <p class="at-imprint">
+          Atrium Research is set in Crimson Pro and Cormorant Garamond. The reading room runs on a private model fine-tuned on the JSTOR, Library of Congress, and Internet Archive corpora. No reader query is retained beyond the session.
+        </p>
+      </section>
+
+      <footer class="at-foot">
+        <p class="at-foot-mark">A</p>
+        <p>Concept design · A. Mazurin · 2026</p>
+        <p>Not a real publication. Yet.</p>
+      </footer>
+
+    </article>
+  </main>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 08 · Atrium Research</p>
+    <h2>The reading room as interface.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI research tool that takes the form of a printed essay rather than a chat app. The user reads a page; the AI lives in the margins.</p>
+
+    <h3>Who is it for?</h3>
+    <p>Academic researchers, investigative journalists, doctoral students, serious non-fiction readers — people whose work IS reading. The audience that already has a relationship to text.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Cream paper (#F5F0E6) — the inherited surface of book typography. Sets the tone before a word is read.</li>
+      <li>Crimson Pro + Cormorant — two classical serifs with strong italic. Establishes the journal-aesthetic immediately.</li>
+      <li>Drop caps, footnotes, marginalia, hr "dinkus" dividers — the structural vocabulary of letterpress publishing.</li>
+      <li>The "reading room" demo renders results as an annotated essay, not a list of cards. AI augmentation appears in the margin, never in place of the reader.</li>
+      <li>No animation. No gradient. No buttons in the body. The page is to be <em>read</em>, not interacted with reflexively.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>Quiet seriousness. The page should feel like the journal a thoughtful person might leave on their desk. Trust through restraint.</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
