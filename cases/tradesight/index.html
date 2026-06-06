@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tradesight — AI trading co-pilot</title>
+  <meta name="description" content="A Bloomberg terminal for the AI era. Real-time signals, autonomous reasoning, edge you can feel.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@200;300;400;500;600;700&family=Newsreader:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="ts-header">
+    <a class="ts-brand" href="/">
+      <span class="dot"></span> TRADESIGHT
+    </a>
+    <div class="ts-ticker" id="ticker"></div>
+    <nav class="ts-nav">
+      <a href="#features">Features</a>
+      <a href="#demo">Demo</a>
+      <a href="/">← Portfolio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="ts-hero">
+      <p class="eyebrow">SIGNAL · CONVICTION · EDGE</p>
+      <h1>An edge you can <span class="hl">feel</span>.</h1>
+      <p class="sub">Tradesight watches every tape, reads every filing, and surfaces the trades worth your attention. A Bloomberg terminal for the AI era.</p>
+      <div class="ts-stats">
+        <div><span class="num" id="stat-edge">+2.3σ</span><span class="lbl">avg edge over benchmark</span></div>
+        <div><span class="num" id="stat-trades">0</span><span class="lbl">signals this quarter</span></div>
+        <div><span class="num" id="stat-uptime">99.97%</span><span class="lbl">uptime since launch</span></div>
+      </div>
+    </section>
+
+    <section class="ts-features" id="features">
+      <div class="ts-feature">
+        <span class="f-num">01</span>
+        <h3>Tape-aware reasoning</h3>
+        <p>Every tick, options flow, dark pool print — Tradesight's models consume the full firehose and weigh it by relevance to your book.</p>
+      </div>
+      <div class="ts-feature">
+        <span class="f-num">02</span>
+        <h3>Filing-grade comprehension</h3>
+        <p>10-K, 8-K, S-1 parsed within seconds of release. Anomalies surface to your terminal before the wire picks them up.</p>
+      </div>
+      <div class="ts-feature">
+        <span class="f-num">03</span>
+        <h3>Conviction-weighted signals</h3>
+        <p>Not "buy AAPL". A bracketed thesis with entry, target, stop, half-life, and the chain of reasoning behind it.</p>
+      </div>
+    </section>
+
+    <section class="ts-demo" id="demo">
+      <header class="ts-demo-head">
+        <p class="eyebrow">LIVE PREVIEW</p>
+        <h2>The terminal, in motion.</h2>
+      </header>
+
+      <div class="ts-terminal">
+        <div class="term-row term-row-tabs">
+          <span class="term-tab active">WATCH</span>
+          <span class="term-tab">CHAIN</span>
+          <span class="term-tab">FLOW</span>
+          <span class="term-tab">SIGNALS</span>
+          <span class="term-clock" id="term-clock">--:--:--</span>
+        </div>
+        <div class="term-grid">
+          <div class="term-panel">
+            <h4>POSITIONS</h4>
+            <table id="positions"></table>
+          </div>
+          <div class="term-panel term-chart">
+            <h4>NVDA · 1M <span class="spark-label" id="spark-label">+12.4%</span></h4>
+            <svg id="sparkline" viewBox="0 0 320 120" preserveAspectRatio="none"></svg>
+            <div class="chart-meta">
+              <span>OPEN 1,108</span>
+              <span>HIGH 1,168</span>
+              <span>LOW 1,094</span>
+              <span>VOL 42.1M</span>
+            </div>
+          </div>
+          <div class="term-panel term-signal">
+            <h4>NEW SIGNAL</h4>
+            <p class="signal-ticker">NVDA</p>
+            <p class="signal-action">LONG · 2.1% of book</p>
+            <p class="signal-reason">Filing anomaly: 8-K language shift on data-center supply guidance vs. prior quarter. Confidence 0.78.</p>
+            <div class="signal-meta">
+              <span>Entry 1,142.30</span>
+              <span>Target 1,228.00</span>
+              <span>Stop 1,108.00</span>
+              <span>Half-life 9d</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ts-cta">
+      <h2>Built for traders who already won.</h2>
+      <p>Tradesight isn't a robo-advisor. It's an instrument for professionals who measure their edge in basis points and milliseconds.</p>
+      <a class="ts-button" href="#">Request access →</a>
+    </section>
+  </main>
+
+  <footer class="ts-footer">
+    <span>TRADESIGHT // CONCEPT DESIGN BY A. MAZURIN // © 2026</span>
+    <span>NOT INVESTMENT ADVICE</span>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 02 · Tradesight</p>
+    <h2>Trading, by way of Bloomberg.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI-native trading platform. The fictional product surfaces trade ideas with full reasoning chains, not just buy/sell signals.</p>
+
+    <h3>Who is it for?</h3>
+    <p>Professional discretionary traders and small fund managers — people who already have a process and want an additional lens, not a robo-advisor.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Pure black background with amber/green/red — this is the inherited visual language of finance terminals. Traders feel at home immediately.</li>
+      <li>JetBrains Mono everywhere — monospaced rhythm communicates density and seriousness.</li>
+      <li>The hero stat numbers animate in (counting up) to suggest the platform is alive.</li>
+      <li>The "live preview" terminal panel uses simulated motion rather than real data — enough to feel real, fast to load.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>Precision and confidence. The user should think "this looks like something I'd actually use" within 2 seconds. Soft gradients, friendly illustrations, or generic SaaS chrome would have killed it.</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
