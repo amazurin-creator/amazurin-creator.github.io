@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hivemind — orchestration for AI agent swarms</title>
+  <meta name="description" content="Infrastructure for the AI-native era. Compose, run, and observe swarms of specialized agents.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/notes-panel.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="hm-bg-grid" aria-hidden="true"></div>
+  <div class="hm-bg-aurora" aria-hidden="true"></div>
+
+  <header class="hm-header">
+    <a class="hm-brand" href="/">HIVEMIND<span class="dot">.</span></a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#demo">Compose</a>
+      <a href="/">← Portfolio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hm-hero">
+      <div class="hm-hero-left">
+        <p class="eyebrow">AGENT ORCHESTRATION · BETA</p>
+        <h1>
+          Infrastructure for the
+          <span class="grad">AI-native era</span>.
+        </h1>
+        <p class="sub">
+          Hivemind lets you compose, run, and observe swarms of specialized agents. Like Kubernetes for intelligence — declarative, observable, fault-tolerant.
+        </p>
+        <div class="hm-actions">
+          <a class="btn-primary" href="#demo">Compose a workflow →</a>
+          <a class="btn-ghost" href="#how">How it works</a>
+        </div>
+      </div>
+      <div class="hm-hero-right">
+        <svg class="hm-graph" viewBox="0 0 360 360" aria-hidden="true">
+          <defs>
+            <radialGradient id="node-glow" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="#7DF9FF" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#7DF9FF" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="edge-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7DF9FF" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#A78BFA" stop-opacity="0.6"/>
+            </linearGradient>
+          </defs>
+          <g id="graph-edges"></g>
+          <g id="graph-nodes"></g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="hm-stats">
+      <div><span class="num">1.2M</span><span class="lbl">agent invocations / day</span></div>
+      <div><span class="num">99.8%</span><span class="lbl">step success rate</span></div>
+      <div><span class="num">14ms</span><span class="lbl">median dispatch latency</span></div>
+      <div><span class="num">∞</span><span class="lbl">parallel runs per workflow</span></div>
+    </section>
+
+    <section class="hm-how" id="how">
+      <h2>Declarative agents.<br>Observable everything.</h2>
+      <div class="hm-pillars">
+        <div class="pillar">
+          <span class="p-num">01</span>
+          <h3>Declare</h3>
+          <p>Write workflows as data — YAML, JSON, or our typed SDK. Agents are first-class entities with inputs, outputs, retries, and rate limits.</p>
+        </div>
+        <div class="pillar">
+          <span class="p-num">02</span>
+          <h3>Dispatch</h3>
+          <p>Hivemind compiles your workflow into a DAG and schedules agent invocations across providers — OpenAI, Anthropic, your local cluster.</p>
+        </div>
+        <div class="pillar">
+          <span class="p-num">03</span>
+          <h3>Observe</h3>
+          <p>Every step is traced, every cost accounted for, every prompt versioned. Replay any run. Diff any execution.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hm-demo" id="demo">
+      <p class="eyebrow">INTERACTIVE</p>
+      <h2>Compose a workflow.</h2>
+      <p class="demo-sub">Click an agent block to add it. Hit Run to see Hivemind dispatch them.</p>
+
+      <div class="hm-composer">
+        <aside class="hm-palette">
+          <h4>AGENTS</h4>
+          <button class="agent-btn" data-agent="research">🔎 Research</button>
+          <button class="agent-btn" data-agent="summarize">📝 Summarize</button>
+          <button class="agent-btn" data-agent="critique">🧪 Critique</button>
+          <button class="agent-btn" data-agent="translate">🌐 Translate</button>
+          <button class="agent-btn" data-agent="email">📧 Email</button>
+          <button class="agent-btn" data-agent="store">🗄️ Store</button>
+          <button class="reset-btn" id="reset-btn">Reset</button>
+        </aside>
+
+        <div class="hm-canvas">
+          <div id="workflow-canvas" class="workflow-canvas"></div>
+          <div class="hm-controls">
+            <button id="run-btn" class="run-btn" disabled>▶ RUN WORKFLOW</button>
+            <span id="run-status" class="run-status">Add agents to begin</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hm-cta">
+      <h2>For teams building with agents.</h2>
+      <p>Request beta access. We're onboarding 20 teams in Q3.</p>
+      <a class="btn-primary" href="#">Request access →</a>
+    </section>
+  </main>
+
+  <footer class="hm-footer">
+    <span>HIVEMIND · concept design · 2026</span>
+  </footer>
+
+  <template id="designer-notes">
+    <p class="notes-eyebrow">Case 09 · Hivemind</p>
+    <h2>Infra for the next interface paradigm.</h2>
+
+    <h3>What is this?</h3>
+    <p>A concept for an AI agent orchestration platform — the K8s-of-agents thesis. The site has to feel like serious infrastructure, not a toy.</p>
+
+    <h3>Who is it for?</h3>
+    <p>Engineering teams that have moved past "let's call OpenAI in a Lambda" and need real orchestration: retries, observability, cost tracking, replay.</p>
+
+    <h3>Design decisions</h3>
+    <ul>
+      <li>Deep indigo + neon cyan/violet — the "infrastructure" palette of 2026. Distinguishable from generic SaaS purple.</li>
+      <li>An animated SVG node graph in the hero immediately communicates "multi-agent" without a single word of explanation.</li>
+      <li>Space Grotesk for display — geometric, modern, slightly technical without being cold.</li>
+      <li>Glassmorphism panels — feels like a real infra dashboard.</li>
+      <li>The interactive composer is the centerpiece: the visitor builds something and watches it execute. That experience IS the pitch.</li>
+    </ul>
+
+    <h3>What I wanted to communicate</h3>
+    <p>Sophistication, capability, intent. This page should make a senior engineer think "these people understand the problem".</p>
+
+    <a class="notes-back" href="/">← Back to portfolio</a>
+  </template>
+
+  <script type="module">
+    import { initNotesPanel } from '/shared/notes-panel.js';
+    initNotesPanel();
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
