@@ -64,6 +64,21 @@ function injectCitations(text) {
     .replace(/³/g, '<sup>3</sup>');
 }
 
+function appendFading(text) {
+  const para = document.createElement('p');
+  para.style.marginBottom = '16px';
+  para.style.opacity = '0';
+  para.style.transform = 'translateY(6px)';
+  para.style.transition = 'opacity 600ms ease, transform 600ms ease';
+  para.innerHTML = injectCitations(text);
+  responseEl.appendChild(para);
+  requestAnimationFrame(() => {
+    para.style.opacity = '1';
+    para.style.transform = 'none';
+  });
+  return para;
+}
+
 async function ask(key) {
   const myToken = ++runToken;
   const qa = QA[key];
@@ -74,25 +89,30 @@ async function ask(key) {
   citationsEl.classList.remove('visible');
   citationsEl.innerHTML = '';
 
-  for (let p = 0; p < qa.response.length; p++) {
-    const para = document.createElement('p');
-    para.style.marginBottom = '16px';
-    responseEl.appendChild(para);
-    const text = qa.response[p];
-    for (let i = 0; i < text.length; i++) {
-      if (myToken !== runToken) return;
-      para.innerHTML = injectCitations(text.slice(0, i + 1));
-      const ch = text[i];
-      const delay = ch === '.' || ch === ',' ? 30 + Math.random() * 60 : 6 + Math.random() * 14;
-      await new Promise((r) => setTimeout(r, delay));
-    }
-    await new Promise((r) => setTimeout(r, 220));
+  // Paragraph 1: character-by-character (the "measured counsel" effect)
+  const p1 = document.createElement('p');
+  p1.style.marginBottom = '16px';
+  responseEl.appendChild(p1);
+  const t1 = qa.response[0];
+  for (let i = 0; i < t1.length; i++) {
+    if (myToken !== runToken) return;
+    p1.innerHTML = injectCitations(t1.slice(0, i + 1));
+    const ch = t1[i];
+    const delay = ch === '.' || ch === ',' ? 18 + Math.random() * 30 : 3 + Math.random() * 7;
+    await new Promise((r) => setTimeout(r, delay));
+  }
+
+  // Remaining paragraphs: fade in as blocks (counsel has finished composing)
+  for (let p = 1; p < qa.response.length; p++) {
+    if (myToken !== runToken) return;
+    await new Promise((r) => setTimeout(r, 320));
+    appendFading(qa.response[p]);
   }
 
   if (myToken !== runToken) return;
   responseEl.classList.remove('lx-typing');
 
-  await new Promise((r) => setTimeout(r, 200));
+  await new Promise((r) => setTimeout(r, 500));
   if (myToken !== runToken) return;
   citationsEl.innerHTML = `
     <h4>Citations</h4>
